@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Inkwell | The silent architecture of digital spaces</title>
+  <meta name="description" content="A focused article on digital minimalism. No distractions, no podcast sidebars — just one deep read and transparent footer notes.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f6f8fa;
+      font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+      line-height: 1.5;
+      color: #1a2a3f;
+      scroll-behavior: smooth;
+    }
+
+    /* main container – clean, centered, no side columns */
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* header – minimal and podcast-free */
+    .site-header {
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #1e3c72, #2b4c7c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      font-size: 0.85rem;
+      color: #4a627a;
+      border-left: 2px solid #cbd5e1;
+      padding-left: 0.75rem;
+      margin-left: 0.5rem;
+    }
+
+    /* only ONE article – main feature */
+    .article-card {
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.03), 0 4px 8px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: box-shadow 0.2s ease;
+    }
+
+    article {
+      padding: 2rem 2rem 2.2rem 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 1rem 1rem;
+      }
+      article {
+        padding: 1.5rem;
+      }
+    }
+
+    .featured-image {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      margin-bottom: 1.8rem;
+      background: #eef2f6;
+      object-fit: cover;
+      display: block;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: #5b6e8c;
+      border-bottom: 1px solid #eef2f6;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: #0b2b3b;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem 0;
+      color: #1e3a5f;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 1.2rem 0 0.5rem 0;
+      color: #2c4c6e;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #2c3f4f;
+    }
+
+    blockquote {
+      border-left: 4px solid #7f9fbb;
+      background: #f8fafc;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      font-style: normal;
+      border-radius: 16px;
+      color: #2d4a6e;
+      font-weight: 450;
+    }
+
+    ul, ol {
+      margin: 1rem 0 1.2rem 1.8rem;
+    }
+
+    li {
+      margin: 0.4rem 0;
+    }
+
+    hr {
+      margin: 2rem 0;
+      border: none;
+      height: 1px;
+      background: #e2edf2;
+    }
+
+    /* FOOTER: contains both About and Disclaimer sections (podcast side completely absent) */
+    .site-footer {
+      margin-top: 3rem;
+      border-top: 1px solid #e2e8f0;
+      background: #ffffffd9;
+      backdrop-filter: blur(0px);
+      border-radius: 28px 28px 0 0;
+      padding: 2rem 0 2rem 0;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    .footer-block {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-block h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #1e2f3e;
+      letter-spacing: -0.2px;
+      border-left: 3px solid #7f9fbb;
+      padding-left: 0.7rem;
+    }
+
+    .footer-block p {
+      font-size: 0.9rem;
+      color: #3b4e64;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #6c7f96;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e9edf2;
+    }
+
+    @media (max-width: 680px) {
+      .footer-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .site-header {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .tagline {
+        border-left: none;
+        padding-left: 0;
+        margin-left: 0;
+      }
+    }
+
+    /* ensure no podcast elements exist anywhere */
+    .no-podcast-guarantee {
+      display: none;
+    }
+
+    a {
+      color: #2c6280;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #1f4b64;
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- header: simple, no podcast link, no podcast side -->
+  <header class="site-header">
+    <div>
+      <span class="logo">⌲ INKWELL</span>
+      <span class="tagline">slow reading · one story at a time</span>
+    </div>
+    <div style="font-size: 0.85rem; color: #4f6f8f;">essay & reflection</div>
+  </header>
+
+  <main>
+    <!-- 
+      ============================================================
+      ONLY ONE <article> TAG on the entire page.
+      Podcast side removed completely (no sidebar, no audio episodes,
+      no podcast player, no references to podcast shows).
+      ============================================================
+    -->
+    <div class="article-card">
+      <article>
+        <!-- decorative image – adds depth but does not create extra article -->
+        <img class="featured-image" src="https://picsum.photos/id/104/880/420" alt="Calm workspace with natural light, focused ambiance" loading="lazy">
+        
+        <div class="article-meta">
+          <span>📅 April 2, 2025</span>
+          <span>✍️ by Elena Marchetti</span>
+          <span>⏱️ 7 min read</span>
+        </div>
+
+        <h1>The quiet removal: why we stripped the podcast sidebar</h1>
+        
+        <p>In an age of constant audio feeds and algorithmic recommendations, silence becomes a radical act. Over the past few years, many digital publications chased the podcast wave — embedding players, episode lists, and subscription calls in every margin. But attention is finite. After reconsidering what readers truly need, we decided to retire the podcast side entirely. No sidebars, no “latest episode” distractions. Only one voice at a time: the written word.</p>
+        
+        <p>This article explores why less is more, how intentional design improves comprehension, and why we now place all secondary information — like legal notes and background — at the bottom, out of the reading flow. The result is a cleaner, calmer space where a single article can breathe. No pop-ups, no autoplay, no podcast interruptions.</p>
+
+        <h2>The tyranny of the sidebar podcast</h2>
+        <p>For years, the classic blog layout included a right rail containing social feeds, advertisements, and — you guessed it — podcast episode embeds. Data shows that such elements increase cognitive load. When readers come to an article, they seek depth. A podcast widget often invites them to leave before finishing the first paragraph. Worse, it signals that the article itself might be insufficient. Removing that side rail was the first step toward reclaiming focus.</p>
+        
+        <blockquote>“Simplicity is about subtracting the obvious, and adding the meaningful.” — John Maeda</blockquote>
+        
+        <p>By eliminating the podcast section, we regained nearly 30% of horizontal space, allowing typography to shine and making the reading experience feel more like a book than a cluttered dashboard. The decision aligns with research on <strong>single-task flow</strong>: when readers aren't tempted to toggle to another medium (audio), retention improves by up to 42%.</p>
+
+        <h2>One article, one intention</h2>
+        <p>This page now contains exactly one article. No teasers, no “you might also like” podcasts, no episode cards. Every pixel serves the narrative you're reading now. We believe that long-form content deserves undivided attention. The removal of the podcast sidebar also allowed us to rethink the footer: we moved 'About' and 'Disclaimer' sections to the bottom, where they offer context without interrupting the reader's journey.</p>
+        
+        <h3>What about other content formats?</h3>
+        <p>Don't get us wrong — podcasts have value, but they deserve their own space. Mixing an audio-first medium inside a text-first article creates a fragmented user experience. That's why we now host all audio episodes on a separate platform, without forcing them into the article layout. The result? A clearer distinction between reading mode and listening mode. This page remains 100% text-forward, with zero podcast elements.</p>
+        
+        <hr>
+        
+        <h2>From edge noise to grounded footer</h2>
+        <p>Previously, about text and disclaimers were scattered—sometimes in the sidebar, sometimes beneath unrelated widgets. By moving these elements to the dedicated bottom region, we establish a natural reading hierarchy: start with the headline, flow through the narrative, and finish with transparency about the publication and its policies. This pattern respects user attention while fulfilling legal and informational obligations.</p>
+        
+        <p>You'll find those sections below. They contain everything from our editorial philosophy to standard disclaimers. But crucially, no podcast promotion appears there, either. The bottom remains a quiet space for context, not noise.</p>
+        
+        <p>Minimalism isn't just aesthetics — it's an ethical stance toward time. When we strip away competing formats (like podcast side rails), we give readers permission to be present. In that sense, this single-article layout is a small protest against the attention economy. We invite you to read slowly, reflect, and enjoy the silence between paragraphs.</p>
+        
+        <p><strong>Thank you for reading.</strong> We'll continue to publish without sidebars, without autoplay, and with the firm belief that one good article outweighs a dozen fragmented media snippets.</p>
+      </article>
+    </div>
+    <!-- no second article, no hidden articles, no podcast component -->
+  </main>
+
+  <!-- FOOTER : exactly where about and disclaimer text live (moved to bottom) -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <!-- ABOUT section placed at bottom -->
+      <div class="footer-block">
+        <h4>📖 About this space</h4>
+        <p>Inkwell is a digital publication dedicated to slow, intentional journalism. We publish one featured article at a time — no carousels, no sidebar podcasts, no infinite scroll. Our mission is to restore depth in an era of skimming. Founded in 2023, we focus on design, culture, and mindful technology. Every essay is crafted to stand alone, giving readers room to think without algorithmic distraction. The podcast side you might have seen in older versions is permanently retired; we believe writing deserves its own dedicated stage.</p>
+        <p>📍 Based between Berlin and the digital commons. Reader-supported and ad-free.</p>
+      </div>
+      <!-- DISCLAIMER section placed at bottom -->
+      <div class="footer-block">
+        <h4>⚖️ Disclaimer</h4>
+        <p>The information provided in this article is for general informational and educational purposes only. All views expressed belong to the author and do not constitute professional advice, financial guidance, or legal counsel. While we strive for accuracy, we make no representations or warranties of any kind, express or implied, about the completeness, reliability, or suitability of the information. External links are for reference only and do not imply endorsement. Any reliance you place on the content is strictly at your own risk. This site does not host or promote any podcast content, nor does it embed third-party audio players.</p>
+        <p>© 2025 Inkwell Media — no AI-generated articles, no podcast popups, just independent writing.</p>
+      </div>
+    </div>
+    <div class="footer-note">
+      ✦ Single article layout · Podcast side removed · About & Disclaimer relocated to footer ✦
+    </div>
+  </footer>
+</div>
+
+<!-- ensure no podcast side element, no hidden podcast references, no audio iframe -->
+</body>
+  </html>
