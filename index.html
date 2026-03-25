@@ -1,0 +1,831 @@
+‎<!DOCTYPE html>
+‎<html lang="en">
+‎<head>
+‎    <meta charset="UTF-8">
+‎    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+‎    <meta name="description" content="CryptoNovice - Simplify crypto learning. Curated podcasts and expert insights for crypto beginners. No financial advice, just education.">
+‎    <meta name="keywords" content="crypto, bitcoin, ethereum, defi, podcast, crypto education, blockchain">
+‎    <meta name="author" content="CryptoNovice">
+‎    <meta property="og:title" content="CryptoNovice - Learn Crypto with Confidence">
+‎    <meta property="og:description" content="Curated podcasts and insights to help you understand crypto. No noise, just signal.">
+‎    <meta property="og:type" content="website">
+‎    <meta name="twitter:card" content="summary_large_image">
+‎    <title>CryptoNovice | Learn Crypto with Confidence</title>
+‎    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>₿</text></svg>">
+‎    
+‎    <!-- Google Fonts -->
+‎    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+‎    
+‎    <!-- Font Awesome Icons -->
+‎    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+‎    
+‎    <style>
+‎        * {
+‎            margin: 0;
+‎            padding: 0;
+‎            box-sizing: border-box;
+‎        }
+‎
+‎        body {
+‎            font-family: 'Inter', sans-serif;
+‎            background: #0A0C12;
+‎            color: #E8EDF5;
+‎            line-height: 1.5;
+‎            overflow-x: hidden;
+‎        }
+‎
+‎        ::-webkit-scrollbar {
+‎            width: 8px;
+‎        }
+‎        ::-webkit-scrollbar-track {
+‎            background: #1A1E2A;
+‎        }
+‎        ::-webkit-scrollbar-thumb {
+‎            background: #00D8FF;
+‎            border-radius: 4px;
+‎        }
+‎        ::-webkit-scrollbar-thumb:hover {
+‎            background: #00B8E0;
+‎        }
+‎
+‎        html {
+‎            scroll-behavior: smooth;
+‎        }
+‎
+‎        .grid-bg {
+‎            position: fixed;
+‎            top: 0;
+‎            left: 0;
+‎            width: 100%;
+‎            height: 100%;
+‎            background-image: 
+‎                linear-gradient(rgba(0, 216, 255, 0.03) 1px, transparent 1px),
+‎                linear-gradient(90deg, rgba(0, 216, 255, 0.03) 1px, transparent 1px);
+‎            background-size: 50px 50px;
+‎            pointer-events: none;
+‎            z-index: 0;
+‎            animation: slowDrift 60s linear infinite;
+‎        }
+‎
+‎        @keyframes slowDrift {
+‎            0% { transform: translate(0, 0); }
+‎            100% { transform: translate(50px, 50px); }
+‎        }
+‎
+‎        .particles {
+‎            position: fixed;
+‎            top: 0;
+‎            left: 0;
+‎            width: 100%;
+‎            height: 100%;
+‎            pointer-events: none;
+‎            z-index: 0;
+‎        }
+‎
+‎        .particle {
+‎            position: absolute;
+‎            background: rgba(0, 216, 255, 0.2);
+‎            border-radius: 50%;
+‎            animation: floatParticle 20s infinite ease-in-out;
+‎        }
+‎
+‎        @keyframes floatParticle {
+‎            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+‎            10% { opacity: 0.5; }
+‎            90% { opacity: 0.5; }
+‎            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+‎        }
+‎
+‎        .container {
+‎            max-width: 1280px;
+‎            margin: 0 auto;
+‎            padding: 0 24px;
+‎            position: relative;
+‎            z-index: 2;
+‎        }
+‎
+‎        header {
+‎            position: sticky;
+‎            top: 0;
+‎            z-index: 100;
+‎            background: rgba(10, 12, 18, 0.95);
+‎            backdrop-filter: blur(12px);
+‎            border-bottom: 1px solid rgba(0, 216, 255, 0.2);
+‎        }
+‎
+‎        .nav-container {
+‎            display: flex;
+‎            justify-content: space-between;
+‎            align-items: center;
+‎            padding: 16px 24px;
+‎            max-width: 1400px;
+‎            margin: 0 auto;
+‎        }
+‎
+‎        .logo {
+‎            font-size: 24px;
+‎            font-weight: 800;
+‎            background: linear-gradient(135deg, #00D8FF, #8B5CF6);
+‎            -webkit-background-clip: text;
+‎            background-clip: text;
+‎            color: transparent;
+‎            letter-spacing: -0.5px;
+‎        }
+‎
+‎        .logo span {
+‎            font-weight: 400;
+‎            color: #E8EDF5;
+‎            background: none;
+‎            -webkit-background-clip: unset;
+‎            background-clip: unset;
+‎        }
+‎
+‎        .nav-links {
+‎            display: flex;
+‎            gap: 32px;
+‎            align-items: center;
+‎        }
+‎
+‎        .nav-links a {
+‎            color: #A0A8C0;
+‎            text-decoration: none;
+‎            font-weight: 500;
+‎            transition: all 0.3s ease;
+‎            font-size: 14px;
+‎        }
+‎
+‎        .nav-links a:hover {
+‎            color: #00D8FF;
+‎        }
+‎
+‎        .google-btn {
+‎            display: flex;
+‎            align-items: center;
+‎            gap: 8px;
+‎            background: rgba(255, 255, 255, 0.05);
+‎            border: 1px solid rgba(0, 216, 255, 0.3);
+‎            padding: 8px 16px;
+‎            border-radius: 40px;
+‎            cursor: pointer;
+‎            transition: all 0.3s ease;
+‎            font-weight: 500;
+‎        }
+‎
+‎        .google-btn:hover {
+‎            background: rgba(0, 216, 255, 0.1);
+‎            border-color: #00D8FF;
+‎            transform: scale(1.02);
+‎        }
+‎
+‎        .user-avatar {
+‎            width: 36px;
+‎            height: 36px;
+‎            border-radius: 50%;
+‎            background: linear-gradient(135deg, #00D8FF, #8B5CF6);
+‎            display: flex;
+‎            align-items: center;
+‎            justify-content: center;
+‎            cursor: pointer;
+‎            font-weight: bold;
+‎        }
+‎
+‎        .mobile-menu-btn {
+‎            display: none;
+‎            font-size: 24px;
+‎            cursor: pointer;
+‎        }
+‎
+‎        .btn-primary {
+‎            background: linear-gradient(135deg, #00D8FF, #8B5CF6);
+‎            border: none;
+‎            padding: 12px 28px;
+‎            border-radius: 40px;
+‎            color: #0A0C12;
+‎            font-weight: 600;
+‎            cursor: pointer;
+‎            transition: all 0.3s ease;
+‎            font-size: 16px;
+‎        }
+‎
+‎        .btn-primary:hover {
+‎            transform: scale(1.02);
+‎            box-shadow: 0 10px 25px -5px rgba(0, 216, 255, 0.4);
+‎        }
+‎
+‎        .btn-outline {
+‎            background: transparent;
+‎            border: 1px solid #00D8FF;
+‎            padding: 12px 28px;
+‎            border-radius: 40px;
+‎            color: #00D8FF;
+‎            font-weight: 600;
+‎            cursor: pointer;
+‎            transition: all 0.3s ease;
+‎        }
+‎
+‎        .btn-outline:hover {
+‎            background: rgba(0, 216, 255, 0.1);
+‎            transform: scale(1.02);
+‎        }
+‎
+‎        .hero {
+‎            padding: 80px 0 60px;
+‎            text-align: center;
+‎        }
+‎
+‎        .hero h1 {
+‎            font-size: 56px;
+‎            font-weight: 800;
+‎            line-height: 1.2;
+‎            margin-bottom: 24px;
+‎            background: linear-gradient(135deg, #FFFFFF, #00D8FF);
+‎            -webkit-background-clip: text;
+‎            background-clip: text;
+‎            color: transparent;
+‎        }
+‎
+‎        .hero p {
+‎            font-size: 18px;
+‎            color: #A0A8C0;
+‎            max-width: 600px;
+‎            margin: 0 auto 32px;
+‎        }
+‎
+‎        .hero-buttons {
+‎            display: flex;
+‎            gap: 16px;
+‎            justify-content: center;
+‎            flex-wrap: wrap;
+‎        }
+‎
+‎        .disclaimer {
+‎            margin-top: 32px;
+‎            font-size: 12px;
+‎            color: #5A6275;
+‎        }
+‎
+‎        .stats {
+‎            display: flex;
+‎            justify-content: center;
+‎            gap: 48px;
+‎            flex-wrap: wrap;
+‎            padding: 40px 0;
+‎            border-top: 1px solid rgba(255, 255, 255, 0.05);
+‎            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+‎            margin: 40px 0;
+‎        }
+‎
+‎        .stat-item {
+‎            text-align: center;
+‎        }
+‎
+‎        .stat-number {
+‎            font-size: 36px;
+‎            font-weight: 800;
+‎            color: #00D8FF;
+‎        }
+‎
+‎        .stat-label {
+‎            font-size: 14px;
+‎            color: #A0A8C0;
+‎        }
+‎
+‎        .section-title {
+‎            font-size: 32px;
+‎            font-weight: 700;
+‎            text-align: center;
+‎            margin-bottom: 48px;
+‎        }
+‎
+‎        .results-grid {
+‎            display: grid;
+‎            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+‎            gap: 32px;
+‎            margin-bottom: 60px;
+‎        }
+‎
+‎        .result-card {
+‎            background: rgba(255, 255, 255, 0.03);
+‎            border-radius: 24px;
+‎            padding: 32px;
+‎            text-align: center;
+‎            transition: all 0.3s ease;
+‎            border: 1px solid rgba(255, 255, 255, 0.05);
+‎        }
+‎
+‎        .result-card:hover {
+‎            transform: translateY(-4px);
+‎            box-shadow: 0 20px 35px -10px rgba(0, 216, 255, 0.2);
+‎            border-color: rgba(0, 216, 255, 0.3);
+‎        }
+‎
+‎        .result-icon {
+‎            font-size: 48px;
+‎            margin-bottom: 20px;
+‎        }
+‎
+‎        .result-card h3 {
+‎            font-size: 20px;
+‎            margin-bottom: 12px;
+‎        }
+‎
+‎        .result-card p {
+‎            color: #A0A8C0;
+‎            font-size: 14px;
+‎        }
+‎
+‎        .podcasts-grid {
+‎            display: grid;
+‎            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+‎            gap: 32px;
+‎            margin-bottom: 60px;
+‎        }
+‎
+‎        .podcast-card {
+‎            background: rgba(255, 255, 255, 0.03);
+‎            border-radius: 24px;
+‎            overflow: hidden;
+‎            transition: all 0.3s ease;
+‎            border: 1px solid rgba(255, 255, 255, 0.05);
+‎        }
+‎
+‎        .podcast-card:hover {
+‎            transform: translateY(-4px);
+‎            box-shadow: 0 20px 35px -10px rgba(0, 216, 255, 0.2);
+‎        }
+‎
+‎        .podcast-image {
+‎            height: 180px;
+‎            background: linear-gradient(135deg, #1A1E2A, #0F111A);
+‎            display: flex;
+‎            align-items: center;
+‎            justify-content: center;
+‎            font-size: 48px;
+‎        }
+‎
+‎        .podcast-content {
+‎            padding: 24px;
+‎        }
+‎
+‎        .podcast-content h3 {
+‎            font-size: 18px;
+‎            margin-bottom: 8px;
+‎        }
+‎
+‎        .podcast-source {
+‎            font-size: 12px;
+‎            color: #00D8FF;
+‎            margin-bottom: 12px;
+‎        }
+‎
+‎        .podcast-content p {
+‎            color: #A0A8C0;
+‎            font-size: 14px;
+‎            margin-bottom: 16px;
+‎        }
+‎
+‎        .podcast-link {
+‎            color: #00D8FF;
+‎            text-decoration: none;
+‎            font-weight: 500;
+‎            font-size: 14px;
+‎        }
+‎
+‎        .articles-grid {
+‎            display: grid;
+‎            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+‎            gap: 32px;
+‎            margin-bottom: 60px;
+‎        }
+‎
+‎        .article-card {
+‎            background: rgba(255, 255, 255, 0.03);
+‎            border-radius: 24px;
+‎            overflow: hidden;
+‎            transition: all 0.3s ease;
+‎            border: 1px solid rgba(255, 255, 255, 0.05);
+‎            cursor: pointer;
+‎        }
+‎
+‎        .article-card:hover {
+‎            transform: translateY(-4px);
+‎            box-shadow: 0 20px 35px -10px rgba(0, 216, 255, 0.2);
+‎        }
+‎
+‎        .article-tag {
+‎            background: rgba(0, 216, 255, 0.2);
+‎            display: inline-block;
+‎            padding: 4px 12px;
+‎            border-radius: 20px;
+‎            font-size: 12px;
+‎            margin: 20px 20px 0;
+‎            color: #00D8FF;
+‎        }
+‎
+‎        .article-card h3 {
+‎            font-size: 20px;
+‎            margin: 12px 20px 8px;
+‎        }
+‎
+‎        .article-excerpt {
+‎            color: #A0A8C0;
+‎            font-size: 14px;
+‎            margin: 0 20px 16px;
+‎            line-height: 1.5;
+‎        }
+‎
+‎        .article-meta {
+‎            display: flex;
+‎            justify-content: space-between;
+‎            align-items: center;
+‎            padding: 16px 20px 20px;
+‎            border-top: 1px solid rgba(255, 255, 255, 0.05);
+‎            font-size: 12px;
+‎            color: #5A6275;
+‎        }
+‎
+‎        .read-more {
+‎            color: #00D8FF;
+‎            text-decoration: none;
+‎            font-weight: 500;
+‎        }
+‎
+‎        .newsletter {
+‎            background: linear-gradient(135deg, rgba(0, 216, 255, 0.1), rgba(139, 92, 246, 0.1));
+‎            border-radius: 32px;
+‎            padding: 48px;
+‎            text-align: center;
+‎            margin: 60px 0;
+‎            border: 1px solid rgba(0, 216, 255, 0.2);
+‎        }
+‎
+‎        .newsletter h3 {
+‎            font-size: 24px;
+‎            margin-bottom: 12px;
+‎        }
+‎
+‎        .newsletter p {
+‎            color: #A0A8C0;
+‎            margin-bottom: 24px;
+‎        }
+‎
+‎        .newsletter-form {
+‎            display: flex;
+‎            gap: 12px;
+‎            justify-content: center;
+‎            flex-wrap: wrap;
+‎        }
+‎
+‎        .newsletter-form input {
+‎            padding: 12px 20px;
+‎            border-radius: 40px;
+‎            border: 1px solid rgba(255, 255, 255, 0.2);
+‎            background: rgba(255, 255, 255, 0.05);
+‎            color: white;
+‎            width: 280px;
+‎            font-size: 14px;
+‎        }
+‎
+‎        .newsletter-form input:focus {
+‎            outline: none;
+‎            border-color: #00D8FF;
+‎        }
+‎
+‎        footer {
+‎            background: rgba(0, 0, 0, 0.3);
+‎            padding: 48px 0 24px;
+‎            margin-top: 60px;
+‎            border-top: 1px solid rgba(255, 255, 255, 0.05);
+‎        }
+‎
+‎        .footer-content {
+‎            display: grid;
+‎            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+‎            gap: 40px;
+‎            margin-bottom: 40px;
+‎        }
+‎
+‎        .footer-col h4 {
+‎            margin-bottom: 16px;
+‎            font-size: 16px;
+‎        }
+‎
+‎        .footer-col a {
+‎            display: block;
+‎            color: #A0A8C0;
+‎            text-decoration: none;
+‎            font-size: 14px;
+‎            margin-bottom: 10px;
+‎            transition: color 0.3s;
+‎        }
+‎
+‎        .footer-col a:hover {
+‎            color: #00D8FF;
+‎        }
+‎
+‎        .footer-bottom {
+‎            text-align: center;
+‎            padding-top: 24px;
+‎            border-top: 1px solid rgba(255, 255, 255, 0.05);
+‎            font-size: 12px;
+‎            color: #5A6275;
+‎        }
+‎
+‎        .modal {
+‎            display: none;
+‎            position: fixed;
+‎            top: 0;
+‎            left: 0;
+‎            width: 100%;
+‎            height: 100%;
+‎            background: rgba(0, 0, 0, 0.8);
+‎            backdrop-filter: blur(8px);
+‎            z-index: 1000;
+‎            justify-content: center;
+‎            align-items: center;
+‎        }
+‎
+‎        .modal-content {
+‎            background: #0F111A;
+‎            border-radius: 24px;
+‎            padding: 32px;
+‎            max-width: 400px;
+‎            width: 90%;
+‎            border: 1px solid rgba(0, 216, 255, 0.3);
+‎        }
+‎
+‎        .modal-content h3 {
+‎            margin-bottom: 20px;
+‎        }
+‎
+‎        .modal-content input {
+‎            width: 100%;
+‎            padding: 12px;
+‎            margin-bottom: 16px;
+‎            border-radius: 12px;
+‎            border: 1px solid rgba(255, 255, 255, 0.2);
+‎            background: rgba(255, 255, 255, 0.05);
+‎            color: white;
+‎        }
+‎
+‎        .close-modal {
+‎            float: right;
+‎            cursor: pointer;
+‎            font-size: 24px;
+‎        }
+‎
+‎        .article-modal {
+‎            display: none;
+‎            position: fixed;
+‎            top: 0;
+‎            left: 0;
+‎            width: 100%;
+‎            height: 100%;
+‎            background: rgba(0, 0, 0, 0.95);
+‎            backdrop-filter: blur(8px);
+‎            z-index: 1001;
+‎            overflow-y: auto;
+‎        }
+‎
+‎        .article-modal-content {
+‎            max-width: 800px;
+‎            margin: 60px auto;
+‎            background: #0F111A;
+‎            border-radius: 24px;
+‎            padding: 40px;
+‎            border: 1px solid rgba(0, 216, 255, 0.3);
+‎        }
+‎
+‎        .close-article {
+‎            float: right;
+‎            cursor: pointer;
+‎            font-size: 28px;
+‎            color: #A0A8C0;
+‎        }
+‎
+‎        .skeleton {
+‎            background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+‎            background-size: 200% 100%;
+‎            animation: loading 1.5s infinite;
+‎            border-radius: 8px;
+‎        }
+‎
+‎        @keyframes loading {
+‎            0% { background-position: 200% 0; }
+‎            100% { background-position: -200% 0; }
+‎        }
+‎
+‎        @media (max-width: 768px) {
+‎            .nav-links {
+‎                display: none;
+‎            }
+‎            .mobile-menu-btn {
+‎                display: block;
+‎            }
+‎            .hero h1 {
+‎                font-size: 36px;
+‎            }
+‎            .container {
+‎                padding: 0 16px;
+‎            }
+‎            .stats {
+‎                gap: 24px;
+‎            }
+‎            .newsletter {
+‎                padding: 32px 20px;
+‎            }
+‎        }
+‎    </style>
+‎</head>
+‎<body>
+‎    <div class="grid-bg"></div>
+‎    <div class="particles" id="particles"></div>
+‎
+‎    <header>
+‎        <div class="nav-container">
+‎            <div class="logo">Crypto<span>Novice</span></div>
+‎            <div class="nav-links">
+‎                <a href="#home">Home</a>
+‎                <a href="#podcasts">Podcasts</a>
+‎                <a href="#articles">Articles</a>
+‎                <a href="#about">About</a>
+‎                <div class="google-btn" id="googleSignInBtn">
+‎                    <i class="fab fa-google"></i> Sign In with Google
+‎                </div>
+‎                <div id="userProfile" style="display: none;">
+‎                    <div class="user-avatar" id="userAvatar">👤</div>
+‎                </div>
+‎            </div>
+‎            <div class="mobile-menu-btn" id="mobileMenuBtn">
+‎                <i class="fas fa-bars"></i>
+‎            </div>
+‎        </div>
+‎    </header>
+‎
+‎    <main>
+‎        <div class="container">
+‎            <section id="home" class="hero">
+‎                <h1>From Zero to <br>Crypto Knowledgeable</h1>
+‎                <p>Stop guessing. Start understanding. We curate the best podcasts and insights so you learn crypto with confidence—no financial advice, just education.</p>
+‎                <div class="hero-buttons">
+‎                    <button class="btn-primary" onclick="scrollToSection('podcasts')">Start Learning →</button>
+‎                    <button class="btn-outline" onclick="scrollToSection('articles')">Read Articles</button>
+‎                </div>
+‎                <div class="disclaimer">
+‎                    <i class="fas fa-shield-alt"></i> Not financial advisors. Educational content only.
+‎                </div>
+‎            </section>
+‎
+‎            <div class="stats">
+‎                <div class="stat-item">
+‎                    <div class="stat-number" id="podcastCount">0+</div>
+‎                    <div class="stat-label">Curated Podcasts</div>
+‎                </div>
+‎                <div class="stat-item">
+‎                    <div class="stat-number" id="articleCount">0+</div>
+‎                    <div class="stat-label">Expert Articles</div>
+‎                </div>
+‎                <div class="stat-item">
+‎                    <div class="stat-number" id="learnerCount">0+</div>
+‎                    <div class="stat-label">Active Learners</div>
+‎                </div>
+‎            </div>
+‎
+‎            <section>
+‎                <h2 class="section-title">What You'll Gain</h2>
+‎                <div class="results-grid">
+‎                    <div class="result-card">
+‎                        <div class="result-icon">🎓</div>
+‎                        <h3>Understand the Lingo</h3>
+‎                        <p>DeFi, NFTs, L2s, Web3 – made simple. No more feeling lost in conversations.</p>
+‎                    </div>
+‎                    <div class="result-card">
+‎                        <div class="result-icon">🎧</div>
+‎                        <h3>Learn on the Go</h3>
+‎                        <p>Curated podcasts from the brightest minds. Listen while you commute or exercise.</p>
+‎                    </div>
+‎                    <div class="result-card">
+‎                        <div class="result-icon">📡</div>
+‎                        <h3>No Noise, Just Signal</h3>
+‎                        <p>We filter the hype so you get clarity. Focus on what actually matters.</p>
+‎                    </div>
+‎                </div>
+‎            </section>
+‎
+‎            <section id="podcasts">
+‎                <h2 class="section-title">🎙️ Curated Podcasts for Beginners</h2>
+‎                <div class="podcasts-grid" id="podcastsGrid">
+‎                    <div class="skeleton" style="height: 320px; border-radius: 24px;"></div>
+‎                    <div class="skeleton" style="height: 320px; border-radius: 24px;"></div>
+‎                    <div class="skeleton" style="height: 320px; border-radius: 24px;"></div>
+‎                </div>
+‎            </section>
+‎
+‎            <section id="articles">
+‎                <h2 class="section-title">📚 Essential Reads for Crypto Novices</h2>
+‎                <div class="articles-grid" id="articlesGrid">
+‎                    <div class="skeleton" style="height: 280px; border-radius: 24px;"></div>
+‎                    <div class="skeleton" style="height: 280px; border-radius: 24px;"></div>
+‎                    <div class="skeleton" style="height: 280px; border-radius: 24px;"></div>
+‎                </div>
+‎            </section>
+‎
+‎            <div class="newsletter">
+‎                <h3>Get Weekly Crypto Insights</h3>
+‎                <p>No spam. Just the signal you need to stay informed.</p>
+‎                <form class="newsletter-form" id="newsletterForm">
+‎                    <input type="email" placeholder="Enter your email" required>
+‎                    <button type="submit" class="btn-primary">Subscribe →</button>
+‎                </form>
+‎            </div>
+‎        </div>
+‎    </main>
+‎
+‎    <footer>
+‎        <div class="container">
+‎            <div class="footer-content">
+‎                <div class="footer-col">
+‎                    <h4>CryptoNovice</h4>
+‎                    <p style="font-size: 14px; color: #A0A8C0;">Simplifying crypto education, one podcast at a time.</p>
+‎                </div>
+‎                <div class="footer-col">
+‎                    <h4>Explore</h4>
+‎                    <a href="#podcasts">Podcasts</a>
+‎                    <a href="#articles">Articles</a>
+‎                    <a href="#">About Us</a>
+‎                </div>
+‎                <div class="footer-col">
+‎                    <h4>Legal</h4>
+‎                    <a href="#">Privacy Policy</a>
+‎                    <a href="#">Terms of Use</a>
+‎                    <a href="#">Disclaimer</a>
+‎                </div>
+‎                <div class="footer-col">
+‎                    <h4>Connect</h4>
+‎                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+‎                    <a href="#"><i class="fab fa-discord"></i> Discord</a>
+‎                    <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+‎                </div>
+‎            </div>
+‎            <div class="footer-bottom">
+‎                <p>© 2025 CryptoNovice. Not financial advisors. Always do your own research.</p>
+‎            </div>
+‎        </div>
+‎    </footer>
+‎
+‎    <div id="googleModal" class="modal">
+‎        <div class="modal-content">
+‎            <span class="close-modal" onclick="closeModal()">&times;</span>
+‎            <h3>Sign in to CryptoNovice</h3>
+‎            <p style="color: #A0A8C0; margin-bottom: 20px;">Save your progress and get personalized recommendations</p>
+‎            <button class="btn-primary" style="width: 100%;" onclick="simulateGoogleSignIn()">
+‎                <i class="fab fa-google"></i> Continue with Google
+‎            </button>
+‎            <p style="font-size: 12px; color: #5A6275; margin-top: 20px; text-align: center;">Demo mode: Click to simulate sign-in</p>
+‎        </div>
+‎    </div>
+‎
+‎    <div id="articleModal" class="article-modal">
+‎        <div class="article-modal-content">
+‎            <span class="close-article" onclick="closeArticleModal()">&times;</span>
+‎            <div id="fullArticleContent"></div>
+‎        </div>
+‎    </div>
+‎
+‎    <script>
+‎        const podcasts = [
+‎            {
+‎                title: "Bankless: Ethereum Upgrades",
+‎                source: "Bankless",
+‎                description: "Learn about Ethereum's evolution, L2 solutions, and what it means for everyday users.",
+‎                icon: "🎧"
+‎            },
+‎            {
+‎                
+‎        
+‎            }
+‎        ];
+‎
+‎        const articles = [
+‎            {
+‎                id: 1,
+‎                title: "Bitcoin vs. Ethereum: What's the Actual Difference?",
+‎                tag: "Beginner Guide",
+‎                excerpt: "Learn the fundamental differences between the two largest cryptocurrencies using simple analogies...",
+‎                readTime: "5 min read",
+‎                content: `
+‎                    <h2 style="margin-bottom: 20px;">Bitcoin vs. Ethereum: What's the Actual Difference?</h2>
+‎                    <p style="color: #00D8FF; margin: 16px 0;">🎧 <strong>Recommended Podcast:</strong> Bankless - Ethereum Explained</p>
+‎                    <p style="margin-bottom: 16px;">Think of Bitcoin as digital gold. It was designed to be a store of value, a way to transfer wealth without banks. Ethereum, on the other hand, is like a smartphone operating system. It's a platform where developers build applications (dApps) that run on blockchain.</p>
+‎                    <h3 style="margin: 20px 0 10px;">Bitcoin: The Digital Gold</h3>
+‎                    <p style="margin-bottom: 16px;">Bitcoin has a fixed supply of 21 million coins. It's simple: send, receive, hold. It's not designed to do much else. That simplicity makes it incredibly secure and reliable for storing value.</p>
+‎                    <h3 style="margin: 20px 0 10px;">Ethereum: The World Computer</h3>
+‎                    <p style="margin-bottom: 16px;">Ethereum introduced smart contracts – self-executing contracts with the terms directly written into code. This opened the door for DeFi (decentralized finance), NFTs, and thousands of other applications.</p>
+‎                    <h3 style="margin: 20px 0 10px;">Key Takeaways for Beginners</h3>
+‎                    <ul style="margin-left: 20px; color: #A0A8C0; margin-bottom: 20px;">
+‎                        <li>Bitcoin = Store of value (like gold)</li>
+‎                        <li>Ethereum = Platform for applications (like the internet)</li>
+‎                        <li>Most people start with Bitcoin, then explore Ethereum's ecosystem</li>
+‎                    </ul>
+‎                    <
+‎
