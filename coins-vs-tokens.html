@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Learn the difference between coins and tokens in cryptocurrency, including security risks and fraud examples.">
+<title>Coins vs. Tokens: What Is the Difference? | CryptoNovice</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%82%BF%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#0A0C12;color:#E8EDF5;line-height:1.6}
+a{color:#00D8FF;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Background */
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;background:url(https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1950&q=80)}
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,12,18,0.88);z-index:-1}
+
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header{position:sticky;top:0;z-index:100;background:rgba(10,12,18,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,216,255,0.2)}
+.nav-container{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;max-width:1400px;margin:0 auto}
+.logo{font-size:28px;font-weight:800;background:linear-gradient(135deg,#00D8FF,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px}
+.logo span{font-weight:400;color:#E8EDF5;background:none;-webkit-background-clip:unset}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:#A0A8C0;font-weight:500;font-size:14px;transition:color .3s}
+.nav-links a:hover{color:#00D8FF}
+
+/* Article Reader */
+.article-reader{max-width:800px;margin:0 auto;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:24px;padding:48px;margin-top:40px;margin-bottom:40px}
+.article-reader h1{font-size:34px;font-weight:700;margin-bottom:16px;line-height:1.2;color:#fff}
+.article-reader h2{font-size:22px;font-weight:600;margin:32px 0 14px;color:#00D8FF}
+.article-reader h3{font-size:18px;font-weight:600;margin:24px 0 10px;color:#E8EDF5}
+.article-reader p{color:#C8CED8;margin-bottom:16px;font-size:15px;line-height:1.7}
+.article-reader strong{color:#fff;font-weight:600}
+.article-reader ul,.article-reader ol{margin:16px 0;padding-left:24px;color:#C8CED8}
+.article-reader li{margin-bottom:8px;line-height:1.6}
+.article-reader blockquote{border-left:3px solid #00D8FF;padding-left:20px;margin:20px 0;color:#A0A8C0;font-style:italic}
+.back-btn{display:inline-flex;align-items:center;gap:8px;color:#A0A8C0;font-size:14px;margin-bottom:24px;transition:color .3s}
+.back-btn:hover{color:#00D8FF;text-decoration:none}
+.meta-bar{display:flex;gap:16px;align-items:center;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+.meta-bar span{font-size:13px;color:#5A6275}
+.meta-bar .tag{background:rgba(0,216,255,0.1);color:#00D8FF;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500}
+.video-box{background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:20px;margin:24px 0;text-align:center}
+.video-box p{margin:0;font-size:14px;color:#A0A8C0}
+
+/* Example Box */
+.example-box{background:rgba(139,92,246,0.08);border-left:4px solid #8B5CF6;padding:20px;border-radius:16px;margin:20px 0;font-size:14px;color:#C8CED8;line-height:1.6}
+
+/* Warning Badge */
+.warning-badge{background:rgba(255,100,100,0.08);border-left:4px solid #ff6b6b;padding:16px 20px;border-radius:16px;margin:20px 0;font-size:13px;color:#ffaaaa;line-height:1.6}
+
+/* Footer */
+footer{background:rgba(0,0,0,0.3);padding:48px 0 24px;margin-top:60px;border-top:1px solid rgba(255,255,255,0.05)}
+.footer-bottom{text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05);font-size:12px;color:#5A6275}
+
+/* Responsive */
+@media(max-width:768px){
+.article-reader{padding:24px}
+.article-reader h1{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="nav-container">
+<a href="index.html" class="logo">Crypto<span>Novice</span></a>
+<nav class="nav-links">
+<a href="index.html#home">Home</a>
+<a href="index.html#articles">Articles</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<section>
+<div class="article-reader">
+<a href="index.html#articles" class="back-btn">← Back to articles</a>
+<div class="meta-bar"><span class="tag">Beginner</span><span>10 min read</span><span>September 2026</span></div>
+<h1>Coins vs. Tokens: What Is the Difference?</h1>
+<p>Let's talk about coins and tokens.</p>
+<p>If you are new to cryptocurrency, you will often hear people use the words "coin" and "token" as if they mean exactly the same thing. Technically, however, there is an important difference between the two.</p>
+
+<h2>What Is a Coin?</h2>
+<p>A coin is a cryptocurrency that operates on its own blockchain. Coins can be used as a form of digital money, a medium of exchange, or to pay transaction fees on their respective networks.</p>
+<p>Bitcoin (BTC) is the most well-known example. Other native blockchain coins include Ether (ETH) on Ethereum, BNB on BNB Chain, Solana (SOL) on Solana, XRP on the XRP Ledger, and Dogecoin (DOGE) on the Dogecoin blockchain.</p>
+
+<h2>What Is a Token?</h2>
+<p>A token, on the other hand, is a digital asset that is created and operates on top of an existing blockchain. Tokens can serve many different purposes, including representing currencies, utility, governance rights, real-world assets or digital collectibles. For example, Tether (USDT) and USD Coin (USDC) are tokens that exist on multiple blockchain networks, while Chainlink (LINK) is a token originally launched on Ethereum.</p>
+<p>It is worth pointing out that the terms "coin" and "token" are not always used consistently in the cryptocurrency industry. Technically, many cryptoassets can be described as tokens, but "coin" is commonly used to refer to an asset that is native to its own blockchain.</p>
+
+<h2>Why Are There So Many Crypto Tokens?</h2>
+<p>One of the reasons there are so many cryptocurrency tokens is that creating a token on an existing blockchain can be considerably easier than building an entirely new blockchain from scratch.</p>
+<p>Developers can use existing blockchain infrastructure and smart-contract standards to create tokens without having to build an entire network, consensus mechanism and blockchain ecosystem themselves.</p>
+<p>This has helped make token creation accessible to a large number of developers and projects. However, there is also a downside.</p>
+<p>Because creating a token can be relatively easy, the existence of a token does not automatically mean that the project behind it is legitimate, useful or trustworthy.</p>
+
+<h2>The Risk of Scams</h2>
+<p>This is one reason why the cryptocurrency industry has attracted scammers. A dishonest individual or group can create a token, build an attractive website, create a convincing marketing campaign and attempt to generate hype around the project.</p>
+<p>Some fraudulent projects have also relied on aggressive promotion, misleading claims and influential promoters to attract investors.</p>
+<p>This does not mean that tokens themselves are scams. There are many legitimate tokens with genuine uses. The important thing is to examine the project, technology, team, token economics, smart contracts, business model and evidence behind its claims rather than assuming that a token is legitimate simply because it exists.</p>
+
+<h2>NFTs Are Also Tokens</h2>
+<p>Non-fungible tokens (NFTs) are another type of blockchain-based token.</p>
+<p>Unlike cryptocurrencies such as BTC, where individual units are generally interchangeable, NFTs are designed to be unique or distinguishable from one another.</p>
+<p>NFTs can be used to represent ownership or other rights associated with digital or physical items, such as digital artwork, collectibles, tickets, memberships or representations of real-world assets.</p>
+<p>However, it is important to understand that an NFT does not automatically mean that you legally own the underlying physical or intellectual property. What an NFT represents depends on the project, the smart contract and the legal terms attached to it.</p>
+
+<h2>Examples of Cryptocurrency Scams</h2>
+<p>Unfortunately, the cryptocurrency industry has experienced some very large fraud schemes. Below are a few well-known examples.</p>
+
+<h3>BitConnect (BCC)</h3>
+<p>BitConnect was a cryptocurrency investment platform that promoted a lending program and claimed that its technology could generate substantial profits.</p>
+<p>U.S. prosecutors later described the operation as a Ponzi scheme. According to the U.S. Department of Justice, the scheme obtained approximately $2.4 billion from investors. The founder, Satish Kumbhani, was indicted in 2022, while U.S. promoter Glenn Arcaro pleaded guilty to conspiracy to commit wire fraud.</p>
+
+<h3>OneCoin</h3>
+<p>OneCoin is one of the most notorious examples of a fraudulent cryptocurrency scheme.</p>
+<p>OneCoin was marketed as a cryptocurrency and was promoted through a large multi-level-marketing network. However, U.S. investigators found that it did not operate like a legitimate cryptocurrency and that it lacked a genuine public blockchain.</p>
+<p>According to the U.S. Department of Justice, more than 3.5 million victims invested more than $4 billion in the scheme. OneCoin co-founder Karl Sebastian Greenwood was sentenced to 20 years in prison in 2023.</p>
+<p>In 2026, the U.S. Department of Justice also announced a compensation process for victims using funds recovered through asset forfeiture.</p>
+
+<h3>PlusToken</h3>
+<p>PlusToken was another major cryptocurrency fraud scheme that attracted investors by promising returns and operating through a large network of participants.</p>
+<p>The project became notorious after large amounts of cryptocurrency connected to the scheme were moved and eventually liquidated. It is an example of why investors should be extremely cautious when a cryptocurrency project focuses heavily on recruiting users and promising unusually high returns.</p>
+
+<h3>Pincoin and iFan</h3>
+<p>Pincoin and iFan were two Vietnamese cryptocurrency projects that attracted significant numbers of investors and were later accused of operating fraudulent schemes.</p>
+<p>These cases demonstrate that cryptocurrency fraud is not limited to one country, one blockchain or one particular type of token.</p>
+
+<p>The examples above are not an exhaustive list of cryptocurrency scams. The cryptocurrency industry continues to evolve, and new fraudulent projects and scams continue to appear.</p>
+<p>For this reason, investors should conduct proper research and due diligence before putting money into any cryptocurrency project.</p>
+<p>A project's popularity, social-media following, website, celebrity endorsements or appearance in the media should not be treated as proof that the project is legitimate.</p>
+
+<h2>Can Cryptocurrencies Be Hacked?</h2>
+<p>This is where we need to make an important distinction.</p>
+<p>People often say that a cryptocurrency was "hacked," but there are several different things that can actually be attacked.</p>
+<p>A blockchain's underlying protocol, a smart contract built on that blockchain, a cryptocurrency wallet, a decentralized application, or a centralized exchange can all have different security risks.</p>
+
+<h3>The DAO Hack of 2016</h3>
+<p>For example, the DAO hack of 2016 involved a vulnerability in the DAO's smart contract system. The attacker exploited the vulnerability and drained more than 3.6 million ETH from the DAO. The incident eventually contributed to Ethereum's controversial hard fork, resulting in the blockchain that is now Ethereum and the separate Ethereum Classic chain.</p>
+<p>This is an important distinction: the DAO was exploited; this does not mean that someone simply "hacked the Ethereum blockchain" and took control of it.</p>
+<p>Ethereum has also experienced other attacks against applications and attempts to exploit weaknesses in network clients, demonstrating that blockchain systems are not completely immune to technical vulnerabilities.</p>
+
+<h2>Has Bitcoin Ever Been Hacked?</h2>
+<p>Bitcoin is often described as having never been hacked.</p>
+<p>A more accurate statement is that there has been no successful attack that has compromised Bitcoin's underlying blockchain and allowed an attacker to arbitrarily rewrite the network's history or steal everyone's Bitcoin.</p>
+<p>That does not mean Bitcoin is impossible to attack.</p>
+<p>Bitcoin, like other proof-of-work blockchains, has theoretical risks including majority or 51% attacks, in which an attacker controls enough of the network's mining power to interfere with transaction ordering and potentially reorganize recent blocks.</p>
+<p>The enormous scale and decentralized nature of established blockchain networks can make such attacks extremely difficult and expensive, but "impossible to hack" is too absolute a statement.</p>
+<p>It is also important to remember that Bitcoin users can still lose money through hacked exchanges, compromised devices, phishing attacks, stolen private keys and other forms of fraud.</p>
+<p>In other words, the security of the Bitcoin blockchain is not the same thing as the security of every wallet, exchange or company that interacts with Bitcoin.</p>
+
+<h2>Cryptocurrency Exchange Hacks</h2>
+<p>Cryptocurrency exchanges have historically been attractive targets for hackers because they hold large amounts of digital assets and manage assets belonging to many users.</p>
+
+<h3>Bitrue (2019)</h3>
+<p>In June 2019, Singapore-based cryptocurrency exchange Bitrue announced that attackers had exploited a vulnerability and gained access to funds belonging to approximately 90 users. The reported loss was approximately $4.2 million worth of cryptocurrency.</p>
+
+<h3>Coincheck (2018)</h3>
+<p>Japanese cryptocurrency exchange Coincheck suffered a major hack in January 2018. Approximately $534 million worth of NEM (XEM) was stolen from the exchange. The incident affected around 260,000 customers, and Coincheck subsequently announced that it would compensate affected users using its own funds.</p>
+
+<h3>KuCoin (2020)</h3>
+<p>In September 2020, cryptocurrency exchange KuCoin suffered a major security breach. Approximately $280 million worth of cryptocurrency was initially reported as stolen. Blockchain analysis and cooperation between cryptocurrency companies helped trace and recover a substantial portion of the stolen assets, while KuCoin covered remaining losses through its own resources and insurance arrangements.</p>
+
+<h3>DragonEx (2019)</h3>
+<p>Singapore-based cryptocurrency exchange DragonEx was attacked in March 2019. The attackers reportedly stole millions of dollars worth of various cryptocurrencies, affecting both exchange and user funds.</p>
+
+<h3>Poly Network (2021)</h3>
+<p>Poly Network is an important example, but it should not be described as a traditional cryptocurrency exchange. On August 10, 2021, an attacker exploited a vulnerability in Poly Network's cross-chain smart-contract infrastructure and stole approximately $612 million worth of cryptocurrency.</p>
+<p>The incident became one of the largest cryptocurrency thefts ever recorded. Remarkably, most of the stolen assets were subsequently returned by the attacker, while approximately $33.4 million in USDT had been frozen.</p>
+<p>This incident demonstrates another important lesson: sometimes the vulnerability is not in the blockchain itself but in an application or smart contract built on top of it.</p>
+
+<h2>Why Self-Custody Matters</h2>
+<p>The security of your cryptocurrency depends partly on where and how you store it.</p>
+<p>Keeping cryptocurrency on a centralized exchange means you are trusting that company to safeguard your assets and maintain access to them.</p>
+<p>With self-custody, you control the private keys yourself.</p>
+<p>Hardware wallets are one approach to self-custody because they are designed to keep private keys isolated from internet-connected devices during normal use. However, hardware wallets are not magic shields. Users can still lose funds through phishing, fake wallet software, malicious transactions, stolen recovery phrases or simply losing access to their recovery information.</p>
+<p>The basic principle is simple:</p>
+<p><strong>If someone else controls your private keys, you are trusting them to protect your cryptocurrency. If you control your private keys, the responsibility for protecting them falls on you.</strong></p>
+<p>Self-custody therefore provides greater control, but it also comes with greater responsibility.</p>
+
+<h2>Do Your Own Research</h2>
+<p>The cryptocurrency industry contains legitimate projects, innovative technologies and useful applications. It also contains speculation, poorly designed projects, fraud and outright scams.</p>
+<p>This is why you should never invest in a cryptocurrency simply because someone on social media says that it is "the next Bitcoin."</p>
+<p>Before putting your money into a cryptocurrency project, look beyond the price and hype.</p>
+<p>Research the project, understand what problem it is attempting to solve, examine how its token works, investigate who is behind it, look at its documentation and understand the risks involved.</p>
+<p>Most importantly, never assume that a cryptocurrency is legitimate simply because it has a professional-looking website, thousands of followers or celebrity endorsements.</p>
+<p>The cryptocurrency industry can offer opportunities, but it also carries significant risks.</p>
+<p><strong>Do your own research. Understand what you are buying. And never invest money into something you do not understand.</strong></p>
+
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-bottom">
+<p>© 2026 CryptoNovice. All rights reserved. Not financial advice.</p>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
