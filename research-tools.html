@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Crypto Analysis and Data Tools for Better Research - Essential platforms for researching cryptocurrency projects and market data.">
+<title>Crypto Research Tools | CryptoNovice</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%82%BF%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#0A0C12;color:#E8EDF5;line-height:1.6}
+a{color:#00D8FF;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Background */
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;background:url(https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1950&q=80) center/cover}
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,12,18,0.88);z-index:-1}
+
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header{position:sticky;top:0;z-index:100;background:rgba(10,12,18,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,216,255,0.2)}
+.nav-container{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;max-width:1400px;margin:0 auto}
+.logo{font-size:28px;font-weight:800;background:linear-gradient(135deg,#00D8FF,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px}
+.logo span{font-weight:400;color:#E8EDF5;background:none;-webkit-background-clip:unset}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:#A0A8C0;font-weight:500;font-size:14px;transition:color .3s}
+.nav-links a:hover{color:#00D8FF}
+.mobile-menu-btn{display:none;font-size:24px;color:#E8EDF5;background:none;border:none;cursor:pointer}
+
+/* Article Reader */
+.article-reader{max-width:800px;margin:0 auto;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:24px;padding:48px}
+.article-reader h1{font-size:34px;font-weight:700;margin-bottom:16px;line-height:1.2;color:#fff}
+.article-reader h2{font-size:22px;font-weight:600;margin:32px 0 14px;color:#00D8FF}
+.article-reader h3{font-size:18px;font-weight:600;margin:24px 0 10px;color:#E8EDF5}
+.article-reader p{color:#C8CED8;margin-bottom:16px;font-size:15px;line-height:1.7}
+.article-reader strong{color:#fff;font-weight:600}
+.article-reader ul,.article-reader ol{margin:16px 0;padding-left:24px;color:#C8CED8}
+.article-reader li{margin-bottom:8px;line-height:1.6}
+.article-reader blockquote{border-left:3px solid #00D8FF;padding-left:20px;margin:20px 0;color:#A0A8C0;font-style:italic}
+.back-btn{display:inline-flex;align-items:center;gap:8px;color:#A0A8C0;font-size:14px;margin-bottom:24px;transition:color .3s}
+.back-btn:hover{color:#00D8FF;text-decoration:none}
+.meta-bar{display:flex;gap:16px;align-items:center;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+.meta-bar span{font-size:13px;color:#5A6275}
+.meta-bar .tag{background:rgba(0,216,255,0.1);color:#00D8FF;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* Tool Cards */
+.tool-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:24px;margin:20px 0}
+.tool-card h3{color:#00D8FF;font-size:18px;margin-bottom:10px;font-weight:600}
+.tool-card p{font-size:14px;color:#A0A8C0;line-height:1.6}
+
+/* Footer */
+footer{background:rgba(0,0,0,0.3);padding:48px 0 24px;margin-top:60px;border-top:1px solid rgba(255,255,255,0.05)}
+.footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px}
+.footer-col h4{margin-bottom:16px;font-size:16px;color:#00D8FF;font-weight:600}
+.footer-col a,.footer-col p{display:block;color:#A0A8C0;text-decoration:none;font-size:13px;margin-bottom:10px;transition:color .3s}
+.footer-col a:hover{color:#00D8FF;text-decoration:none}
+.footer-bottom{text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05);font-size:12px;color:#5A6275}
+
+/* Responsive */
+@media(max-width:768px){
+.article-reader{padding:24px}
+.article-reader h1{font-size:26px}
+.tool-card{padding:16px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="nav-container">
+<a href="index.html" class="logo">Crypto<span>Novice</span></a>
+<nav class="nav-links">
+<a href="index.html#home">Home</a>
+<a href="index.html#articles">Articles</a>
+<a href="index.html#podcasts">Podcasts</a>
+<a href="index.html#tools">Tools</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<section>
+<div class="article-reader">
+<a href="index.html#articles" class="back-btn">← Back to articles</a>
+<div class="meta-bar"><span class="tag">Research Tools</span><span>12 min read</span><span>September 2026</span></div>
+<h1>Crypto Analysis and Data Tools for Better Research</h1>
+
+<p>Looking for useful analysis and data to enhance your knowledge of crypto assets and make better-informed decisions?</p>
+
+<p>In no particular order, this article will introduce some of the tools, platforms and websites that can help you research cryptocurrency projects, understand market data and conduct your own research.</p>
+
+<p>These platforms should not be treated as a substitute for your own research. Instead, think of them as research tools that can help you gather information and develop a better understanding of the cryptocurrency market.</p>
+
+<h2>ICO Drops</h2>
+
+<p><strong>ICO Drops</strong> is a platform that tracks token sales and other early-stage crypto projects. Its current platform includes active, upcoming and ended projects, as well as different types of token launches and activities.</p>
+
+<p>When researching a project on ICO Drops, you can find information that may help you understand what the project is about and where it is in its development.</p>
+
+<p>Depending on the project, information available can include:</p>
+
+<ul>
+<li>The project's fundraising information</li>
+<li>Development and project milestones</li>
+<li>The team behind the project</li>
+<li>Links to relevant project resources and communities</li>
+<li>The project's category and blockchain</li>
+<li>Token-sale information</li>
+<li>Funding and valuation information where available</li>
+<li>Other indicators provided by ICO Drops</li>
+</ul>
+
+<p>ICO Drops also labels certain projects with indicators such as "Interest Level" and "Top Raised." However, these indicators should not be interpreted as investment recommendations. ICO Drops itself states that its interest level does not constitute financial or investment advice, and it also discloses that it receives fees for certain advertising placements.</p>
+
+<p>For this reason, ICO Drops can be useful as a starting point for discovering projects, but you should always investigate a project independently before making any decisions.</p>
+
+<h2>CoinMarketCap</h2>
+
+<p><strong>CoinMarketCap</strong> is another widely used source of cryptocurrency market data. It provides information about cryptocurrencies, market capitalisation, trading volume, prices and historical market performance.</p>
+
+<p>CoinMarketCap also has an ICO Calendar where users can view upcoming, ongoing and completed token sales. The calendar can provide information such as the project's stage, dates, fundraising goal, launchpad and other available project details.</p>
+
+<p>When researching an ICO or token sale, you may also be able to find links to additional project information, including a project's description and other relevant resources.</p>
+
+<p>Beyond ICOs and token sales, CoinMarketCap can be useful for researching individual cryptocurrencies. You can use it to examine price movements, market capitalisation, trading volume and historical data.</p>
+
+<p>You can also research cryptocurrency exchanges and other market information available through the platform.</p>
+
+<p>One important point is that market data changes constantly. Therefore, information such as price, market capitalisation and trading volume should be checked directly on the platform rather than relying on an old article or screenshot.</p>
+
+<h2>DeFiLlama</h2>
+
+<p><strong>DeFiLlama</strong> is an analytics platform focused heavily on decentralised finance (DeFi) and blockchain data.</p>
+
+<p>DeFiLlama provides information covering areas such as:</p>
+
+<ul>
+<li>Total Value Locked (TVL)</li>
+<li>DeFi yields</li>
+<li>Protocol fees</li>
+<li>Protocol revenue</li>
+<li>Stablecoins</li>
+<li>DEX trading volume</li>
+<li>Perpetuals volume</li>
+<li>Blockchain and protocol activity</li>
+<li>Token unlocks</li>
+<li>Historical data</li>
+<li>Other crypto market metrics</li>
+</ul>
+
+<p>The platform allows you to compare different blockchains and protocols using various metrics. For example, you can examine the amount of value locked in different chains and investigate individual protocols operating within those ecosystems.</p>
+
+<p>DeFiLlama also provides data on fees and revenue generated by protocols. This can be useful when trying to understand whether activity on a particular protocol is translating into actual fees or revenue.</p>
+
+<p>The platform has also expanded its tools beyond basic TVL tracking. Its current dashboard includes information on stablecoins, DEXs, perpetuals, token unlocks and other areas of the crypto market.</p>
+
+<p>If you are interested in researching DeFi, DeFiLlama can therefore be a particularly useful research tool.</p>
+
+<h2>LunarCrush</h2>
+
+<p><strong>LunarCrush</strong> is useful when you want to examine social activity and sentiment surrounding crypto assets and other topics.</p>
+
+<p>The platform collects social data from sources including X, Reddit, YouTube and TikTok, among others, and turns that information into social intelligence and market signals.</p>
+
+<p>You can use LunarCrush to investigate things such as:</p>
+
+<ul>
+<li>Social engagement</li>
+<li>Mentions</li>
+<li>Sentiment</li>
+<li>Trending topics</li>
+<li>Creator activity</li>
+<li>Emerging narratives</li>
+<li>Changes in social interest</li>
+</ul>
+
+<p>For example, if a cryptocurrency is suddenly receiving significantly more attention across social platforms, LunarCrush can help you identify that increase in social activity.</p>
+
+<p>However, social engagement should not automatically be interpreted as proof that a cryptocurrency is a good investment. A project can receive significant attention online without having strong fundamentals.</p>
+
+<p>LunarCrush has also expanded beyond cryptocurrency and now provides social intelligence across areas including stocks, sports, brands and other topics.</p>
+
+<h2>CoinGecko</h2>
+
+<p><strong>CoinGecko</strong> is another cryptocurrency data aggregator that can be useful when researching digital assets.</p>
+
+<p>CoinGecko provides information about cryptocurrencies using metrics such as:</p>
+
+<ul>
+<li>Current price</li>
+<li>Market capitalisation</li>
+<li>Trading volume</li>
+<li>Fully Diluted Valuation (FDV)</li>
+<li>Circulating supply</li>
+<li>Total supply</li>
+<li>Maximum supply</li>
+<li>Historical price data</li>
+</ul>
+
+<p>If you need more information about a particular cryptocurrency, you can select the asset and access additional information about it.</p>
+
+<p>One particularly important area to understand is token supply.</p>
+
+<p>Market capitalisation is generally calculated by multiplying the current price by the circulating supply. FDV, on the other hand, is intended to represent the theoretical valuation if the relevant total token supply were circulating at the current price.</p>
+
+<p>Understanding the difference between circulating supply, total supply and maximum supply can help you better understand a cryptocurrency's tokenomics.</p>
+
+<p>For example, a cryptocurrency may have a relatively small circulating supply while a much larger number of tokens are scheduled to enter circulation in the future. Looking only at the current market capitalisation without considering supply can therefore give you an incomplete picture.</p>
+
+<p>CoinGecko is consequently a useful place to begin when researching the market data and tokenomics of a cryptocurrency.</p>
+
+<h2>Final Thoughts</h2>
+
+<p>There are many cryptocurrency research tools available, and the platforms mentioned above are only a few of them.</p>
+
+<p>Each platform provides different types of information. ICO Drops can help you discover token sales and early-stage projects. CoinMarketCap provides broad cryptocurrency market data and an ICO calendar. DeFiLlama focuses heavily on DeFi and blockchain analytics. LunarCrush provides social intelligence and sentiment data, while CoinGecko provides detailed cryptocurrency market and token-supply information.</p>
+
+<p>However, no single platform should be treated as the final authority when researching a crypto asset.</p>
+
+<p>The information provided by these platforms can contain limitations, and some metrics can be misunderstood when viewed without context. Social activity does not necessarily mean a project has strong fundamentals, a high TVL does not automatically make a protocol safe, and a large market capitalisation does not guarantee future performance.</p>
+
+<p>The purpose of this article is purely educational: to introduce crypto beginners to useful research tools and help them develop better research habits.</p>
+
+<p>Always conduct your own research and, where possible, verify important information using primary sources such as a project's official documentation, whitepaper, blockchain data and other credible sources.</p>
+
+<p><strong>This article is not financial advice and should not be treated as a recommendation to buy, sell or hold any cryptocurrency or participate in any token sale. Cryptocurrency assets are highly speculative and can involve significant risk.</strong></p>
+
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="footer-col">
+<h4>CryptoNovice</h4>
+<p>Educating, informing, and equipping crypto beginners with the best tools and platforms. No hype, just education.</p>
+</div>
+<div class="footer-col">
+<h4>Explore</h4>
+<a href="index.html#articles">Articles</a>
+<a href="index.html#podcasts">Podcasts</a>
+<a href="index.html#tools">Tools & Platforms</a>
+</div>
+<div class="footer-col">
+<h4>Articles</h4>
+<a href="index.html#article-terminology">Crypto Terminology</a>
+<a href="index.html#article-nfts">What Are NFTs?</a>
+<a href="index.html#article-ethereum">Ethereum Ecosystem</a>
+<a href="index.html#article-privacy">Privacy Coins</a>
+<a href="index.html#article-pizza">Bitcoin Pizza Day</a>
+<a href="research-tools.html">Research Tools</a>
+</div>
+<div class="footer-col">
+<h4>Connect</h4>
+<a href="https://twitter.com" target="_blank">Twitter / X</a>
+<a href="https://discord.com" target="_blank">Discord</a>
+<a href="https://youtube.com" target="_blank">YouTube</a>
+<a href="mailto:hello@cryptonovice.com">hello@cryptonovice.com</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 CryptoNovice. All rights reserved. Not financial advice.</p>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
