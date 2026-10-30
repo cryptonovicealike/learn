@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn what the Fear and Greed Index is, how to read it, and where to find reliable market sentiment indicators.">
+  <title>Fear and Greed Index | CryptoNovice</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%82%BF%3C/text%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:#0A0C12;color:#E8EDF5;line-height:1.6}
+    a{color:#00D8FF;text-decoration:none}
+    a:hover{text-decoration:underline}
+    body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;background:url(https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1950&q=80) center/cover no-repeat}
+    body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,12,18,0.88);z-index:-1}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:100;background:rgba(10,12,18,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,216,255,0.2)}
+    .nav-container{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;max-width:1400px;margin:0 auto}
+    .logo{font-size:28px;font-weight:800;background:linear-gradient(135deg,#00D8FF,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px}
+    .logo span{font-weight:400;color:#E8EDF5;background:none}
+    .nav-links{display:flex;gap:28px;align-items:center}
+    .nav-links a{color:#A0A8C0;font-weight:500;font-size:14px;transition:color .3s}
+    .nav-links a:hover{color:#00D8FF}
+    .article-reader{max-width:820px;margin:40px auto 60px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:24px;padding:48px}
+    .article-reader h1{font-size:34px;font-weight:700;margin-bottom:16px;line-height:1.2;color:#fff}
+    .article-reader h2{font-size:22px;font-weight:600;margin:32px 0 14px;color:#00D8FF}
+    .article-reader h3{font-size:18px;font-weight:600;margin:24px 0 10px;color:#E8EDF5}
+    .article-reader p{color:#C8CED8;margin-bottom:16px;font-size:15px;line-height:1.7}
+    .article-reader strong{color:#fff;font-weight:600}
+    .article-reader ul,.article-reader ol{margin:16px 0;padding-left:24px;color:#C8CED8}
+    .article-reader li{margin-bottom:8px;line-height:1.6}
+    .article-reader blockquote{border-left:3px solid #00D8FF;padding-left:20px;margin:20px 0;color:#A0A8C0;font-style:italic}
+    .article-reader a{text-decoration:underline}
+    .back-btn{display:inline-flex;align-items:center;gap:8px;color:#A0A8C0;font-size:14px;margin-bottom:24px;transition:color .3s}
+    .back-btn:hover{color:#00D8FF;text-decoration:none}
+    .meta-bar{display:flex;gap:16px;align-items:center;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+    .meta-bar span{font-size:13px;color:#5A6275}
+    .meta-bar .tag{background:rgba(0,216,255,0.1);color:#00D8FF;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500}
+    .key-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin:20px 0 30px}
+    .point{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:18px}
+    .point h4{color:#00D8FF;margin-bottom:8px;font-size:15px}
+    .point p{margin:0;font-size:13px;color:#A0A8C0;line-height:1.6}
+    .provider-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:18px;padding:20px 22px;margin:18px 0}
+    .provider-box h3{color:#fff;margin-bottom:8px;font-size:18px}
+    .provider-box p{margin:0 0 10px}
+    footer{background:rgba(0,0,0,0.3);padding:48px 0 24px;margin-top:60px;border-top:1px solid rgba(255,255,255,0.05)}
+    .footer-bottom{text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05);font-size:12px;color:#5A6275}
+    @media(max-width:768px){
+      .article-reader{padding:24px}
+      .article-reader h1{font-size:26px}
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Crypto<span>Novice</span></a>
+      <nav class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#articles">Articles</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <div class="article-reader">
+        <a href="index.html#articles" class="back-btn">← Back to articles</a>
+        <div class="meta-bar">
+          <span class="tag">Beginner</span>
+          <span>7 min read</span>
+          <span>October 2026</span>
+        </div>
+
+        <h1>Fear and Greed Index</h1>
+
+        <p><strong>The Fear and Greed Index</strong> is a number ranging from 0 to 100 that tells you how the market is feeling. It measures investor sentiment by analysing different market signals to determine whether investors are driven more by fear or greed.</p>
+
+        <p>Think of it as an emotional thermometer for the financial markets.</p>
+
+        <h2>Understanding the numbers</h2>
+        <p>The index is generally interpreted using five sentiment categories:</p>
+
+        <div class="key-points">
+          <div class="point">
+            <h4>0–24</h4>
+            <p>Extreme Fear. Investors are extremely worried, and panic selling may occur.</p>
+          </div>
+          <div class="point">
+            <h4>25–49</h4>
+            <p>Fear. The market remains fearful, but sentiment is not necessarily at its most extreme.</p>
+          </div>
+          <div class="point">
+            <h4>50</h4>
+            <p>Neutral. The market is showing a relatively balanced level of fear and greed.</p>
+          </div>
+          <div class="point">
+            <h4>51–74</h4>
+            <p>Greed. Investors are becoming increasingly optimistic, and buying pressure may increase.</p>
+          </div>
+          <div class="point">
+            <h4>75–100</h4>
+            <p>Extreme Greed. Investors may be getting overly confident, increasing the risk of irrational buying and market corrections.</p>
+          </div>
+        </div>
+
+        <p>These ranges are a simplified guide. Always check the classification used by your chosen index provider.</p>
+
+        <h2>How do you use the Fear and Greed Index?</h2>
+        <p>The beauty of this index is that it helps you understand the psychology behind market movements.</p>
+
+        <p>Think about it this way: if everyone is terrified, that could be an opportunity to start looking for undervalued assets. And if everyone is becoming greedy, that could be your time to consider taking profits or managing your risk.</p>
+
+        <p>However, extreme fear does not automatically mean you should buy, and extreme greed does not mean the market is guaranteed to crash.</p>
+
+        <p>Use this index alongside other technical and fundamental indicators. Never rely on it as your only reason to enter or exit a trade.</p>
+
+        <p>Remember, the index tells you something about market sentiment, not exactly what the market will do next.</p>
+
+        <p>If you understand market sentiment, you can become better at anticipating how investors might react to changing market conditions and potentially stay ten steps ahead.</p>
+
+        <h2>Where can you find a reliable Fear and Greed Index?</h2>
+        <p>For you to use this index effectively, you need to rely on reputable service providers.</p>
+
+        <div class="provider-box">
+          <h3>Alternative.me – Cryptocurrency markets</h3>
+          <p>Alternative.me provides a Crypto Fear and Greed Index, primarily focused on Bitcoin sentiment. Its methodology considers factors such as volatility, market momentum, trading volume, social media activity, Bitcoin dominance and Google Trends.</p>
+          <p><strong>Website:</strong> <a href="https://alternative.me/crypto/fear-and-greed-index/" target="_blank" rel="noopener">https://alternative.me/crypto/fear-and-greed-index/</a></p>
+        </div>
+
+        <div class="provider-box">
+          <h3>CNN Business – Traditional financial markets</h3>
+          <p>CNN Business provides its own Fear and Greed Index, which focuses on US stock market sentiment.</p>
+          <p>It combines seven indicators, including market momentum, stock price strength, stock price breadth, options activity, junk bond demand, market volatility and safe-haven demand.</p>
+          <p><strong>Website:</strong> <a href="https://www.cnn.com/markets/fear-and-greed" target="_blank" rel="noopener">https://www.cnn.com/markets/fear-and-greed</a></p>
+        </div>
+
+        <h2>Final thoughts</h2>
+        <p>Understanding the Fear and Greed Index is another step towards becoming a more informed market participant.</p>
+
+        <p>Remember, successful trading is not simply about knowing when to buy and sell. It is also about understanding market conditions, managing your emotions and making decisions based on evidence rather than speculation.</p>
+
+        <blockquote>No hype, just education.</blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 CryptoNovice. All rights reserved. Not financial advice.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
