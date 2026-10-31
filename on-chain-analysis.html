@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn what on-chain analysis is, how it works, and which metrics help measure the health of a blockchain network.">
+  <title>What Is On-Chain Analysis? | CryptoNovice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:#0A0C12;color:#E8EDF5;line-height:1.7}
+    a{color:#00D8FF;text-decoration:none}
+    a:hover{text-decoration:underline}
+    body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;background:url(https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1950&q=80) center/cover no-repeat;filter:brightness(0.45)}
+    body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,12,18,0.9);z-index:-1}
+    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:100;background:rgba(10,12,18,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,216,255,0.2)}
+    .nav-container{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;max-width:1400px;margin:0 auto}
+    .logo{font-size:28px;font-weight:800;background:linear-gradient(135deg,#00D8FF,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px}
+    .logo span{font-weight:400;color:#E8EDF5;background:none;-webkit-background-clip:unset}
+    .nav-links{display:flex;gap:28px;align-items:center}
+    .nav-links a{color:#A0A8C0;font-weight:500;font-size:14px;transition:color .3s}
+    .nav-links a:hover{color:#00D8FF}
+    .mobile-menu-btn{display:none;font-size:24px;color:#E8EDF5;background:none;border:none;cursor:pointer}
+    .mobile-nav{display:none;position:fixed;top:65px;left:0;width:100%;background:rgba(10,12,18,0.98);border-bottom:1px solid rgba(0,216,255,0.2);padding:16px 24px;flex-direction:column;gap:12px;z-index:100}
+    .mobile-nav a{color:#A0A8C0;font-weight:500;font-size:15px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+    .mobile-nav a:hover{color:#00D8FF}
+    .article-wrap{padding:60px 0 80px}
+    .article-reader{max-width:900px;margin:0 auto;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:24px;padding:48px}
+    .article-reader h1{font-size:40px;font-weight:700;line-height:1.15;margin-bottom:16px;color:#fff}
+    .article-reader h2{font-size:24px;font-weight:600;margin:30px 0 14px;color:#00D8FF}
+    .article-reader h3{font-size:18px;font-weight:600;margin:24px 0 10px;color:#E8EDF5}
+    .article-reader p, .article-reader li{color:#C8CED8;font-size:15px;line-height:1.8;margin-bottom:16px}
+    .article-reader ul, .article-reader ol{margin:16px 0;padding-left:24px}
+    .article-reader strong{color:#fff;font-weight:600}
+    .article-reader blockquote{border-left:3px solid #00D8FF;padding-left:20px;margin:22px 0;color:#A0A8C0;font-style:italic}
+    .meta-bar{display:flex;gap:16px;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+    .meta-bar span{font-size:13px;color:#5A6275}
+    .meta-bar .tag{background:rgba(0,216,255,0.1);color:#00D8FF;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500}
+    .back-btn{display:inline-flex;align-items:center;gap:8px;color:#A0A8C0;font-size:14px;margin-bottom:24px;transition:color .3s}
+    .back-btn:hover{color:#00D8FF;text-decoration:none}
+    .platform-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:24px;margin:24px 0}
+    .platform-card h3{font-size:22px;margin-bottom:12px;color:#fff}
+    .platform-card p, .platform-card li{color:#C8CED8;font-size:15px}
+    .platform-card ul{margin:14px 0 0;padding-left:20px}
+    .callout{background:rgba(126,240,183,0.08);border-left:4px solid #7ef0b7;padding:16px 18px;border-radius:12px;margin-top:18px;color:#dffdf0}
+    footer{background:rgba(0,0,0,0.3);padding:48px 0 24px;margin-top:60px;border-top:1px solid rgba(255,255,255,0.05)}
+    .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px}
+    .footer-col h4{margin-bottom:16px;font-size:16px;color:#00D8FF;font-weight:600}
+    .footer-col a,.footer-col p{display:block;color:#A0A8C0;text-decoration:none;font-size:13px;margin-bottom:10px;transition:color .3s}
+    .footer-col a:hover{color:#00D8FF;text-decoration:none}
+    .footer-bottom{text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05);font-size:12px;color:#5A6275}
+    @media(max-width:768px){
+      .nav-links{display:none}
+      .mobile-menu-btn{display:block}
+      .article-reader{padding:24px}
+      .article-reader h1{font-size:30px}
+      .platform-card{padding:20px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Crypto<span>Novice</span></a>
+      <nav class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#articles">Articles</a>
+        <a href="index.html#podcasts">Podcasts</a>
+        <a href="index.html#tools">Tools</a>
+      </nav>
+      <button class="mobile-menu-btn" onclick="document.getElementById('mobileNav').style.display=document.getElementById('mobileNav').style.display==='flex'?'none':'flex'">☰</button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html#home" onclick="document.getElementById('mobileNav').style.display='none'">Home</a>
+      <a href="index.html#articles" onclick="document.getElementById('mobileNav').style.display='none'">Articles</a>
+      <a href="index.html#podcasts" onclick="document.getElementById('mobileNav').style.display='none'">Podcasts</a>
+      <a href="index.html#tools" onclick="document.getElementById('mobileNav').style.display='none'">Tools</a>
+    </nav>
+  </header>
+
+  <main class="container article-wrap">
+    <article class="article-reader">
+      <a href="index.html#articles" class="back-btn">← Back to articles</a>
+      <div class="meta-bar">
+        <span class="tag">Research</span>
+        <span>8 min read</span>
+        <span>October 2026</span>
+      </div>
+
+      <h1>What Is On-Chain Analysis?</h1>
+
+      <p>On-chain analysis is the process of examining and analysing cryptocurrency activity using data collected directly from the blockchain. This allows us to understand how cryptocurrencies are being used and how investors interact with different blockchain networks.</p>
+
+      <p>On-chain analysis is one of the ways cryptocurrencies are evaluated, alongside technical and fundamental analysis. It gives us access to publicly available blockchain data, allowing us to examine the activity and overall health of a cryptocurrency network.</p>
+
+      <p>The information extracted from the blockchain, such as transaction data, wallet balances and the movement of funds between addresses, can be used to assess market sentiment. This can be particularly useful when making investment decisions.</p>
+
+      <p>For example, imagine a new celebrity token has just been launched. Fear of missing out (FOMO) kicks in, and everyone seems to be buying the token. However, you're undecided about whether you should invest.</p>
+
+      <p>Instead of blindly following the crowd, you can use on-chain analysis to examine the token's activity, its holder distribution and the movement of funds between wallets. This may help you make a more informed decision.</p>
+
+      <p>The applications of on-chain analysis go beyond investment decisions. It can also be used to evaluate network activity, assess the distribution of cryptocurrency holdings, monitor buying and selling behaviour and assist criminal investigations by tracing transactions across blockchain networks.</p>
+
+      <h2>How Is On-Chain Analysis Used to Measure the Strength of a Network?</h2>
+
+      <p>On-chain metrics can be used by traders and investors to get an overview of a cryptocurrency network by examining blockchain data such as:</p>
+
+      <ul>
+        <li>Transaction volume</li>
+        <li>Active wallet addresses</li>
+        <li>Hash rate (for Proof-of-Work networks)</li>
+        <li>Wallet activity</li>
+        <li>Supply distribution</li>
+      </ul>
+
+      <p>These metrics can help answer questions such as:</p>
+
+      <ul>
+        <li>Is the network growing?</li>
+        <li>Are people actively using the network?</li>
+        <li>Is the network attracting new users?</li>
+        <li>How is the cryptocurrency distributed among its holders?</li>
+      </ul>
+
+      <h3>1. Active Wallet Addresses</h3>
+
+      <p>Active wallet addresses measure the number of unique blockchain addresses that have participated in transactions over a given period.</p>
+
+      <p>These addresses do not necessarily represent the actual number of people using a network. One individual can control multiple addresses, while exchanges, businesses, miners and smart contracts can also operate multiple addresses.</p>
+
+      <p>Nevertheless, an increase in active addresses can indicate growing network activity and adoption.</p>
+
+      <p>However, an increase does not automatically mean that more people are investing in the cryptocurrency. It is important to examine other metrics alongside active addresses to get a clearer picture.</p>
+
+      <h3>2. Transaction Volume</h3>
+
+      <p>Transaction volume measures the amount of cryptocurrency transferred between addresses over a given period. Depending on the metric, it may be presented in cryptocurrency units or its equivalent dollar value.</p>
+
+      <p>Transaction volume can help investors understand how much economic activity is taking place on a blockchain.</p>
+
+      <p>However, on-chain transaction volume should not be confused with exchange trading volume. The latter measures the amount of cryptocurrency traded on exchanges.</p>
+
+      <p>Both metrics can provide useful information when evaluating a cryptocurrency's activity and market performance.</p>
+
+      <h3>3. Supply Distribution</h3>
+
+      <p>A cryptocurrency network where a small number of wallets control a significant portion of the circulating supply may present certain risks.</p>
+
+      <p>Supply distribution shows how cryptocurrency holdings are distributed among wallet addresses, often grouping addresses according to the size of their holdings.</p>
+
+      <p>This is an important metric because large holders, commonly referred to as whales, can influence market movements through their buying and selling activities.</p>
+
+      <p>For example, if a whale accumulates a significant amount of a cryptocurrency and holds onto it (HODL), the amount of available supply on the market may decrease.</p>
+
+      <p>On the other hand, if large holders begin selling or transferring substantial amounts of their holdings to exchanges, this could increase selling pressure and contribute to market volatility.</p>
+
+      <p>It is worth remembering that wallet balances alone do not tell us whether an investor intends to buy or sell.</p>
+
+      <h3>4. Total Value Locked (TVL)</h3>
+
+      <p>Total Value Locked (TVL) is a term commonly used in decentralised finance (DeFi) to describe the total value of cryptocurrency assets deposited or locked in DeFi protocols and their smart contracts.</p>
+
+      <p>TVL can help investors evaluate the size, popularity and liquidity of a DeFi protocol.</p>
+
+      <p>For example, a DeFi lending protocol with a higher TVL may have attracted more deposits than a similar protocol with a lower TVL.</p>
+
+      <p>However, a higher TVL does not automatically mean that a protocol is trustworthy or secure. Investors should also examine its security, smart contract audits, liquidity conditions and other relevant factors.</p>
+
+      <h2>How Investors Use On-Chain Analysis</h2>
+
+      <p>On-chain analysis can be used to examine both short-term and long-term market trends. Let's look at some of the metrics investors use to understand market behaviour.</p>
+
+      <h3>Identifying Potential Short- and Medium-Term Market Movements</h3>
+
+      <p>When a large number of coins move onto cryptocurrency exchanges, it may indicate that some investors are preparing to sell.</p>
+
+      <p>For example, long-term holders who have accumulated Bitcoin at lower prices may transfer some of their holdings to exchanges to realise profits.</p>
+
+      <p>This could increase potential selling pressure and indicate that the market may experience a correction.</p>
+
+      <p>However, exchange inflows do not automatically mean that investors intend to sell. Coins may be moved for other reasons, such as reorganising wallets or transferring funds between exchange accounts.</p>
+
+      <p>Some other indicators investors use in this category include:</p>
+
+      <h3>Realized Profit and Loss</h3>
+
+      <p>Realized profit and loss measures the dollar value of profits or losses investors lock in when they spend or sell their cryptocurrency.</p>
+
+      <p>For example, if someone purchases Bitcoin at $60,000 and later sells it at $70,000, they have realised a profit of $10,000 before fees.</p>
+
+      <p>On the other hand, selling at $50,000 would result in a realised loss of $10,000.</p>
+
+      <h3>Supply in Profit and Loss</h3>
+
+      <p>This metric measures the amount of cryptocurrency currently held at a profit or loss based on the price at which the coins last moved on-chain.</p>
+
+      <p>It helps investors understand how much of a cryptocurrency's circulating supply is currently in profit or underwater.</p>
+
+      <h3>Realized Capitalization (Realized Cap)</h3>
+
+      <p>Realized capitalization is a way of valuing a cryptocurrency by assigning each coin a value based on the price at which it last moved on-chain and adding those values together.</p>
+
+      <p>Unlike traditional market capitalization, which calculates the value of a cryptocurrency using its current market price multiplied by its circulating supply, realized capitalization uses the last movement price as an approximate cost basis.</p>
+
+      <p>Investors can compare realized capitalization with market capitalization to get an idea of the market's overall unrealized profit or loss.</p>
+
+      <p>When market capitalization is greater than realized capitalization, the market is generally sitting on aggregate unrealized profits.</p>
+
+      <p>When realized capitalization is greater than market capitalization, the market is generally sitting on aggregate unrealized losses.</p>
+
+      <p>These are broad market indicators rather than guarantees of future price movements.</p>
+
+      <h2>Platforms That Offer On-Chain Analysis Tools</h2>
+
+      <p>There are several platforms that offer insightful charts, metrics and dashboards to help investors visualise and interpret blockchain data.</p>
+
+      <div class="platform-card">
+        <h3>1. Glassnode</h3>
+        <p>Glassnode is a popular on-chain analytics platform that provides a wide range of blockchain metrics. It is particularly useful for Bitcoin investors who want to monitor Bitcoin's on-chain activity because of Bitcoin's significance in the cryptocurrency market.</p>
+        <p>Some of the on-chain metrics available through Glassnode include:</p>
+        <ul>
+          <li>Active wallet addresses</li>
+          <li>Sending and receiving addresses</li>
+          <li>New addresses</li>
+          <li>Blocks mined</li>
+          <li>Realized capitalization</li>
+          <li>Realized profit and loss</li>
+          <li>Exchange inflows and outflows</li>
+        </ul>
+        <p><a href="https://glassnode.com/" target="_blank" rel="noopener noreferrer">Website: https://glassnode.com/</a></p>
+      </div>
+
+      <div class="platform-card">
+        <h3>2. Nansen</h3>
+        <p>Nansen is another on-chain analytics platform that helps investors track wallet activity, token movements and capital flows across supported blockchain networks.</p>
+        <p>It provides tools for identifying wallets associated with different market participants, including funds, whales and historically profitable traders.</p>
+        <p>Through its analytics tools, investors can examine:</p>
+        <ul>
+          <li>Smart Money movements</li>
+          <li>Token inflows and outflows</li>
+          <li>Whale activity</li>
+          <li>Wallet holdings</li>
+          <li>DeFi activity</li>
+          <li>Token buying and selling behaviour</li>
+        </ul>
+        <p><a href="https://www.nansen.ai/" target="_blank" rel="noopener noreferrer">Website: https://www.nansen.ai/</a></p>
+      </div>
+
+      <h2>Limitations of On-Chain Analysis</h2>
+
+      <p>Like other forms of cryptocurrency analysis, on-chain analysis has its limitations.</p>
+
+      <p>One of its biggest challenges is that blockchain data does not always tell us the full story behind a transaction.</p>
+
+      <p>For example, although we can see cryptocurrency moving between wallet addresses, we may not know the actual identity of the individuals controlling those wallets or the reasons behind their transactions.</p>
+
+      <p>Another limitation is that some metrics can be misinterpreted when examined in isolation. An increase in active addresses does not necessarily mean more individual investors are entering the market, just as an increase in exchange inflows does not automatically indicate an upcoming sell-off.</p>
+
+      <p>Furthermore, the availability and historical coverage of on-chain metrics can vary depending on the blockchain network and the analytics platform being used. As the cryptocurrency industry evolves, new metrics and analytical methods may also become necessary.</p>
+
+      <div class="callout">
+        Ultimately, the best traders and investors understand that no single form of analysis provides all the answers.
+      </div>
+
+      <p>Combining technical, fundamental, sentiment and on-chain analysis can provide a more comprehensive picture of the cryptocurrency market and help investors make more informed financial decisions.</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>CryptoNovice</h4>
+          <p>Educating, informing, and equipping crypto beginners with the best tools and platforms. No hype, just education.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="index.html#articles">Articles</a>
+          <a href="index.html#podcasts">Podcasts</a>
+          <a href="index.html#tools">Tools & Platforms</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="index.html#article-terminology">Crypto Terminology</a>
+          <a href="index.html#article-nfts">What Are NFTs?</a>
+          <a href="index.html#article-ethereum">Ethereum Ecosystem</a>
+          <a href="index.html#article-privacy">Privacy Coins</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://twitter.com" target="_blank">Twitter / X</a>
+          <a href="https://discord.com" target="_blank">Discord</a>
+          <a href="https://youtube.com" target="_blank">YouTube</a>
+          <a href="mailto:hello@cryptonovice.com">hello@cryptonovice.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 CryptoNovice. All rights reserved. Not financial advice.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
