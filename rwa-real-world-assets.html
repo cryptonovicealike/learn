@@ -9,237 +9,56 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0A0C12;
-      color: #E8EDF5;
-      line-height: 1.7;
-      background-image:
-        linear-gradient(rgba(10,12,18,0.88), rgba(10,12,18,0.88)),
-        url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1950&q=80');
-      background-position: center;
-      background-size: cover;
-      background-attachment: fixed;
-    }
-    a { color: #00D8FF; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(10,12,18,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,216,255,0.2);
-    }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 24px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    .logo {
-      font-size: 28px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #00D8FF, #8B5CF6);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -1px;
-    }
-    .logo span { font-weight: 400; color: #E8EDF5; }
-    .nav-links { display: flex; gap: 28px; align-items: center; }
-    .nav-links a {
-      color: #A0A8C0;
-      font-weight: 500;
-      font-size: 14px;
-      transition: color 0.3s ease;
-    }
-    .nav-links a:hover { color: #00D8FF; text-decoration: none; }
-    .mobile-menu-btn {
-      display: none;
-      font-size: 24px;
-      color: #E8EDF5;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      top: 65px;
-      left: 0;
-      width: 100%;
-      background: rgba(10,12,18,0.98);
-      border-bottom: 1px solid rgba(0,216,255,0.2);
-      padding: 16px 24px;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 99;
-    }
-    .mobile-nav a {
-      color: #A0A8C0;
-      font-weight: 500;
-      font-size: 15px;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .article-wrap { padding: 60px 0 80px; }
-    .article-reader {
-      max-width: 900px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 24px;
-      padding: 48px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-    }
-    .article-reader h1 {
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 16px;
-      color: #fff;
-      letter-spacing: -0.04em;
-    }
-    .article-reader h2 {
-      font-size: 1.7rem;
-      font-weight: 600;
-      margin: 32px 0 14px;
-      color: #00D8FF;
-      line-height: 1.3;
-    }
-    .article-reader h3 {
-      font-size: 1.12rem;
-      font-weight: 600;
-      margin: 24px 0 10px;
-      color: #E8EDF5;
-    }
-    .article-reader p,
-    .article-reader li {
-      color: #C8CED8;
-      font-size: 1.02rem;
-      line-height: 1.9;
-      margin-bottom: 16px;
-    }
-    .article-reader ul,
-    .article-reader ol {
-      margin: 16px 0 18px;
-      padding-left: 24px;
-    }
-    .article-reader strong { color: #fff; font-weight: 600; }
-    .article-reader blockquote {
-      border-left: 3px solid #00D8FF;
-      padding-left: 20px;
-      margin: 22px 0;
-      color: #A0A8C0;
-      font-style: italic;
-    }
-    .meta-bar {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      flex-wrap: wrap;
-    }
-    .meta-bar span {
-      font-size: 13px;
-      color: #5A6275;
-    }
-    .meta-bar .tag {
-      background: rgba(0,216,255,0.1);
-      color: #00D8FF;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #A0A8C0;
-      font-size: 14px;
-      margin-bottom: 24px;
-      transition: color 0.3s ease;
-    }
-    .back-btn:hover {
-      color: #00D8FF;
-      text-decoration: none;
-    }
-    .callout {
-      background: rgba(126,240,183,0.08);
-      border-left: 4px solid #7ef0b7;
-      padding: 16px 18px;
-      border-radius: 12px;
-      margin: 24px 0;
-      color: #dffdf0;
-    }
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-      margin-top: 28px;
-    }
-    .video-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 24px;
-    }
-    .video-card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 12px;
-      color: #fff;
-    }
-    .video-card p {
-      margin: 0;
-      color: #C8CED8;
-    }
-    footer {
-      background: rgba(0,0,0,0.3);
-      padding: 48px 0 24px;
-      margin-top: 60px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-    .footer-col h4 {
-      margin-bottom: 16px;
-      font-size: 16px;
-      color: #00D8FF;
-      font-weight: 600;
-    }
-    .footer-col a,
-    .footer-col p {
-      display: block;
-      color: #A0A8C0;
-      text-decoration: none;
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
-    .footer-bottom {
-      text-align: center;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      font-size: 12px;
-      color: #5A6275;
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .mobile-menu-btn { display: block; }
-      .article-reader { padding: 24px; }
-      .video-grid { grid-template-columns: 1fr; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:#0A0C12;color:#E8EDF5;line-height:1.7}
+    a{color:#00D8FF;text-decoration:none}
+    a:hover{text-decoration:underline}
+    body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;background:url(https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1950&q=80);background-size:cover;background-position:center}
+    body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,12,18,0.9);z-index:-1}
+    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:100;background:rgba(10,12,18,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,216,255,0.2)}
+    .nav-container{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;max-width:1400px;margin:0 auto}
+    .logo{font-size:28px;font-weight:800;background:linear-gradient(135deg,#00D8FF,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px}
+    .logo span{font-weight:400;color:#E8EDF5;background:none;-webkit-background-clip:unset}
+    .nav-links{display:flex;gap:28px;align-items:center}
+    .nav-links a{color:#A0A8C0;font-weight:500;font-size:14px;transition:color .3s}
+    .nav-links a:hover{color:#00D8FF}
+    .mobile-menu-btn{display:none;font-size:24px;color:#E8EDF5;background:none;border:none;cursor:pointer}
+    .mobile-nav{display:none;position:fixed;top:65px;left:0;width:100%;background:rgba(10,12,18,0.98);border-bottom:1px solid rgba(0,216,255,0.2);padding:16px 24px;flex-direction:column;gap:12px;z-index:99}
+    .mobile-nav a{color:#A0A8C0;font-weight:500;font-size:15px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+    .mobile-nav a:hover{color:#00D8FF}
+    .article-wrap{padding:60px 0 80px}
+    .article-reader{max-width:900px;margin:0 auto;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:24px;padding:48px}
+    .article-reader h1{font-size:40px;font-weight:700;line-height:1.15;margin-bottom:16px;color:#fff}
+    .article-reader h2{font-size:24px;font-weight:600;margin:30px 0 14px;color:#00D8FF}
+    .article-reader h3{font-size:18px;font-weight:600;margin:24px 0 10px;color:#E8EDF5}
+    .article-reader p, .article-reader li{color:#C8CED8;font-size:15px;line-height:1.8;margin-bottom:16px}
+    .article-reader ul, .article-reader ol{margin:16px 0;padding-left:24px}
+    .article-reader strong{color:#fff;font-weight:600}
+    .article-reader blockquote{border-left:3px solid #00D8FF;padding-left:20px;margin:22px 0;color:#A0A8C0;font-style:italic}
+    .meta-bar{display:flex;gap:16px;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+    .meta-bar span{font-size:13px;color:#5A6275}
+    .meta-bar .tag{background:rgba(0,216,255,0.1);color:#00D8FF;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500}
+    .back-btn{display:inline-flex;align-items:center;gap:8px;color:#A0A8C0;font-size:14px;margin-bottom:24px;transition:color .3s}
+    .back-btn:hover{color:#00D8FF;text-decoration:none}
+    .callout{background:rgba(126,240,183,0.08);border-left:4px solid #7ef0b7;padding:16px 18px;border-radius:12px;margin:24px 0;color:#dffdf0}
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:28px}
+    .video-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:24px}
+    .video-card h3{font-size:22px;margin-bottom:12px;color:#fff}
+    .video-card p{color:#C8CED8}
+    footer{background:rgba(0,0,0,0.3);padding:48px 0 24px;margin-top:60px;border-top:1px solid rgba(255,255,255,0.05)}
+    .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px}
+    .footer-col h4{margin-bottom:16px;font-size:16px;color:#00D8FF;font-weight:600}
+    .footer-col a,.footer-col p{display:block;color:#A0A8C0;text-decoration:none;font-size:13px;margin-bottom:10px;transition:color .3s}
+    .footer-col a:hover{color:#00D8FF;text-decoration:none}
+    .footer-bottom{text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05);font-size:12px;color:#5A6275}
+    @media(max-width:768px){
+      .nav-links{display:none}
+      .mobile-menu-btn{display:block}
+      .article-reader{padding:24px}
+      .article-reader h1{font-size:30px}
+      .video-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -247,16 +66,18 @@
   <header>
     <div class="nav-container">
       <a href="index.html" class="logo">Crypto<span>Novice</span></a>
-      <nav class="nav-links" aria-label="Main navigation">
+      <nav class="nav-links">
         <a href="index.html#home">Home</a>
         <a href="index.html#articles">Articles</a>
+        <a href="index.html#podcasts">Podcasts</a>
         <a href="index.html#tools">Tools</a>
       </nav>
-      <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" onclick="document.getElementById('mobileNav').style.display = document.getElementById('mobileNav').style.display === 'flex' ? 'none' : 'flex'">☰</button>
+      <button class="mobile-menu-btn" onclick="document.getElementById('mobileNav').style.display=document.getElementById('mobileNav').style.display==='flex'?'none':'flex'">☰</button>
     </div>
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <nav class="mobile-nav" id="mobileNav">
       <a href="index.html#home" onclick="document.getElementById('mobileNav').style.display='none'">Home</a>
       <a href="index.html#articles" onclick="document.getElementById('mobileNav').style.display='none'">Articles</a>
+      <a href="index.html#podcasts" onclick="document.getElementById('mobileNav').style.display='none'">Podcasts</a>
       <a href="index.html#tools" onclick="document.getElementById('mobileNav').style.display='none'">Tools</a>
     </nav>
   </header>
@@ -264,7 +85,6 @@
   <main class="container article-wrap">
     <article class="article-reader">
       <a href="index.html#articles" class="back-btn">← Back to articles</a>
-
       <div class="meta-bar">
         <span class="tag">Research</span>
         <span>12 min read</span>
@@ -283,4 +103,158 @@
 
       <p>Epic Chain's earlier post-rebrand vision included an ecosystem combining entertainment, NFTs, decentralized applications and RWA tokenization. Its RWA ambitions included areas such as collectibles and other forms of real-world value. Fanable, for example, was positioned as a consumer-facing platform for bringing physical and collectible assets into Web3.</p>
 
-      <p>However, there is an important current update: Epic Chain's official public positioning is now primarily as a 
+      <p>However, there is an important current update: Epic Chain's official website now presents the project primarily as a "Travel Layer for Crypto," offering crypto-based travel services such as hotel and flight bookings and XRP cashback. Therefore, older descriptions of Epic Chain as purely an entertainment-focused RWA Layer 2 should not be presented as if they are still the project's complete current direction.</p>
+
+      <p>Epic's connection with entertainment has not simply disappeared from its history. The project says that, during its Ethernity era, it worked with or advised major brands and personalities on digital assets, including Lionel Messi, Shaquille O'Neal, Toys R Us and the United States Space Force. These relationships should be described as specific partnerships, collaborations or advisory work rather than automatically treating every organization or celebrity as an investor, endorser or current Epic Chain partner.</p>
+
+      <p>This distinction is important because cryptocurrency projects can change direction quickly. A project can have an impressive history of partnerships while its current products and strategy look very different.</p>
+
+      <h2>RWA Tokenization</h2>
+
+      <p>The broader idea behind RWA tokenization is straightforward.</p>
+
+      <p>Imagine a real-world asset being represented by a blockchain token. Instead of ownership information existing entirely inside traditional financial or legal systems, some part of that ownership or economic interest can be represented on-chain.</p>
+
+      <p>This can potentially create benefits such as:</p>
+
+      <ul>
+        <li>Fractional ownership</li>
+        <li>Faster settlement</li>
+        <li>Greater transparency</li>
+        <li>Programmable ownership</li>
+        <li>Integration with decentralized applications</li>
+        <li>Access to new forms of liquidity</li>
+      </ul>
+
+      <p>But there is an important catch: a blockchain token does not magically eliminate traditional financial infrastructure. Real-world assets still need legal agreements, custodians, asset managers, regulatory frameworks and mechanisms for enforcing ownership rights.</p>
+
+      <p>This is one of the reasons RWA projects are interesting. They attempt to connect the traditional financial system with blockchain technology rather than completely replacing traditional finance.</p>
+
+      <h2>Be Careful With Influencer Endorsements</h2>
+
+      <p>The involvement of celebrities, influencers and large organizations can make a cryptocurrency project look more credible, but it should never be treated as proof that a project is a good investment.</p>
+
+      <p>A celebrity or influencer may have participated in a campaign, launched an NFT collection or worked with a project without necessarily endorsing its cryptocurrency as an investment.</p>
+
+      <p>This is particularly important in crypto because popularity and financial value are not the same thing.</p>
+
+      <p>Do your own research before buying any cryptocurrency or token. Do not simply take an influencer's word at face value. Look at the project's official documentation, token economics, technology, team, partnerships, legal structure and actual products.</p>
+
+      <h2>Ondo Finance</h2>
+
+      <p>Ondo Finance is another major name in the RWA sector. The company was established in 2021 by Nathan Allman and Pinku Surana, who were previously associated with Goldman Sachs. Ondo originally focused on DeFi products before developing a much stronger focus on tokenized financial assets.</p>
+
+      <p>Ondo's central idea is to bring traditional financial products onto public blockchains. Its products have included tokenized exposure to U.S. Treasuries and money-market assets.</p>
+
+      <p>One of its best-known products is OUSG, or Ondo Short-Term U.S. Treasuries Fund. OUSG provides eligible investors with exposure to short-term U.S. Treasury-related assets through a blockchain-based structure. Its current portfolio includes tokenized funds such as BlackRock's BUIDL, as well as products from other major asset managers.</p>
+
+      <p>Another Ondo product is USDY, a tokenized yield-bearing instrument backed by short-term U.S. Treasuries and other assets. Unlike simply holding the ONDO governance token, holding an RWA product such as USDY or OUSG involves a different structure and different rights. Therefore, it would be incorrect to say that buying ONDO automatically gives someone the yield generated by Ondo's tokenized Treasury products.</p>
+
+      <h2>OUSG</h2>
+
+      <p>OUSG stands for Ondo Short-Term U.S. Treasuries Fund.</p>
+
+      <p>It is designed primarily for institutional and other eligible investors and provides exposure to short-term U.S. Treasuries and money-market funds. Ondo's current documentation lists eligibility restrictions, meaning OUSG is not simply an unrestricted product available to everyone worldwide.</p>
+
+      <p>This is an important distinction when discussing RWA projects. Tokenization may put an asset on a blockchain, but that does not necessarily remove securities laws, investor requirements or geographic restrictions.</p>
+
+      <h2>Flux Finance</h2>
+
+      <p>Flux Finance is a decentralized lending protocol originally developed by the Ondo team and later transferred to the Ondo Foundation. It allows lending and borrowing using supported assets, including certain tokenized assets such as OUSG.</p>
+
+      <p>In simple terms, Flux is an example of how tokenized real-world assets can potentially interact with DeFi.</p>
+
+      <p>For example, supported tokenized assets can be used as collateral while users interact with lending and borrowing protocols. However, the exact assets that can be used, eligibility requirements and protocol rules can change, so users should always check the current documentation before interacting with the protocol.</p>
+
+      <h2>Traditional Finance Meets Blockchain</h2>
+
+      <p>This is what makes Ondo Finance particularly interesting within the RWA sector.</p>
+
+      <p>Ondo is not trying to create a completely separate financial system with no connection to traditional finance. Instead, it combines blockchain technology with traditional financial infrastructure, asset managers, custodians and regulatory structures.</p>
+
+      <p>Its ecosystem has included relationships with major financial institutions and asset managers. For example, Ondo's current OUSG information identifies exposure to funds managed by major firms including BlackRock, Franklin Templeton, WisdomTree and Fidelity, among others.</p>
+
+      <p>This also explains why calling Ondo a completely decentralized cryptocurrency project would be misleading.</p>
+
+      <p>The ONDO token is associated with governance within the Ondo ecosystem, while the underlying tokenized financial products depend on legal entities, custodians, asset managers and other traditional financial infrastructure. Ondo itself describes its approach as combining tokenization technology with traditional-finance practices such as regulatory compliance, investor protections and transparent reporting.</p>
+
+      <p>There is also an important development that should not be overlooked: Nathan Allman, Ondo's founder, passed away in May 2026. Following his death, Ondo announced that Ian De Bode would step into the CEO role. However, subsequent corporate governance disputes have complicated the leadership situation. Ondo's current team page lists Ian De Bode as Acting CEO and President. This is another reminder that investors should pay attention to developments within the companies behind the tokens they hold.</p>
+
+      <h2>Final Thoughts</h2>
+
+      <p>RWA is one of the more interesting areas of blockchain because it attempts to connect two worlds that have traditionally operated separately: traditional finance and decentralized technology.</p>
+
+      <p>Projects such as Epic Chain and Ondo Finance demonstrate different approaches to this idea. Epic has evolved from its Ethernity roots in digital collectibles and entertainment and has since expanded and changed its positioning, while Ondo has concentrated heavily on bringing financial assets such as U.S. Treasuries and other securities on-chain.</p>
+
+      <p>However, the RWA sector is still developing, and investors should not confuse tokenization with guaranteed profits or safety.</p>
+
+      <p>Do your own research before buying any cryptocurrency or interacting with an RWA protocol. Understand what the token actually represents, who legally owns the underlying asset, what rights the token holder receives, where the asset is held, what regulations apply and whether you are actually eligible to participate.</p>
+
+      <p>Blockchain technology can change how assets are represented and transferred, but it does not eliminate financial risk.</p>
+
+      <div class="callout">
+        <strong>Important:</strong> Tokenization can improve access and efficiency, but it does not remove legal, regulatory or custody risk. Always verify the official product documentation and the rights attached to any token before buying or interacting with a protocol.
+      </div>
+
+      <h2>Sources and Further Reading</h2>
+
+      <ul>
+        <li><a href="https://epicchain.io/" target="_blank" rel="noopener noreferrer">Epic Chain official website</a></li>
+        <li><a href="https://epicchain.io/blog/categories/news" target="_blank" rel="noopener noreferrer">Epic Chain news and announcements</a></li>
+        <li><a href="https://docs.ondo.finance/" target="_blank" rel="noopener noreferrer">Ondo Finance documentation</a></li>
+        <li><a href="https://docs.ondo.finance/qualified-access-products/eligibility" target="_blank" rel="noopener noreferrer">Ondo eligibility information</a></li>
+        <li><a href="https://docs.ondo.finance/qualified-access-products/ousg/eligibility-and-onboarding" target="_blank" rel="noopener noreferrer">OUSG eligibility and onboarding</a></li>
+        <li><a href="https://ondo.finance/ousg" target="_blank" rel="noopener noreferrer">OUSG official product page</a></li>
+        <li><a href="https://docs.fluxfinance.com/" target="_blank" rel="noopener noreferrer">Flux Finance documentation</a></li>
+      </ul>
+
+      <h2>Educational Resources</h2>
+
+      <p>If you are more of a visual learner please watch the videos below 👇</p>
+
+      <div class="video-grid">
+        <div class="video-card">
+          <h3>Video 1</h3>
+          <p><a href="https://youtu.be/jqtofeJI3AU?si=K4IoRuQ6MBsbfG18" target="_blank" rel="noopener noreferrer">https://youtu.be/jqtofeJI3AU?si=K4IoRuQ6MBsbfG18</a></p>
+        </div>
+        <div class="video-card">
+          <h3>Video 2</h3>
+          <p><a href="https://youtu.be/hVwyrY2TKqU?si=4PhumXsbLXBiPZDr" target="_blank" rel="noopener noreferrer">https://youtu.be/hVwyrY2TKqU?si=4PhumXsbLXBiPZDr</a></p>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>CryptoNovice</h4>
+          <p>Educating, informing, and equipping crypto beginners with the best tools and platforms. No hype, just education.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="index.html#articles">Articles</a>
+          <a href="index.html#tools">Tools & Platforms</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="on-chain-analysis.html">What Is On-Chain Analysis?</a>
+          <a href="coins-vs-tokens.html">Coins vs. Tokens</a>
+          <a href="fear-and-greed-index.html">Fear and Greed Index</a>
+          <a href="dont-sleep-on-altcoins.html">Don't Sleep on Altcoins</a>
+          <a href="why-invest-in-bitcoin.html">Why Invest in Bitcoin</a>
+          <a href="research-tools.html">Crypto Analysis and Data Tools for Better Research</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 CryptoNovice. All rights reserved. Not financial advice.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
