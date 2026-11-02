@@ -21,7 +21,7 @@
         --purple: #8B5CF6;
         --shadow: 0 18px 40px rgba(0,0,0,0.28);
       }
- 
+  
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html { scroll-behavior: smooth; }
       body {
@@ -37,16 +37,16 @@
         background-size: cover;
         background-attachment: fixed;
       }
- 
+  
       a { color: var(--cyan); text-decoration: none; }
       a:hover { text-decoration: underline; }
- 
+  
       .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 24px;
       }
- 
+  
       header {
         position: sticky;
         top: 0;
@@ -55,7 +55,7 @@
         backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(0,216,255,0.2);
       }
- 
+  
       .nav-container {
         max-width: 1400px;
         margin: 0 auto;
@@ -64,7 +64,7 @@
         justify-content: space-between;
         align-items: center;
       }
- 
+  
       .logo {
         font-size: 28px;
         font-weight: 800;
@@ -74,7 +74,7 @@
         color: transparent;
         letter-spacing: -1px;
       }
- 
+  
       .logo span {
         font-weight: 400;
         color: var(--text);
@@ -82,25 +82,25 @@
         -webkit-background-clip: unset;
         background-clip: unset;
       }
- 
+  
       .nav-links {
         display: flex;
         align-items: center;
         gap: 28px;
       }
- 
+  
       .nav-links a {
         color: var(--muted);
         font-weight: 500;
         font-size: 14px;
         transition: color 0.3s ease;
       }
- 
+  
       .nav-links a:hover {
         color: var(--cyan);
         text-decoration: none;
       }
- 
+  
       .mobile-menu-btn {
         display: none;
         padding: 8px 10px;
@@ -111,7 +111,7 @@
         border-radius: 8px;
         cursor: pointer;
       }
- 
+  
       .mobile-nav {
         display: none;
         flex-direction: column;
@@ -121,24 +121,24 @@
         border-top: 1px solid rgba(0,216,255,0.2);
         border-bottom: 1px solid rgba(0,216,255,0.2);
       }
- 
+  
       .mobile-nav a {
         color: var(--muted);
         font-size: 15px;
         padding: 8px 0;
         border-bottom: 1px solid rgba(255,255,255,0.05);
       }
- 
+  
       .hero {
         padding: 72px 0 40px;
       }
- 
+  
       .hero-inner {
         max-width: 900px;
         margin: 0 auto;
         text-align: center;
       }
- 
+  
       .eyebrow {
         display: inline-block;
         margin-bottom: 16px;
@@ -152,7 +152,7 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
- 
+  
       h1 {
         font-size: clamp(2.5rem, 5vw, 4.2rem);
         line-height: 1.08;
@@ -160,22 +160,22 @@
         margin-bottom: 16px;
         color: #ffffff;
       }
- 
+  
       .hero p {
         max-width: 760px;
         margin: 0 auto;
         font-size: 1.1rem;
         color: var(--muted);
       }
- 
+  
       .main-content {
         padding-bottom: 32px;
       }
- 
+  
       .section-block {
         padding: 26px 0 12px;
       }
- 
+  
       .section-header {
         display: flex;
         align-items: end;
@@ -183,26 +183,26 @@
         gap: 16px;
         margin-bottom: 20px;
       }
- 
+  
       .section-header h2 {
         font-size: clamp(1.8rem, 3vw, 2.5rem);
         letter-spacing: -0.04em;
         color: #ffffff;
       }
- 
+  
       .section-header span {
         color: var(--muted);
         font-size: 13px;
         text-transform: uppercase;
         letter-spacing: 0.08em;
       }
- 
+  
       .card-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 22px;
       }
- 
+  
       .card {
         display: flex;
         flex-direction: column;
@@ -214,12 +214,12 @@
         box-shadow: var(--shadow);
         transition: transform 0.18s ease, border-color 0.18s ease;
       }
- 
+  
       .card:hover {
         transform: translateY(-2px);
         border-color: rgba(0,216,255,0.25);
       }
- 
+  
       .card-tag {
         align-self: flex-start;
         padding: 6px 10px;
@@ -232,21 +232,21 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
- 
+  
       .card h3 {
         margin: 0 0 12px;
         font-size: 1.45rem;
         line-height: 1.3;
         color: #ffffff;
       }
- 
+  
       .card p {
         color: var(--muted);
         font-size: 0.98rem;
         margin-bottom: 18px;
         flex: 1;
       }
- 
+  
       .card-meta {
         display: flex;
         justify-content: space-between;
@@ -258,34 +258,34 @@
         font-size: 12px;
         font-weight: 500;
       }
- 
+  
       .card-link {
         font-weight: 700;
         color: var(--cyan);
         text-decoration: none;
       }
- 
+  
       footer {
         background: rgba(0,0,0,0.28);
         border-top: 1px solid rgba(255,255,255,0.05);
         padding: 48px 0 24px;
         margin-top: 48px;
       }
- 
+  
       .footer-content {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 40px;
         margin-bottom: 40px;
       }
- 
+  
       .footer-col h4 {
         margin-bottom: 16px;
         font-size: 16px;
         color: var(--cyan);
         font-weight: 600;
       }
- 
+  
       .footer-col a,
       .footer-col p {
         display: block;
@@ -294,7 +294,7 @@
         font-size: 13px;
         margin-bottom: 10px;
       }
- 
+  
       .footer-bottom {
         text-align: center;
         padding-top: 24px;
@@ -302,7 +302,7 @@
         font-size: 12px;
         color: var(--muted-2);
       }
- 
+  
       @media (max-width: 768px) {
         .nav-links { display: none; }
         .mobile-menu-btn { display: inline-flex; }
@@ -322,7 +322,7 @@
           <a href="#articles">Articles</a>
           <a href="#tools">Tools</a>
         </nav>
-        <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" onclick="document.getElementById('mobileNav').style.display = document.getElementById('mobileNav').style.display === 'flex' ? 'none' : 'flex'">☰</button>
+        <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" onclick="document.getElementById('mobileNav').style.display = document.getElementById('mobileNav').style.display === 'block' ? 'none' : 'block'">☰</button>
       </div>
       <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
         <a href="#home" onclick="document.getElementById('mobileNav').style.display='none'">Home</a>
@@ -330,7 +330,7 @@
         <a href="#tools" onclick="document.getElementById('mobileNav').style.display='none'">Tools</a>
       </nav>
     </header>
- 
+  
     <main id="home" class="container main-content">
       <section class="hero">
         <div class="hero-inner">
@@ -339,7 +339,7 @@
           <p>From blockchain basics to market sentiment and research tools, CryptoNovice helps you understand crypto with simple, practical education.</p>
         </div>
       </section>
- 
+  
       <section id="articles" class="section-block">
         <div class="section-header">
           <h2>Research</h2>
@@ -355,7 +355,7 @@
               <a href="on-chain-analysis.html" class="card-link">Read →</a>
             </div>
           </article>
-
+  
           <article class="card">
             <span class="card-tag">Research</span>
             <h3>RWA: Real-World Assets</h3>
@@ -367,7 +367,7 @@
           </article>
         </div>
       </section>
- 
+  
       <section class="section-block">
         <div class="section-header">
           <h2>Beginner Guides</h2>
@@ -383,7 +383,7 @@
               <a href="coins-vs-tokens.html" class="card-link">Read →</a>
             </div>
           </article>
- 
+  
           <article class="card">
             <span class="card-tag">Beginner</span>
             <h3>Fear and Greed Index</h3>
@@ -393,7 +393,7 @@
               <a href="fear-and-greed-index.html" class="card-link">Read →</a>
             </div>
           </article>
- 
+  
           <article class="card">
             <span class="card-tag">Beginner</span>
             <h3>Don't Sleep on Altcoins</h3>
@@ -403,7 +403,7 @@
               <a href="dont-sleep-on-altcoins.html" class="card-link">Read →</a>
             </div>
           </article>
- 
+  
           <article class="card">
             <span class="card-tag">Beginner</span>
             <h3>Why Invest in Bitcoin and Other Cryptocurrencies</h3>
@@ -413,9 +413,19 @@
               <a href="why-invest-in-bitcoin.html" class="card-link">Read →</a>
             </div>
           </article>
+
+          <article class="card">
+            <span class="card-tag">Beginner</span>
+            <h3>So Let's Talk About Bitcoin Pizza Day 🍕</h3>
+            <p>From the famous 10,000 BTC pizza purchase to the legacy of Laszlo Hanyecz, this beginner-friendly article explains why Bitcoin Pizza Day matters so much in crypto history.</p>
+            <div class="card-meta">
+              <span>7 min read</span>
+              <a href="bitcoin-pizza-day.html" class="card-link">Read →</a>
+            </div>
+          </article>
         </div>
       </section>
- 
+  
       <section id="tools" class="section-block">
         <div class="section-header">
           <h2>Tools & Platforms</h2>
@@ -434,7 +444,7 @@
         </div>
       </section>
     </main>
- 
+  
     <footer>
       <div class="container">
         <div class="footer-content">
@@ -442,13 +452,13 @@
             <h4>CryptoNovice</h4>
             <p>Educating, informing, and equipping crypto beginners with the best tools and platforms. No hype, just education.</p>
           </div>
- 
+  
           <div class="footer-col">
             <h4>Explore</h4>
             <a href="#articles">Articles</a>
             <a href="#tools">Tools & Platforms</a>
           </div>
- 
+  
           <div class="footer-col">
             <h4>Articles</h4>
             <a href="on-chain-analysis.html">What Is On-Chain Analysis?</a>
@@ -456,10 +466,11 @@
             <a href="fear-and-greed-index.html">Fear and Greed Index</a>
             <a href="dont-sleep-on-altcoins.html">Don't Sleep on Altcoins</a>
             <a href="why-invest-in-bitcoin.html">Why Invest in Bitcoin</a>
+            <a href="bitcoin-pizza-day.html">So Let's Talk About Bitcoin Pizza Day 🍕</a>
             <a href="research-tools.html">Crypto Analysis and Data Tools for Better Research</a>
           </div>
         </div>
- 
+  
         <div class="footer-bottom">
           <p>© 2026 CryptoNovice. All rights reserved. Not financial advice.</p>
         </div>
