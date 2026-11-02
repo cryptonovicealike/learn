@@ -30,7 +30,8 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      background-image: linear-gradient(rgba(10,12,18,0.88), rgba(10,12,18,0.88)),
+      background-image:
+        linear-gradient(rgba(10,12,18,0.88), rgba(10,12,18,0.88)),
         url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1950&q=80');
       background-position: center;
       background-size: cover;
@@ -264,20 +265,6 @@
       text-decoration: none;
     }
 
-    .info-panel {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 24px;
-      padding: 26px 30px;
-      margin-top: 18px;
-    }
-
-    .info-panel p {
-      color: var(--muted);
-      margin-top: 10px;
-      font-size: 1rem;
-    }
-
     footer {
       background: rgba(0,0,0,0.28);
       border-top: 1px solid rgba(255,255,255,0.05);
@@ -321,13 +308,8 @@
       .mobile-menu-btn { display: inline-flex; }
       .hero { padding-top: 54px; }
       .card { min-height: 0; }
-      .section-header {
-        display: block;
-      }
-      .section-header span {
-        display: inline-block;
-        margin-top: 10px;
-      }
+      .section-header { display: block; }
+      .section-header span { display: inline-block; margin-top: 10px; }
     }
   </style>
 </head>
@@ -338,15 +320,15 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#articles">Articles</a>
-        <a href="#podcasts">Podcasts</a>
         <a href="#tools">Tools</a>
       </nav>
-      <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" onclick="document.getElementById('mobileNav').style.display = document.getElementById('mobileNav').style.display === 'flex' ? 'none' : 'flex'">☰</button>
+      <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" onclick="document.getElementById('mobileNav').style.display = document.getElementById('mobileNav').style.display === 'flex' ? 'none' : 'flex'">
+        ☰
+      </button>
     </div>
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
       <a href="#home" onclick="document.getElementById('mobileNav').style.display='none'">Home</a>
       <a href="#articles" onclick="document.getElementById('mobileNav').style.display='none'">Articles</a>
-      <a href="#podcasts" onclick="document.getElementById('mobileNav').style.display='none'">Podcasts</a>
       <a href="#tools" onclick="document.getElementById('mobileNav').style.display='none'">Tools</a>
     </nav>
   </header>
@@ -369,8 +351,11 @@
         <article class="card">
           <span class="card-tag">Research</span>
           <h3>What Is On-Chain Analysis?</h3>
-          <p>Learn how blockchain data is used to study network activity, wallet behavior, supply distribution, and the strength of crypto ecosystems.</p>
-          <div class="card-meta"><span>8 min read</span><a href="on-chain-analysis.html" class="card-link">Read →</a></div>
+          <p>Learn what on-chain analysis is, how it works, and which metrics help measure the health of a blockchain network.</p>
+          <div class="card-meta">
+            <span>8 min read</span>
+            <a href="on-chain-analysis.html" class="card-link">Read →</a>
+          </div>
         </article>
       </div>
     </section>
@@ -384,22 +369,31 @@
         <article class="card">
           <span class="card-tag">Beginner</span>
           <h3>Coins vs. Tokens: What Is the Difference?</h3>
-          <p>Understand the difference between a blockchain coin and a token built on top of an existing network.</p>
-          <div class="card-meta"><span>10 min read</span><a href="coins-vs-tokens.html" class="card-link">Read →</a></div>
+          <p>Learn the difference between coins and tokens in cryptocurrency, including security risks and fraud examples.</p>
+          <div class="card-meta">
+            <span>10 min read</span>
+            <a href="coins-vs-tokens.html" class="card-link">Read →</a>
+          </div>
         </article>
 
         <article class="card">
           <span class="card-tag">Beginner</span>
           <h3>Fear and Greed Index</h3>
-          <p>Learn what the Fear and Greed Index tells you about market sentiment and how to interpret the numbers.</p>
-          <div class="card-meta"><span>7 min read</span><a href="fear-and-greed-index.html" class="card-link">Read →</a></div>
+          <p>Learn what the Fear and Greed Index is, how to read it, and where to find reliable market sentiment indicators.</p>
+          <div class="card-meta">
+            <span>7 min read</span>
+            <a href="fear-and-greed-index.html" class="card-link">Read →</a>
+          </div>
         </article>
 
         <article class="card">
           <span class="card-tag">Beginner</span>
           <h3>Why Invest in Bitcoin and Other Cryptocurrencies</h3>
-          <p>Explore the case for Bitcoin and crypto through decentralization, scarcity, transparency, and global adoption.</p>
-          <div class="card-meta"><span>10 min read</span><a href="why-invest-in-bitcoin.html" class="card-link">Read →</a></div>
+          <p>Why invest in Bitcoin and other cryptocurrencies? Learn about decentralization, scarcity, security, institutional adoption, and the case for digital money.</p>
+          <div class="card-meta">
+            <span>10 min read</span>
+            <a href="why-invest-in-bitcoin.html" class="card-link">Read →</a>
+          </div>
         </article>
       </div>
     </section>
@@ -413,19 +407,12 @@
         <article class="card">
           <span class="card-tag">Research Tools</span>
           <h3>Crypto Analysis and Data Tools for Better Research</h3>
-          <p>Explore practical platforms for researching projects, market data, social sentiment, and blockchain activity.</p>
-          <div class="card-meta"><span>12 min read</span><a href="research-tools.html" class="card-link">Read →</a></div>
+          <p>Essential platforms for researching cryptocurrency projects and market data.</p>
+          <div class="card-meta">
+            <span>12 min read</span>
+            <a href="research-tools.html" class="card-link">Read →</a>
+          </div>
         </article>
-      </div>
-    </section>
-
-    <section id="podcasts" class="section-block">
-      <div class="section-header">
-        <h2>Podcasts</h2>
-        <span>Coming soon</span>
-      </div>
-      <div class="info-panel">
-        <p>CryptoNovice podcast episodes and market conversations are being added as the learning library grows. The focus remains simple: clear explanations, practical education, and no hype.</p>
       </div>
     </section>
   </main>
@@ -437,28 +424,23 @@
           <h4>CryptoNovice</h4>
           <p>Educating, informing, and equipping crypto beginners with the best tools and platforms. No hype, just education.</p>
         </div>
+
         <div class="footer-col">
           <h4>Explore</h4>
           <a href="#articles">Articles</a>
-          <a href="#podcasts">Podcasts</a>
           <a href="#tools">Tools & Platforms</a>
         </div>
+
         <div class="footer-col">
           <h4>Articles</h4>
           <a href="on-chain-analysis.html">What Is On-Chain Analysis?</a>
           <a href="coins-vs-tokens.html">Coins vs. Tokens</a>
           <a href="fear-and-greed-index.html">Fear and Greed Index</a>
           <a href="why-invest-in-bitcoin.html">Why Invest in Bitcoin</a>
-          <a href="research-tools.html">Research Tools</a>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter / X</a>
-          <a href="https://discord.com" target="_blank" rel="noopener noreferrer">Discord</a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
-          <a href="mailto:hello@cryptonovice.com">hello@cryptonovice.com</a>
+          <a href="research-tools.html">Crypto Analysis and Data Tools for Better Research</a>
         </div>
       </div>
+
       <div class="footer-bottom">
         <p>© 2026 CryptoNovice. All rights reserved. Not financial advice.</p>
       </div>
