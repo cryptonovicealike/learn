@@ -1,450 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CryptoNovice - Learn crypto without the hype through beginner-friendly education, research articles, and practical tools.">
-  <title>CryptoNovice | Learn Crypto Without the Hype</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%82%BF%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0A0C12;
-      --card: rgba(255,255,255,0.03);
-      --card-border: rgba(255,255,255,0.06);
-      --text: #E8EDF5;
-      --muted: #A0A8C0;
-      --muted-2: #5A6275;
-      --cyan: #00D8FF;
-      --purple: #8B5CF6;
-      --shadow: 0 18px 40px rgba(0,0,0,0.28);
-    }
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="CryptoNovice - Learn crypto without the hype through beginner-friendly education, research articles, and practical tools.">
+   <title>CryptoNovice | Learn Crypto Without the Hype</title>
+   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%82%BF%3C/text%3E%3C/svg%3E">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   <style>
+     :root {
+       --bg: #0A0C12;
+       --card: rgba(255,255,255,0.03);
+       --card-border: rgba(255,255,255,0.06);
+       --text: #E8EDF5;
+       --muted: #A0A8C0;
+       --muted-2: #5A6275;
+       --cyan: #00D8FF;
+       --purple: #8B5CF6;
+       --shadow: 0 18px 40px rgba(0,0,0,0.28);
+     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      background-image:
-        linear-gradient(rgba(10,12,18,0.88), rgba(10,12,18,0.88)),
-        url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1950&q=80');
-      background-position: center;
-      background-size: cover;
-      background-attachment: fixed;
-    }
+     * { box-sizing: border-box; margin: 0; padding: 0; }
+     html { scroll-behavior: smooth; }
+     body {
+       margin: 0;
+       font-family: 'Inter', sans-serif;
+       background: var(--bg);
+       color: var(--text);
+       line-height: 1.6;
+       background-image:
+         linear-gradient(rgba(10,12,18,0.88), rgba(10,12,18,0.88)),
+         url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1950&q=80');
+       background-position: center;
+       background-size: cover;
+       background-attachment: fixed;
+     }
 
-    a { color: var(--cyan); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+     a { color: var(--cyan); text-decoration: none; }
+     a:hover { text-decoration: underline; }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+     .container {
+       max-width: 1200px;
+       margin: 0 auto;
+       padding: 0 24px;
+     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(10,12,18,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,216,255,0.2);
-    }
+     header {
+       position: sticky;
+       top: 0;
+       z-index: 100;
+       background: rgba(10,12,18,0.95);
+       backdrop-filter: blur(12px);
+       border-bottom: 1px solid rgba(0,216,255,0.2);
+     }
 
-    .nav-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+     .nav-container {
+       max-width: 1400px;
+       margin: 0 auto;
+       padding: 16px 24px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+     }
 
-    .logo {
-      font-size: 28px;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -1px;
-    }
+     .logo {
+       font-size: 28px;
+       font-weight: 800;
+       background: linear-gradient(135deg, var(--cyan), var(--purple));
+       -webkit-background-clip: text;
+       background-clip: text;
+       color: transparent;
+       letter-spacing: -1px;
+     }
 
-    .logo span {
-      font-weight: 400;
-      color: var(--text);
-      background: none;
-      -webkit-background-clip: unset;
-      background-clip: unset;
-    }
+     .logo span {
+       font-weight: 400;
+       color: var(--text);
+       background: none;
+       -webkit-background-clip: unset;
+       background-clip: unset;
+     }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
+     .nav-links {
+       display: flex;
+       align-items: center;
+       gap: 28px;
+     }
 
-    .nav-links a {
-      color: var(--muted);
-      font-weight: 500;
-      font-size: 14px;
-      transition: color 0.3s ease;
-    }
+     .nav-links a {
+       color: var(--muted);
+       font-weight: 500;
+       font-size: 14px;
+       transition: color 0.3s ease;
+     }
 
-    .nav-links a:hover {
-      color: var(--cyan);
-      text-decoration: none;
-    }
+     .nav-links a:hover {
+       color: var(--cyan);
+       text-decoration: none;
+     }
 
-    .mobile-menu-btn {
-      display: none;
-      padding: 8px 10px;
-      font-size: 24px;
-      color: var(--text);
-      background: none;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      cursor: pointer;
-    }
+     .mobile-menu-btn {
+       display: none;
+       padding: 8px 10px;
+       font-size: 24px;
+       color: var(--text);
+       background: none;
+       border: 1px solid rgba(255,255,255,0.1);
+       border-radius: 8px;
+       cursor: pointer;
+     }
 
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      gap: 12px;
-      padding: 16px 24px 20px;
-      background: rgba(10,12,18,0.98);
-      border-top: 1px solid rgba(0,216,255,0.2);
-      border-bottom: 1px solid rgba(0,216,255,0.2);
-    }
+     .mobile-nav {
+       display: none;
+       flex-direction: column;
+       gap: 12px;
+       padding: 16px 24px 20px;
+       background: rgba(10,12,18,0.98);
+       border-top: 1px solid rgba(0,216,255,0.2);
+       border-bottom: 1px solid rgba(0,216,255,0.2);
+     }
 
-    .mobile-nav a {
-      color: var(--muted);
-      font-size: 15px;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
+     .mobile-nav a {
+       color: var(--muted);
+       font-size: 15px;
+       padding: 8px 0;
+       border-bottom: 1px solid rgba(255,255,255,0.05);
+     }
 
-    .hero {
-      padding: 72px 0 40px;
-    }
+     .hero {
+       padding: 72px 0 40px;
+     }
 
-    .hero-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
+     .hero-inner {
+       max-width: 900px;
+       margin: 0 auto;
+       text-align: center;
+     }
 
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 16px;
-      padding: 6px 14px;
-      border: 1px solid rgba(0,216,255,0.25);
-      background: rgba(0,216,255,0.08);
-      color: var(--cyan);
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
+     .eyebrow {
+       display: inline-block;
+       margin-bottom: 16px;
+       padding: 6px 14px;
+       border: 1px solid rgba(0,216,255,0.25);
+       background: rgba(0,216,255,0.08);
+       color: var(--cyan);
+       border-radius: 999px;
+       font-size: 12px;
+       font-weight: 700;
+       letter-spacing: 0.08em;
+       text-transform: uppercase;
+     }
 
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4.2rem);
-      line-height: 1.08;
-      letter-spacing: -0.06em;
-      margin-bottom: 16px;
-      color: #ffffff;
-    }
+     h1 {
+       font-size: clamp(2.5rem, 5vw, 4.2rem);
+       line-height: 1.08;
+       letter-spacing: -0.06em;
+       margin-bottom: 16px;
+       color: #ffffff;
+     }
 
-    .hero p {
-      max-width: 760px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      color: var(--muted);
-    }
+     .hero p {
+       max-width: 760px;
+       margin: 0 auto;
+       font-size: 1.1rem;
+       color: var(--muted);
+     }
 
-    .main-content {
-      padding-bottom: 32px;
-    }
+     .main-content {
+       padding-bottom: 32px;
+     }
 
-    .section-block {
-      padding: 26px 0 12px;
-    }
+     .section-block {
+       padding: 26px 0 12px;
+     }
 
-    .section-header {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
+     .section-header {
+       display: flex;
+       align-items: end;
+       justify-content: space-between;
+       gap: 16px;
+       margin-bottom: 20px;
+     }
 
-    .section-header h2 {
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      letter-spacing: -0.04em;
-      color: #ffffff;
-    }
+     .section-header h2 {
+       font-size: clamp(1.8rem, 3vw, 2.5rem);
+       letter-spacing: -0.04em;
+       color: #ffffff;
+     }
 
-    .section-header span {
-      color: var(--muted);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
+     .section-header span {
+       color: var(--muted);
+       font-size: 13px;
+       text-transform: uppercase;
+       letter-spacing: 0.08em;
+     }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-    }
+     .card-grid {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+       gap: 22px;
+     }
 
-    .card {
-      display: flex;
-      flex-direction: column;
-      min-height: 220px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 20px;
-      padding: 22px 22px 18px;
-      box-shadow: var(--shadow);
-      transition: transform 0.18s ease, border-color 0.18s ease;
-    }
+     .card {
+       display: flex;
+       flex-direction: column;
+       min-height: 220px;
+       background: rgba(255,255,255,0.03);
+       border: 1px solid rgba(255,255,255,0.06);
+       border-radius: 20px;
+       padding: 22px 22px 18px;
+       box-shadow: var(--shadow);
+       transition: transform 0.18s ease, border-color 0.18s ease;
+     }
 
-    .card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(0,216,255,0.25);
-    }
+     .card:hover {
+       transform: translateY(-2px);
+       border-color: rgba(0,216,255,0.25);
+     }
 
-    .card-tag {
-      align-self: flex-start;
-      padding: 6px 10px;
-      margin-bottom: 18px;
-      border-radius: 999px;
-      background: rgba(0,216,255,0.1);
-      color: var(--cyan);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
+     .card-tag {
+       align-self: flex-start;
+       padding: 6px 10px;
+       margin-bottom: 18px;
+       border-radius: 999px;
+       background: rgba(0,216,255,0.1);
+       color: var(--cyan);
+       font-size: 11px;
+       font-weight: 700;
+       letter-spacing: 0.08em;
+       text-transform: uppercase;
+     }
 
-    .card h3 {
-      margin: 0 0 12px;
-      font-size: 1.45rem;
-      line-height: 1.3;
-      color: #ffffff;
-    }
+     .card h3 {
+       margin: 0 0 12px;
+       font-size: 1.45rem;
+       line-height: 1.3;
+       color: #ffffff;
+     }
 
-    .card p {
-      color: var(--muted);
-      font-size: 0.98rem;
-      margin-bottom: 18px;
-      flex: 1;
-    }
+     .card p {
+       color: var(--muted);
+       font-size: 0.98rem;
+       margin-bottom: 18px;
+       flex: 1;
+     }
 
-    .card-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding-top: 14px;
-      color: var(--muted-2);
-      font-size: 12px;
-      font-weight: 500;
-    }
+     .card-meta {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       gap: 12px;
+       border-top: 1px solid rgba(255,255,255,0.05);
+       padding-top: 14px;
+       color: var(--muted-2);
+       font-size: 12px;
+       font-weight: 500;
+     }
 
-    .card-link {
-      font-weight: 700;
-      color: var(--cyan);
-      text-decoration: none;
-    }
+     .card-link {
+       font-weight: 700;
+       color: var(--cyan);
+       text-decoration: none;
+     }
 
-    footer {
-      background: rgba(0,0,0,0.28);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding: 48px 0 24px;
-      margin-top: 48px;
-    }
+     footer {
+       background: rgba(0,0,0,0.28);
+       border-top: 1px solid rgba(255,255,255,0.05);
+       padding: 48px 0 24px;
+       margin-top: 48px;
+     }
 
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
-    }
+     .footer-content {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+       gap: 40px;
+       margin-bottom: 40px;
+     }
 
-    .footer-col h4 {
-      margin-bottom: 16px;
-      font-size: 16px;
-      color: var(--cyan);
-      font-weight: 600;
-    }
+     .footer-col h4 {
+       margin-bottom: 16px;
+       font-size: 16px;
+       color: var(--cyan);
+       font-weight: 600;
+     }
 
-    .footer-col a,
-    .footer-col p {
-      display: block;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
+     .footer-col a,
+     .footer-col p {
+       display: block;
+       color: var(--muted);
+       text-decoration: none;
+       font-size: 13px;
+       margin-bottom: 10px;
+     }
 
-    .footer-bottom {
-      text-align: center;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      font-size: 12px;
-      color: var(--muted-2);
-    }
+     .footer-bottom {
+       text-align: center;
+       padding-top: 24px;
+       border-top: 1px solid rgba(255,255,255,0.05);
+       font-size: 12px;
+       color: var(--muted-2);
+     }
 
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .mobile-menu-btn { display: inline-flex; }
-      .hero { padding-top: 54px; }
-      .card { min-height: 0; }
-      .section-header { display: block; }
-      .section-header span { display: inline-block; margin-top: 10px; }
-    }
-  </style>
+     @media (max-width: 768px) {
+       .nav-links { display: none; }
+       .mobile-menu-btn { display: inline-flex; }
+       .hero { padding-top: 54px; }
+       .card { min-height: 0; }
+       .section-header { display: block; }
+       .section-header span { display: inline-block; margin-top: 10px; }
+     }
+   </style>
 </head>
 <body>
-  <header>
-    <div class="nav-container">
-      <a href="index.html" class="logo">Crypto<span>Novice</span></a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#articles">Articles</a>
-        <a href="#tools">Tools</a>
-      </nav>
-      <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" onclick="document.getElementById('mobileNav').style.display = document.getElementById('mobileNav').style.display === 'flex' ? 'none' : 'flex'">
-        ☰
-      </button>
-    </div>
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-      <a href="#home" onclick="document.getElementById('mobileNav').style.display='none'">Home</a>
-      <a href="#articles" onclick="document.getElementById('mobileNav').style.display='none'">Articles</a>
-      <a href="#tools" onclick="document.getElementById('mobileNav').style.display='none'">Tools</a>
-    </nav>
-  </header>
+   <header>
+     <div class="nav-container">
+       <a href="index.html" class="logo">Crypto<span>Novice</span></a>
+       <nav class="nav-links" aria-label="Main navigation">
+         <a href="#home">Home</a>
+         <a href="#articles">Articles</a>
+         <a href="#tools">Tools</a>
+       </nav>
+       <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" onclick="document.getElementById('mobileNav').style.display = document.getElementById('mobileNav').style.display === 'flex' ? 'none' : 'flex'">☰</button>
+     </div>
+     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+       <a href="#home" onclick="document.getElementById('mobileNav').style.display='none'">Home</a>
+       <a href="#articles" onclick="document.getElementById('mobileNav').style.display='none'">Articles</a>
+       <a href="#tools" onclick="document.getElementById('mobileNav').style.display='none'">Tools</a>
+     </nav>
+   </header>
 
-  <main id="home" class="container main-content">
-    <section class="hero">
-      <div class="hero-inner">
-        <span class="eyebrow">Learn crypto without the hype</span>
-        <h1>Clear explanations for beginners, traders, and curious learners.</h1>
-        <p>From blockchain basics to market sentiment and research tools, CryptoNovice helps you understand crypto with simple, practical education.</p>
-      </div>
-    </section>
+   <main id="home" class="container main-content">
+     <section class="hero">
+       <div class="hero-inner">
+         <span class="eyebrow">Learn crypto without the hype</span>
+         <h1>Clear explanations for beginners, traders, and curious learners.</h1>
+         <p>From blockchain basics to market sentiment and research tools, CryptoNovice helps you understand crypto with simple, practical education.</p>
+       </div>
+     </section>
 
-    <section id="articles" class="section-block">
-      <div class="section-header">
-        <h2>Research</h2>
-        <span>Latest articles</span>
-      </div>
-      <div class="card-grid">
-        <article class="card">
-          <span class="card-tag">Research</span>
-          <h3>What Is On-Chain Analysis?</h3>
-          <p>Learn what on-chain analysis is, how it works, and which metrics help measure the health of a blockchain network.</p>
-          <div class="card-meta">
-            <span>8 min read</span>
-            <a href="on-chain-analysis.html" class="card-link">Read →</a>
-          </div>
-        </article>
-      </div>
-    </section>
+     <section id="articles" class="section-block">
+       <div class="section-header">
+         <h2>Research</h2>
+         <span>Latest articles</span>
+       </div>
+       <div class="card-grid">
+         <article class="card">
+           <span class="card-tag">Research</span>
+           <h3>What Is On-Chain Analysis?</h3>
+           <p>Learn what on-chain analysis is, how it works, and which metrics help measure the health of a blockchain network.</p>
+           <div class="card-meta">
+             <span>8 min read</span>
+             <a href="on-chain-analysis.html" class="card-link">Read →</a>
+           </div>
+         </article>
+       </div>
+     </section>
 
-    <section class="section-block">
-      <div class="section-header">
-        <h2>Beginner Guides</h2>
-        <span>Core concepts</span>
-      </div>
-      <div class="card-grid">
-        <article class="card">
-          <span class="card-tag">Beginner</span>
-          <h3>Coins vs. Tokens: What Is the Difference?</h3>
-          <p>Learn the difference between coins and tokens in cryptocurrency, including security risks and fraud examples.</p>
-          <div class="card-meta">
-            <span>10 min read</span>
-            <a href="coins-vs-tokens.html" class="card-link">Read →</a>
-          </div>
-        </article>
+     <section class="section-block">
+       <div class="section-header">
+         <h2>Beginner Guides</h2>
+         <span>Core concepts</span>
+       </div>
+       <div class="card-grid">
+         <article class="card">
+           <span class="card-tag">Beginner</span>
+           <h3>Coins vs. Tokens: What Is the Difference?</h3>
+           <p>Learn the difference between coins and tokens in cryptocurrency, including security risks and fraud examples.</p>
+           <div class="card-meta">
+             <span>10 min read</span>
+             <a href="coins-vs-tokens.html" class="card-link">Read →</a>
+           </div>
+         </article>
 
-        <article class="card">
-          <span class="card-tag">Beginner</span>
-          <h3>Fear and Greed Index</h3>
-          <p>Learn what the Fear and Greed Index is, how to read it, and where to find reliable market sentiment indicators.</p>
-          <div class="card-meta">
-            <span>7 min read</span>
-            <a href="fear-and-greed-index.html" class="card-link">Read →</a>
-          </div>
-        </article>
+         <article class="card">
+           <span class="card-tag">Beginner</span>
+           <h3>Fear and Greed Index</h3>
+           <p>Learn what the Fear and Greed Index is, how to read it, and where to find reliable market sentiment indicators.</p>
+           <div class="card-meta">
+             <span>7 min read</span>
+             <a href="fear-and-greed-index.html" class="card-link">Read →</a>
+           </div>
+         </article>
 
-        <article class="card">
-          <span class="card-tag">Beginner</span>
-          <h3>Why Invest in Bitcoin and Other Cryptocurrencies</h3>
-          <p>Why invest in Bitcoin and other cryptocurrencies? Learn about decentralization, scarcity, security, institutional adoption, and the case for digital money.</p>
-          <div class="card-meta">
-            <span>10 min read</span>
-            <a href="why-invest-in-bitcoin.html" class="card-link">Read →</a>
-          </div>
-        </article>
-      </div>
-    </section>
+         <article class="card">
+           <span class="card-tag">Beginner</span>
+           <h3>Don't Sleep on Altcoins</h3>
+           <p>Explore the world of altcoins, Bitcoin dominance, and tools for researching cryptocurrency ecosystems.</p>
+           <div class="card-meta">
+             <span>8 min read</span>
+             <a href="dont-sleep-on-altcoins.html" class="card-link">Read →</a>
+           </div>
+         </article>
 
-    <section id="tools" class="section-block">
-      <div class="section-header">
-        <h2>Tools & Platforms</h2>
-        <span>Research resources</span>
-      </div>
-      <div class="card-grid">
-        <article class="card">
-          <span class="card-tag">Research Tools</span>
-          <h3>Crypto Analysis and Data Tools for Better Research</h3>
-          <p>Essential platforms for researching cryptocurrency projects and market data.</p>
-          <div class="card-meta">
-            <span>12 min read</span>
-            <a href="research-tools.html" class="card-link">Read →</a>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
+         <article class="card">
+           <span class="card-tag">Beginner</span>
+           <h3>Why Invest in Bitcoin and Other Cryptocurrencies</h3>
+           <p>Why invest in Bitcoin and other cryptocurrencies? Learn about decentralization, scarcity, security, institutional adoption, and the case for digital money.</p>
+           <div class="card-meta">
+             <span>10 min read</span>
+             <a href="why-invest-in-bitcoin.html" class="card-link">Read →</a>
+           </div>
+         </article>
+       </div>
+     </section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-col">
-          <h4>CryptoNovice</h4>
-          <p>Educating, informing, and equipping crypto beginners with the best tools and platforms. No hype, just education.</p>
-        </div>
+     <section id="tools" class="section-block">
+       <div class="section-header">
+         <h2>Tools & Platforms</h2>
+         <span>Research resources</span>
+       </div>
+       <div class="card-grid">
+         <article class="card">
+           <span class="card-tag">Research Tools</span>
+           <h3>Crypto Analysis and Data Tools for Better Research</h3>
+           <p>Essential platforms for researching cryptocurrency projects and market data.</p>
+           <div class="card-meta">
+             <span>12 min read</span>
+             <a href="research-tools.html" class="card-link">Read →</a>
+           </div>
+         </article>
+       </div>
+     </section>
+   </main>
 
-        <div class="footer-col">
-          <h4>Explore</h4>
-          <a href="#articles">Articles</a>
-          <a href="#tools">Tools & Platforms</a>
-        </div>
+   <footer>
+     <div class="container">
+       <div class="footer-content">
+         <div class="footer-col">
+           <h4>CryptoNovice</h4>
+           <p>Educating, informing, and equipping crypto beginners with the best tools and platforms. No hype, just education.</p>
+         </div>
 
-        <div class="footer-col">
-          <h4>Articles</h4>
-          <a href="on-chain-analysis.html">What Is On-Chain Analysis?</a>
-          <a href="coins-vs-tokens.html">Coins vs. Tokens</a>
-          <a href="fear-and-greed-index.html">Fear and Greed Index</a>
-          <a href="why-invest-in-bitcoin.html">Why Invest in Bitcoin</a>
-          <a href="research-tools.html">Crypto Analysis and Data Tools for Better Research</a>
-        </div>
-      </div>
+         <div class="footer-col">
+           <h4>Explore</h4>
+           <a href="#articles">Articles</a>
+           <a href="#tools">Tools & Platforms</a>
+         </div>
 
-      <div class="footer-bottom">
-        <p>© 2026 CryptoNovice. All rights reserved. Not financial advice.</p>
-      </div>
-    </div>
-  </footer>
+         <div class="footer-col">
+           <h4>Articles</h4>
+           <a href="on-chain-analysis.html">What Is On-Chain Analysis?</a>
+           <a href="coins-vs-tokens.html">Coins vs. Tokens</a>
+           <a href="fear-and-greed-index.html">Fear and Greed Index</a>
+           <a href="dont-sleep-on-altcoins.html">Don't Sleep on Altcoins</a>
+           <a href="why-invest-in-bitcoin.html">Why Invest in Bitcoin</a>
+           <a href="research-tools.html">Crypto Analysis and Data Tools for Better Research</a>
+         </div>
+       </div>
+
+       <div class="footer-bottom">
+         <p>© 2026 CryptoNovice. All rights reserved. Not financial advice.</p>
+       </div>
+     </div>
+   </footer>
 </body>
 </html>
