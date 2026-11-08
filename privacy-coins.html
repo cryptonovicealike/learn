@@ -9,16 +9,18 @@
   <meta property="og:title" content="Privacy Coins Explained: Monero, Zcash and Grin">
   <meta property="og:description" content="Learn what privacy coins are, how Monero, Zcash and Grin work, their privacy technologies, criminal-use concerns and the future of financial privacy.">
   <meta property="og:url" content="https://cryptonovicealike.github.io/learn/privacy-coins.html">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://cryptonovicealike.github.io/learn/privacy-coins.html">
   <title>Privacy Coins Explained: Monero, Zcash and Grin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Inter', sans-serif;
       background: #0A0C12;
@@ -31,10 +33,15 @@
       background-size: cover;
       background-attachment: fixed;
     }
+
     a { color: #00D8FF; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
     header {
       position: sticky;
@@ -44,6 +51,7 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(0,216,255,0.2);
     }
+
     .nav-container {
       display: flex;
       justify-content: space-between;
@@ -52,6 +60,7 @@
       margin: 0 auto;
       padding: 16px 24px;
     }
+
     .logo {
       font-size: 28px;
       font-weight: 800;
@@ -61,6 +70,7 @@
       color: transparent;
       letter-spacing: -1px;
     }
+
     .logo span {
       font-weight: 400;
       color: #E8EDF5;
@@ -68,14 +78,25 @@
       -webkit-background-clip: unset;
       background-clip: unset;
     }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
     .nav-links a {
       color: #A0A8C0;
       font-size: 14px;
       font-weight: 500;
       transition: color .3s ease;
     }
-    .nav-links a:hover { color: #00D8FF; text-decoration: none; }
+
+    .nav-links a:hover {
+      color: #00D8FF;
+      text-decoration: none;
+    }
+
     .mobile-menu-btn {
       display: none;
       padding: 8px 10px;
@@ -86,6 +107,7 @@
       font-size: 24px;
       cursor: pointer;
     }
+
     .mobile-nav {
       display: none;
       flex-direction: column;
@@ -95,6 +117,7 @@
       border-top: 1px solid rgba(0,216,255,0.2);
       border-bottom: 1px solid rgba(0,216,255,0.2);
     }
+
     .mobile-nav a {
       padding: 8px 0;
       color: #A0A8C0;
@@ -103,6 +126,7 @@
     }
 
     .article-wrap { padding: 60px 0 80px; }
+
     .article-reader {
       max-width: 900px;
       margin: 0 auto;
@@ -111,6 +135,7 @@
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 24px;
     }
+
     .back-btn {
       display: inline-flex;
       align-items: center;
@@ -119,7 +144,12 @@
       color: #A0A8C0;
       font-size: 14px;
     }
-    .back-btn:hover { color: #00D8FF; text-decoration: none; }
+
+    .back-btn:hover {
+      color: #00D8FF;
+      text-decoration: none;
+    }
+
     .meta-bar {
       display: flex;
       flex-wrap: wrap;
@@ -129,7 +159,9 @@
       padding-bottom: 20px;
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
+
     .meta-bar span { color: #5A6275; font-size: 13px; }
+
     .meta-bar .tag {
       padding: 4px 12px;
       color: #00D8FF;
@@ -138,6 +170,7 @@
       font-size: 12px;
       font-weight: 500;
     }
+
     .article-reader h1 {
       margin-bottom: 16px;
       color: #fff;
@@ -145,6 +178,7 @@
       font-weight: 700;
       line-height: 1.15;
     }
+
     .article-reader h2 {
       margin: 30px 0 14px;
       color: #00D8FF;
@@ -152,6 +186,7 @@
       font-weight: 600;
       line-height: 1.35;
     }
+
     .article-reader h3 {
       margin: 24px 0 10px;
       color: #E8EDF5;
@@ -159,12 +194,36 @@
       font-weight: 600;
       line-height: 1.4;
     }
+
     .article-reader p {
       margin-bottom: 16px;
       color: #C8CED8;
       font-size: 15px;
       line-height: 1.8;
     }
+
+    .article-reader .sources {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .article-reader .sources h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    .article-reader .sources ul {
+      padding-left: 22px;
+      color: #C8CED8;
+    }
+
+    .article-reader .sources li {
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
     .video-frame {
       position: relative;
       width: 100%;
@@ -175,6 +234,7 @@
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 14px;
     }
+
     .video-frame iframe {
       position: absolute;
       inset: 0;
@@ -189,25 +249,34 @@
       background: rgba(0,0,0,0.3);
       border-top: 1px solid rgba(255,255,255,0.05);
     }
+
     .footer-content {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
       gap: 40px;
       margin-bottom: 40px;
     }
+
     .footer-col h4 {
       margin-bottom: 16px;
       color: #00D8FF;
       font-size: 16px;
       font-weight: 600;
     }
-    .footer-col a, .footer-col p {
+
+    .footer-col a,
+    .footer-col p {
       display: block;
       margin-bottom: 10px;
       color: #A0A8C0;
       font-size: 13px;
     }
-    .footer-col a:hover { color: #00D8FF; text-decoration: none; }
+
+    .footer-col a:hover {
+      color: #00D8FF;
+      text-decoration: none;
+    }
+
     .footer-bottom {
       padding-top: 24px;
       color: #5A6275;
@@ -224,10 +293,15 @@
       .article-reader h1 { font-size: 30px; }
       .article-reader h2 { font-size: 22px; }
     }
+
     @media (max-width: 420px) {
       .container { padding: 0 16px; }
       .article-reader { padding: 20px; }
       .article-reader h1 { font-size: 27px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
@@ -280,9 +354,9 @@
 
       <p>Monero (XMR) is one of the best-known privacy-focused cryptocurrencies. Unlike transparent blockchains such as Bitcoin, Monero is designed to make transaction details private by default.</p>
 
-      <p>Monero uses several privacy technologies, including ring signatures, Ring Confidential Transactions (RingCT), and stealth addresses. These technologies are designed to hide the sender, transaction amount, and recipient respectively.</p>
+      <p>Monero uses several privacy technologies, including ring signatures, Ring Confidential Transactions (RingCT), and stealth addresses. These technologies are designed to obscure the true sender among possible inputs, conceal transaction amounts, and make recipients’ public addresses harder to link to transaction outputs, respectively.</p>
 
-      <p>Monero has also been used by criminals, including some ransomware and darknet-market operators. However, it would be inaccurate to say that Monero is the cryptocurrency of choice for all ransomware groups or that ransomware groups no longer use Bitcoin. Recent research from TRM Labs shows that ransomware actors continue to favor Monero in some cases, while Bitcoin remains the dominant cryptocurrency for ransom payments overall.</p>
+      <p>Monero has also been used by criminals, including some ransomware and darknet-market operators. Some ransomware operators have demanded Monero, but Bitcoin has also remained a commonly used payment method in documented ransomware activity. The currency demanded or paid can vary by group and incident, so it would be inaccurate to say that all ransomware groups use Monero or that they no longer use Bitcoin.</p>
 
       <p>This is an important distinction because privacy technology can have legitimate uses as well. People may want financial privacy for ordinary reasons, such as preventing strangers from viewing their transaction history or estimating how much cryptocurrency they own.</p>
 
@@ -292,15 +366,15 @@
 
       <p>Zcash uses zero-knowledge cryptography to allow certain transactions to be verified without revealing all of the underlying transaction information. Zcash therefore gives users the ability to make transactions using its privacy features while maintaining the ability to use transparent transactions as well.</p>
 
-      <p>This makes Zcash different from Monero, where privacy is built into transactions on the network by default. With Zcash, users can choose between transparent and shielded transactions depending on the type of transaction they are making.</p>
+      <p>This makes Zcash different from Monero, where transaction privacy protections are applied by default at the protocol level. With Zcash, users can make transparent or shielded transactions, depending on the transaction type they choose.</p>
 
       <h3>Grin</h3>
 
       <p>Grin is an open-source cryptocurrency that focuses heavily on privacy and scalability.</p>
 
-      <p>Grin uses a protocol called Mimblewimble, which changes how transaction information is stored and processed on the blockchain. One of its important features is cut-through, which allows certain transaction data to be removed while still maintaining the ability to verify that the blockchain remains valid.</p>
+      <p>Grin uses a protocol called Mimblewimble, which changes how transaction information is represented and stored on the blockchain. One of its important features is cut-through, which allows certain transaction data—such as an output spent within the same block—to be removed while preserving the information needed to verify the blockchain.</p>
 
-      <p>Grin's approach to privacy is therefore different from Monero and Zcash. Rather than simply hiding specific pieces of transaction information, Mimblewimble changes the structure of how transactions are represented and stored.</p>
+      <p>Grin’s approach to privacy is therefore different from Monero and Zcash. Rather than simply hiding specific pieces of transaction information, Mimblewimble changes the structure of how transactions are represented and stored.</p>
 
       <h2>Are Privacy Coins Completely Anonymous?</h2>
 
@@ -308,7 +382,7 @@
 
       <p>Privacy coins can provide significantly more transaction privacy than transparent cryptocurrencies, but calling them completely anonymous or “untraceable” is too simplistic.</p>
 
-      <p>For example, Monero's own documentation explains that its privacy technology protects transaction information, but it does not protect a user from every possible way their identity could become known. If someone voluntarily reveals their identity, loses control of their private information, or has their device compromised, the privacy provided by the blockchain itself cannot magically undo that exposure.</p>
+      <p>For example, Monero’s own documentation explains that its privacy technology protects transaction information, but it does not protect a user from every possible way their identity could become known. If someone voluntarily reveals their identity, loses control of their private information, or has their device compromised, the privacy provided by the blockchain itself cannot magically undo that exposure.</p>
 
       <p>Privacy should therefore be understood as risk reduction and information protection, rather than a guarantee of perfect anonymity.</p>
 
@@ -318,7 +392,7 @@
 
       <p>However, privacy coins are not exclusively used for crime. Privacy itself can have legitimate purposes, including protecting financial information from unnecessary public exposure.</p>
 
-      <p>At the same time, the cryptocurrency crime landscape is changing. Recent research shows that criminals are not relying on one particular cryptocurrency or technique. Bitcoin, stablecoins, cross-chain transfers, exchanges, and other services can all appear in illicit financial activity.</p>
+      <p>At the same time, the cryptocurrency crime landscape is changing. Criminals do not rely on one particular cryptocurrency or technique. Bitcoin, stablecoins, cross-chain transfers, exchanges, and other services can all appear in illicit financial activity.</p>
 
       <p>So it would be inaccurate to describe privacy coins as simply “the easiest and safest way” to launder money.</p>
 
@@ -326,17 +400,30 @@
 
       <p>That is impossible to predict.</p>
 
-      <p>Privacy-focused cryptocurrencies face regulatory and exchange-related challenges in different parts of the world. Some cryptocurrency exchanges have removed or restricted privacy coins because of regulatory and compliance concerns.</p>
+      <p>Privacy-focused cryptocurrencies face regulatory and exchange-related challenges in different parts of the world. Some cryptocurrency exchanges have removed or restricted privacy coins because of regulatory and compliance concerns. These measures vary by exchange and jurisdiction, so they should not be read as a single worldwide rule.</p>
 
-      <p>Blockchain intelligence companies also continue developing tools for investigating cryptocurrency transactions. One example is CipherTrace, which was acquired by Mastercard in 2021 and became part of Mastercard's broader digital-asset security and intelligence capabilities.</p>
+      <p>Blockchain intelligence companies also continue developing tools for investigating cryptocurrency transactions. One example is CipherTrace, which Mastercard announced it would acquire in 2021 to enhance its digital-asset capabilities, including security and cryptocurrency intelligence.</p>
 
-      <p>However, it would be misleading to say that companies such as CipherTrace are simply “trying to abolish privacy coins.” Their publicly stated role is focused on cryptocurrency intelligence, security, fraud prevention, investigations, and compliance.</p>
+      <p>However, it would be misleading to say that companies such as CipherTrace are simply “trying to abolish privacy coins.” Mastercard described the acquisition in terms of security, transparency, and trust in the digital-asset ecosystem.</p>
 
       <p>The future of privacy coins will likely depend on a combination of technology, regulation, exchange support, user demand, and the continuing debate between financial privacy and financial transparency.</p>
 
       <p>For now, privacy coins remain an important part of the cryptocurrency ecosystem—and understanding how they work is essential for anyone trying to understand the wider world of digital assets.</p>
 
       <p>If you are more of a visual learner or just want more information, please feel free to watch the video below.</p>
+
+      <section class="sources" aria-labelledby="sources-heading">
+        <h2 id="sources-heading">Sources</h2>
+        <ul>
+          <li><a href="https://web.getmonero.org/resources/research-lab/pubs/MRL-0005.pdf" target="_blank" rel="noopener noreferrer">Monero Research Lab, “Ring Confidential Transactions”</a></li>
+          <li><a href="https://web.getmonero.org/resources/research-lab/pubs/MRL-0006.pdf" target="_blank" rel="noopener noreferrer">Monero Research Lab, “Dual-Key Stealth Address Protocol for Monero”</a></li>
+          <li><a href="https://zips.z.cash/protocol/protocol.pdf" target="_blank" rel="noopener noreferrer">Zcash Protocol Specification</a></li>
+          <li><a href="https://docs.grin.mw/wiki/introduction/mimblewimble/mimblewimble/" target="_blank" rel="noopener noreferrer">Grin documentation on Mimblewimble</a></li>
+          <li><a href="https://www.hsgac.senate.gov/wp-content/uploads/imo/media/doc/HSGAC%20Majority%20Cryptocurrency%20Ransomware%20Report_Executive%20Summary.pdf" target="_blank" rel="noopener noreferrer">U.S. Senate Committee on Homeland Security and Governmental Affairs, “Use of Cryptocurrency in Ransomware Attacks” (2022)</a></li>
+          <li><a href="https://www.tandfonline.com/doi/pdf/10.1080/23738871.2024.2435956" target="_blank" rel="noopener noreferrer">“From prepaid cards to bitcoin: How did ransomware hackers adopt cryptocurrency?” (2024)</a></li>
+          <li><a href="https://www.mastercard.com/news/press/2021/september/mastercard-to-acquire-ciphertrace-advancing-crypto-capability/" target="_blank" rel="noopener noreferrer">Mastercard, “Mastercard to Acquire CipherTrace, Advancing Crypto Capability” (September 9, 2021)</a></li>
+        </ul>
+      </section>
 
       <div class="video-frame">
         <iframe
@@ -383,184 +470,3 @@
   </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
