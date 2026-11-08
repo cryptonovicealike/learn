@@ -322,7 +322,7 @@
           <a href="#articles">Articles</a>
           <a href="#tools">Tools</a>
         </nav>
-        <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" onclick="document.getElementById('mobileNav').style.display = document.getElementById('mobileNav').style.display === 'block' ? 'none' : 'block'">☰</button>
+        <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" onclick="document.getElementById('mobileNav').style.display = document.getElementById('mobileNav').style.display === 'flex' ? 'none' : 'flex'">☰</button>
       </div>
       <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
         <a href="#home" onclick="document.getElementById('mobileNav').style.display='none'">Home</a>
@@ -330,7 +330,7 @@
         <a href="#tools" onclick="document.getElementById('mobileNav').style.display='none'">Tools</a>
       </nav>
     </header>
-  
+    
     <main id="home" class="container main-content">
       <section class="hero">
         <div class="hero-inner">
@@ -339,7 +339,7 @@
           <p>From blockchain basics to market sentiment and research tools, CryptoNovice helps you understand crypto with simple, practical education.</p>
         </div>
       </section>
-  
+    
       <section id="articles" class="section-block">
         <div class="section-header">
           <h2>Research</h2>
@@ -365,9 +365,19 @@
               <a href="rwa-real-world-assets.html" class="card-link">Read →</a>
             </div>
           </article>
+
+          <article class="card">
+            <span class="card-tag">Research</span>
+            <h3>Let's Talk About Privacy Coins</h3>
+            <p>Discover how privacy-focused cryptocurrencies such as Monero, Zcash and Grin work, the technologies behind them, and the ongoing debate surrounding financial privacy and cryptocurrency regulation.</p>
+            <div class="card-meta">
+              <span>6 min read</span>
+              <a href="privacy-coins.html" class="card-link">Read →</a>
+            </div>
+          </article>
         </div>
       </section>
-  
+    
       <section class="section-block">
         <div class="section-header">
           <h2>Beginner Guides</h2>
@@ -413,7 +423,7 @@
               <a href="why-invest-in-bitcoin.html" class="card-link">Read →</a>
             </div>
           </article>
-
+  
           <article class="card">
             <span class="card-tag">Beginner</span>
             <h3>So Let's Talk About Bitcoin Pizza Day 🍕</h3>
@@ -425,7 +435,7 @@
           </article>
         </div>
       </section>
-  
+    
       <section id="tools" class="section-block">
         <div class="section-header">
           <h2>Tools & Platforms</h2>
@@ -444,7 +454,7 @@
         </div>
       </section>
     </main>
-  
+    
     <footer>
       <div class="container">
         <div class="footer-content">
@@ -468,6 +478,7 @@
             <a href="why-invest-in-bitcoin.html">Why Invest in Bitcoin</a>
             <a href="bitcoin-pizza-day.html">So Let's Talk About Bitcoin Pizza Day 🍕</a>
             <a href="research-tools.html">Crypto Analysis and Data Tools for Better Research</a>
+            <a href="privacy-coins.html">Let's Talk About Privacy Coins</a>
           </div>
         </div>
   
