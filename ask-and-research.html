@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ask Crypto Novice Alike an educational crypto question or request private cryptocurrency research.">
+  <title>Ask &amp; Research | CryptoNovice</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%82%BF%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0A0C12;
+      --card: rgba(255,255,255,0.03);
+      --card-border: rgba(255,255,255,0.06);
+      --text: #E8EDF5;
+      --muted: #A0A8C0;
+      --muted-2: #5A6275;
+      --cyan: #00D8FF;
+      --purple: #8B5CF6;
+      --shadow: 0 18px 40px rgba(0,0,0,0.28);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      background-image:
+        linear-gradient(rgba(10,12,18,0.88), rgba(10,12,18,0.88)),
+        url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1950&q=80');
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    a:focus-visible, button:focus-visible,
+    input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,12,18,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,216,255,0.2);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -1px;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      font-weight: 400;
+      color: var(--text);
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 14px;
+      transition: color .3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      padding: 8px 10px;
+      font-size: 24px;
+      color: var(--text);
+      background: none;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px 24px 20px;
+      background: rgba(10,12,18,0.98);
+      border-top: 1px solid rgba(0,216,255,0.2);
+      border-bottom: 1px solid rgba(0,216,255,0.2);
+    }
+
+    .mobile-nav a {
+      color: var(--muted);
+      font-size: 15px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    main { padding: 44px 0 60px; }
+
+    .request-panel {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 6px 14px;
+      border: 1px solid rgba(0,216,255,0.25);
+      background: rgba(0,216,255,0.08);
+      color: var(--cyan);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin-bottom: 16px;
+      color: #fff;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
+
+    .intro, .policy, .privacy-note {
+      color: #C8CED8;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .intro { margin-bottom: 28px; }
+
+    .request-type {
+      margin: 0 0 26px;
+      padding: 20px;
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      background: var(--card);
+    }
+
+    .request-type legend {
+      padding: 0 8px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .choice-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .choice-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.02);
+      cursor: pointer;
+    }
+
+    .choice-card input {
+      flex: 0 0 auto;
+      margin-top: 5px;
+      accent-color: var(--cyan);
+    }
+
+    .choice-card:focus-within {
+      outline: 2px solid var(--cyan);
+      outline-offset: 2px;
+    }
+
+    .choice-card strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .choice-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .form-fields {
+      display: grid;
+      gap: 18px;
+    }
+
+    .form-fields[hidden] { display: none; }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .field { min-width: 0; }
+
+    label, .field-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .optional {
+      color: var(--muted-2);
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 13px;
+      color: var(--text);
+      background: rgba(10,12,18,0.72);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 10px;
+      font: inherit;
+      font-size: 14px;
+    }
+
+    select { color-scheme: dark; }
+    textarea { min-height: 150px; resize: vertical; }
+
+    .field-help {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .policy {
+      margin: 0 0 2px;
+      padding: 16px 18px;
+      background: rgba(139,92,246,0.08);
+      border-left: 3px solid var(--purple);
+      border-radius: 10px;
+    }
+
+    .privacy-note {
+      margin: 4px 0 20px;
+      font-size: 12px;
+    }
+
+    .privacy-note li { margin: 7px 0 0 20px; }
+
+    .launch-prerequisite {
+      margin-top: 12px;
+      color: #FFD9A8;
+      font-size: 12px;
+    }
+
+    .submit-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 12px 22px;
+      color: #061016;
+      background: var(--cyan);
+      border: 0;
+      border-radius: 10px;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+
+    .submit-btn:hover { transform: translateY(-1px); }
+    .submit-btn:disabled { opacity: .6; cursor: wait; transform: none; }
+
+    .form-status {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .form-status:empty { display: none; }
+
+    .form-status.success {
+      color: #B9F6D0;
+      background: rgba(30,150,90,.13);
+      border: 1px solid rgba(80,210,140,.35);
+    }
+
+    .form-status.error {
+      color: #FFD0D0;
+      background: rgba(180,50,50,.13);
+      border: 1px solid rgba(255,100,100,.35);
+    }
+
+    .back-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 28px;
+      font-size: 13px;
+    }
+
+    .spam-trap {
+      position: absolute !important;
+      left: -10000px !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+    }
+
+    footer {
+      background: rgba(0,0,0,0.28);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 32px 0 24px;
+      margin-top: 24px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 12px;
+      color: var(--muted-2);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: inline-flex; }
+      main { padding: 36px 0 48px; }
+      .request-panel { padding: 24px; }
+      .choice-list, .field-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 420px) {
+      .container { padding: 0 16px; }
+      .request-panel { padding: 20px; }
+      h1 { font-size: 27px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Crypto<span>Novice</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#articles">Articles</a>
+        <a href="index.html#tools">Tools</a>
+      </nav>
+      <button
+        class="mobile-menu-btn"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-controls="mobileNav"
+        aria-expanded="false"
+        onclick="const nav=document.getElementById('mobileNav'); const open=nav.style.display==='flex'; nav.style.display=open?'none':'flex'; this.setAttribute('aria-expanded',String(!open));"
+      >☰</button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="index.html#home" onclick="document.getElementById('mobileNav').style.display='none'; document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded','false')">Home</a>
+      <a href="index.html#articles" onclick="document.getElementById('mobileNav').style.display='none'; document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded','false')">Articles</a>
+      <a href="index.html#tools" onclick="document.getElementById('mobileNav').style.display='none'; document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded','false')">Tools</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="request-panel" aria-labelledby="page-title">
+      <span class="eyebrow">Reader requests</span>
+      <h1 id="page-title">Ask &amp; Research</h1>
+      <p class="intro">
+        Ask a general crypto question or request private research. Questions are
+        free. Research requests are reviewed first and may be offered free or for
+        a fee.
+      </p>
+
+      <form
+        id="request-form"
+        action="https://formspree.io/f/REPLACE_WITH_FORM_ID"
+        method="POST"
+      >
+        <fieldset class="request-type">
+          <legend>What would you like to request? <span aria-hidden="true">*</span></legend>
+          <div class="choice-list">
+            <label class="choice-card">
+              <input type="radio" name="request_type" value="question" required>
+              <span>
+                <strong>Ask a crypto question — free</strong>
+                <span>For general educational questions about crypto.</span>
+              </span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="request_type" value="private_research" required>
+              <span>
+                <strong>Request private research — free or paid</strong>
+                <span>Describe what you want investigated; we will review it first.</span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-fields">
+          <div class="field-grid">
+            <div class="field">
+              <label for="name">Name <span class="optional">(optional)</span></label>
+              <input id="name" name="name" type="text" autocomplete="name" maxlength="100">
+            </div>
+            <div class="field">
+              <label for="email">Email address <span aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
+              <p class="field-help">We use this to respond to your request.</p>
+            </div>
+          </div>
+
+          <fieldset id="question-fields" class="form-fields" hidden disabled>
+            <div class="field">
+              <label for="question-category">Question category <span aria-hidden="true">*</span></label>
+              <select id="question-category" name="question_category" required>
+                <option value="">Choose a category</option>
+                <option>Bitcoin</option>
+                <option>Altcoins</option>
+                <option>Blockchain technology</option>
+                <option>DeFi</option>
+                <option>Tokenomics</option>
+                <option>Cryptocurrency terminology</option>
+                <option>Crypto projects and ecosystems</option>
+                <option>Other crypto-related topic</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="question">Your question <span aria-hidden="true">*</span></label>
+              <textarea id="question" name="question" required maxlength="5000"></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset id="research-fields" class="form-fields" hidden disabled>
+            <div class="policy">
+              <strong>Research request policy:</strong>
+              Submitting a request does not mean it has been accepted. We will
+              review it and contact you to explain whether it can be completed for
+              free or for a fee. If a fee applies, we will communicate the pricing
+              before any paid work begins. No payment is collected with this request.
+            </div>
+
+            <div class="field">
+              <label for="project-name">Cryptocurrency or project name <span aria-hidden="true">*</span></label>
+              <input id="project-name" name="project_name" type="text" maxlength="200" required>
+            </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="research-category">Research category <span aria-hidden="true">*</span></label>
+                <select id="research-category" name="research_category" required>
+                  <option value="">Choose a category</option>
+                  <option>Cryptocurrency project</option>
+                  <option>Individual token</option>
+                  <option>Tokenomics</option>
+                  <option>Blockchain ecosystem</option>
+                  <option>Project fundamentals</option>
+                  <option>Crypto-related developments</option>
+                  <option>Other crypto-related research</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="research-depth">Preferred research depth <span aria-hidden="true">*</span></label>
+                <select id="research-depth" name="research_depth" required>
+                  <option value="">Choose a depth</option>
+                  <option>Concise overview</option>
+                  <option>Standard research</option>
+                  <option>In-depth research</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="research-objectives">Detailed research objectives <span aria-hidden="true">*</span></label>
+              <textarea
+                id="research-objectives"
+                name="research_objectives"
+                required
+                maxlength="10000"
+                placeholder="What questions should the research answer? Are there particular areas, sources, or concerns you want covered?"
+              ></textarea>
+            </div>
+          </fieldset>
+
+          <div class="spam-trap" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <section class="privacy-note" aria-labelledby="privacy-heading">
+            <h2 id="privacy-heading">Privacy notice</h2>
+            <p>
+              The information you provide (your optional name, required email,
+              request type, and the relevant question or research details) is
+              collected to receive, assess, manage, and respond to your request.
+              Your email is required; without it, we cannot respond. Your name is
+              optional.
+            </p>
+            <p>
+              Formspree processes and stores submissions as a service provider.
+              Authorized Crypto Novice Alike administrators can access requests.
+              Formspree may process data according to its own terms and privacy
+              practices. Request information is not used for newsletter
+              subscriptions or marketing emails.
+            </p>
+            <p>
+              You may contact the responsible party to ask about access,
+              correction, deletion, or objection to processing, subject to
+              applicable legal requirements. You may also lodge a complaint with
+              South Africa's Information Regulator:
+              <a href="https://inforegulator.org.za/" target="_blank" rel="noopener noreferrer">inforegulator.org.za</a>.
+            </p>
+            <p>
+              Do not include passwords, wallet seed phrases, private keys, or
+              other sensitive credentials.
+            </p>
+            <p class="launch-prerequisite">
+              Launch prerequisite: before accepting submissions, replace this
+              notice's configuration details with the verified responsible-party
+              name and contact details, Information Officer contact, Formspree
+              processing/retention details, and whether or how information may be
+              transferred outside South Africa. Also state any other recipients
+              and retention period or criteria. These details depend on the
+              responsible party's identity and Formspree account configuration
+              and have not been supplied for this preview.
+            </p>
+          </section>
+
+          <button class="submit-btn" id="submit-button" type="submit">Send request</button>
+          <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+        </div>
+      </form>
+
+      <nav class="back-links" aria-label="More Crypto Novice Alike pages">
+        <a href="index.html">← Back to homepage</a>
+        <a href="index.html#articles">Browse articles</a>
+      </nav>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 CryptoNovice. All rights reserved. Not financial advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const form = document.getElementById('request-form');
+      const questionFields = document.getElementById('question-fields');
+      const researchFields = document.getElementById('research-fields');
+      const submitButton = document.getElementById('submit-button');
+      const status = document.getElementById('form-status');
+
+      function setStatus(message, kind) {
+        status.textContent = message;
+        status.className = `form-status ${kind}`;
+      }
+
+      function clearStatus() {
+        status.textContent = '';
+        status.className = 'form-status';
+      }
+
+      function updateRequestFields() {
+        const selected = form.querySelector('input[name="request_type"]:checked');
+        const type = selected ? selected.value : '';
+
+        const showQuestion = type === 'question';
+        questionFields.hidden = !showQuestion;
+        questionFields.disabled = !showQuestion;
+
+        const showResearch = type === 'private_research';
+        researchFields.hidden = !showResearch;
+        researchFields.disabled = !showResearch;
+
+        clearStatus();
+      }
+
+      form.querySelectorAll('input[name="request_type"]').forEach((input) => {
+        input.addEventListener('change', updateRequestFields);
+      });
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        clearStatus();
+
+        const endpoint = form.getAttribute('action');
+        if (endpoint.includes('REPLACE_WITH_FORM_ID')) {
+          setStatus(
+            'The request form is not configured yet. Please try again later.',
+            'error'
+          );
+          return;
+        }
+
+        if (!form.checkValidity()) {
+          setStatus('Please check the form and complete all required fields.', 'error');
+          form.reportValidity();
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending…';
+
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' }
+          });
+
+          if (!response.ok) {
+            let message = response.status === 429
+              ? 'The form has received too many requests. Please wait a moment and try again.'
+              : 'Formspree could not accept your request. Please check your details and try again.';
+
+            try {
+              const result = await response.json();
+              if (Array.isArray(result.errors) && result.errors.length > 0) {
+                message = result.errors
+                  .map((error) => error.message)
+                  .filter(Boolean)
+                  .join(' ');
+              }
+            } catch (_) {
+              // Keep the readable status-specific fallback message.
+            }
+
+            throw new Error(message);
+          }
+
+          form.reset();
+          updateRequestFields();
+          setStatus(
+            'Thank you. Formspree confirmed receipt of your request. It will be reviewed; a private research request is not automatically accepted. We will contact you about the next steps.',
+            'success'
+          );
+        } catch (error) {
+          const message = error instanceof TypeError
+            ? 'A network error prevented your request from reaching Formspree. Check your connection and try again.'
+            : error.message || 'We could not submit your request. Please try again later.';
+          setStatus(message, 'error');
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send request';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
