@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Airdrops Explained: How crypto airdrops work, how they are distributed, and how to avoid scams. A beginner-friendly guide from CryptoNovice.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Airdrops Explained: How Crypto Airdrops Work and How to Avoid Scams">
+  <meta property="og:description" content="Learn what crypto airdrops are, how they work, and how to protect your wallet from scams.">
+  <meta property="og:url" content="https://cryptonovicealike.github.io/learn/airdrops.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:site_name" content="CryptoNovice">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Airdrops Explained: How Crypto Airdrops Work and How to Avoid Scams">
+  <meta name="twitter:description" content="Learn what crypto airdrops are, how they work, and how to protect your wallet from scams.">
+  <link rel="canonical" href="https://cryptonovicealike.github.io/learn/airdrops.html">
+  <title>Airdrops Explained: How Crypto Airdrops Work and How to Avoid Scams | CryptoNovice</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%82%BF%3C/text%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0A0C12;
+      color: #E8EDF5;
+      line-height: 1.6;
+      background-image:
+        linear-gradient(rgba(10,12,18,0.88), rgba(10,12,18,0.88)),
+        url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1950&q=80');
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    a { color: #00D8FF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,12,18,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,216,255,0.2);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #00D8FF, #8B5CF6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -1px;
+    }
+
+    .logo span { font-weight: 400; color: #E8EDF5; }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #A0A8C0;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00D8FF;
+      text-decoration: none;
+    }
+
+    .article-reader {
+      max-width: 800px;
+      margin: 40px auto;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 24px;
+      padding: 48px;
+    }
+
+    .article-reader h1 {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .article-reader h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 32px 0 14px;
+      color: #00D8FF;
+    }
+
+    .article-reader h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 24px 0 10px;
+      color: #E8EDF5;
+    }
+
+    .article-reader p {
+      color: #C8CED8;
+      margin-bottom: 16px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .article-reader strong { color: #fff; font-weight: 600; }
+    .article-reader ul, .article-reader ol {
+      margin: 16px 0;
+      padding-left: 24px;
+      color: #C8CED8;
+    }
+
+    .article-reader li { margin-bottom: 8px; line-height: 1.6; }
+
+    .article-reader blockquote {
+      border-left: 3px solid #00D8FF;
+      padding-left: 20px;
+      margin: 20px 0;
+      color: #A0A8C0;
+      font-style: italic;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #A0A8C0;
+      font-size: 14px;
+      margin-bottom: 24px;
+      transition: color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      color: #00D8FF;
+      text-decoration: none;
+    }
+
+    .meta-bar {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      flex-wrap: wrap;
+    }
+
+    .meta-bar span {
+      font-size: 13px;
+      color: #5A6275;
+    }
+
+    .meta-bar .tag {
+      background: rgba(0,216,255,0.1);
+      color: #00D8FF;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .callout {
+      background: rgba(139,92,246,0.08);
+      border-left: 4px solid #8B5CF6;
+      padding: 20px;
+      border-radius: 16px;
+      margin: 20px 0;
+      color: #C8CED8;
+    }
+
+    .warning {
+      background: rgba(255,100,100,0.08);
+      border-left: 4px solid #ff6b6b;
+      padding: 16px 20px;
+      border-radius: 16px;
+      margin: 20px 0;
+      color: #ffaaaa;
+      font-size: 14px;
+    }
+
+    .related-links {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer {
+      background: rgba(0,0,0,0.3);
+      padding: 48px 0 24px;
+      margin-top: 60px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 16px;
+      font-size: 16px;
+      color: #00D8FF;
+      font-weight: 600;
+    }
+
+    .footer-col a, .footer-col p {
+      display: block;
+      color: #A0A8C0;
+      text-decoration: none;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 12px;
+      color: #5A6275;
+    }
+
+    @media (max-width: 768px) {
+      .article-reader { padding: 24px; }
+      .article-reader h1 { font-size: 26px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Crypto<span>Novice</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#articles">Articles</a>
+        <a href="index.html#tools">Tools</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <div class="article-reader">
+        <a href="index.html#articles" class="back-btn">← Back to articles</a>
+        <div class="meta-bar">
+          <span class="tag">Beginner</span>
+          <span>7 min read</span>
+          <span>November 2026</span>
+        </div>
+
+        <h1>Airdrops Explained: How Crypto Airdrops Work and How to Avoid Scams</h1>
+
+        <p>An airdrop is when a cryptocurrency project distributes free tokens or coins to selected wallet addresses. The purpose of an airdrop can be to promote a project, increase awareness of its token, encourage adoption, or reward members of its community.</p>
+
+        <p>The developer or project team may distribute tokens directly into eligible users' wallets or allow users to claim them through an official platform. The aim is to encourage people to learn about, use, or participate in the project.</p>
+
+        <p>In some cases, airdrops are used to reward early adopters of an application or protocol. One example is the Uniswap airdrop.</p>
+
+        <h2>What Is Uniswap and Why Did It Airdrop UNI?</h2>
+
+        <p>Uniswap is a decentralised cryptocurrency trading protocol that allows users to swap supported Ethereum-based tokens without relying on a traditional centralised exchange.</p>
+
+        <p>In September 2020, Uniswap introduced its own cryptocurrency token, UNI. UNI is a governance token that gives holders voting rights on certain decisions concerning the Uniswap protocol.</p>
+
+        <p>Through governance, token holders can participate in decisions about the future development and management of the protocol rather than leaving every decision to a single individual or organisation.</p>
+
+        <p>As part of the UNI token launch, Uniswap introduced a retroactive airdrop to reward people who had previously used its platform.</p>
+
+        <p>On 16 September 2020, Uniswap announced that eligible historical users, liquidity providers, and SOCKS token holders could claim UNI tokens.</p>
+
+        <p>Each eligible historical user address that had interacted with Uniswap V1 or V2 before the snapshot date of 1 September 2020 was allocated 400 UNI tokens. Liquidity providers and eligible SOCKS holders received separate allocations based on their eligibility.</p>
+
+        <p>That airdrop demonstrated how retroactive airdrops can reward people for supporting and using a project before its token is introduced.</p>
+
+        <div class="callout">
+          <strong>Important:</strong> The 400 UNI figure and the separate LP/SOCKS allocations are consistent with Uniswap's official historical documentation and governance materials. The exact USD value of 400 UNI at launch can vary depending on the market price used, so it is best treated as an approximate historical value rather than a fixed official statement.
+        </div>
+
+        <h2>Why Projects Use Retroactive Airdrops</h2>
+
+        <p>Retroactive airdrops often reward early adopters and testers of a platform. This can happen with governance tokens, where projects want to give their communities an opportunity to participate in decisions about future changes.</p>
+
+        <p>Essentially, this is a way for projects to reward people who have contributed to their development and adoption instead of distributing tokens randomly.</p>
+
+        <h2>Real-World Examples: People Who Have Benefited from Airdrops</h2>
+
+        <p>Airdrops have created opportunities for cryptocurrency users to receive valuable digital assets without purchasing the tokens directly. However, this does not mean that every airdrop will make you money.</p>
+
+        <p>One famous example is the Uniswap airdrop in September 2020. Eligible historical users received 400 UNI tokens each. At the time, these tokens were often reported as being worth roughly $1,200 in total, depending on the chosen launch-day price. This demonstrated how early users of a cryptocurrency platform could benefit from participating in its ecosystem.</p>
+
+        <p>Another example is the Arbitrum airdrop in March 2023. Arbitrum allocated approximately 1.162 billion ARB tokens to eligible users of its platform. This rewarded people who had interacted with the ecosystem before the airdrop.</p>
+
+        <p>These examples show that airdrops can provide genuine financial opportunities. However, there is something every cryptocurrency beginner should understand: receiving free tokens does not automatically mean making a profit.</p>
+
+        <p>The value of an airdropped token can increase or decrease significantly after distribution. Some tokens may lose most of their value, while others may have little or no trading liquidity. Furthermore, participating in certain airdrops may require transaction fees, time, and effort.</p>
+
+        <p>It is also important to remember that not every project offers an airdrop, and participating in a project's ecosystem does not guarantee that you will receive free tokens in the future.</p>
+
+        <p>Therefore, approach airdrops as potential opportunities rather than guaranteed sources of income. Always research the project, understand the risks, and never invest money you cannot afford to lose.</p>
+
+        <h2>Airdrops and Email Lead Magnets</h2>
+
+        <p>Another form of an airdrop is similar to an email lead magnet.</p>
+
+        <p>Email lead magnets are a simple marketing idea in which a business offers something for free in return for a potential customer's email address.</p>
+
+        <p>For example, imagine walking into a shopping mall and seeing a promotion offering free highlighters to anyone who provides their email address. The shopping mall gets your email address, while you receive something for free.</p>
+
+        <p>An airdrop can work in a similar way. A cryptocurrency project may offer free tokens in exchange for completing certain tasks, joining its community, or trying out its application.</p>
+
+        <h2>Where Can You Find Airdrops?</h2>
+
+        <p>If you want to participate in airdrops, there are a few websites you can use to discover opportunities, such as:</p>
+
+        <ol>
+          <li><a href="https://airdropalert.com/" target="_blank" rel="noopener noreferrer">Airdrop Alert</a></li>
+          <li><a href="https://airdrop.io/" target="_blank" rel="noopener noreferrer">Airdrop.io</a></li>
+          <li><a href="https://coinmarketcap.com/airdrop/" target="_blank" rel="noopener noreferrer">CoinMarketCap Airdrops</a></li>
+          <li><a href="https://www.binance.com/en/support/announcement/" target="_blank" rel="noopener noreferrer">Binance Airdrops</a></li>
+        </ol>
+
+        <p>Please research any project or token you plan to participate in. This includes airdrops you are receiving for free.</p>
+
+        <p>One effective way to research airdrops is by using <a href="https://coinmarketcap.com/" target="_blank" rel="noopener noreferrer">CoinMarketCap</a>. This platform can be useful for discovering airdrop campaigns, checking cryptocurrency information, and keeping track of token listings.</p>
+
+        <p>You can also use CoinMarketCap to research new and established cryptocurrencies. However, always verify staking opportunities, launch dates, and other important announcements through the project's official channels.</p>
+
+        <p>This platform is a useful tool for anyone wanting to research new and established coins.</p>
+
+        <h2>Be Careful: Airdrop Scams</h2>
+
+        <p>Ever since airdrops became more widely used, they have also been exploited by scammers to promote fraudulent projects and steal cryptocurrency.</p>
+
+        <p>Many crypto airdrops may appear safe and legitimate; however, this is not always the case. Scammers have discovered ways to defraud people through fake airdrop campaigns. Both cryptocurrency beginners and experienced enthusiasts can become victims of these scams.</p>
+
+        <p>Connecting your wallet to an untrusted website or signing a transaction without understanding what it does can put your cryptocurrency at risk. You should never disclose your private keys or wallet recovery phrase to anyone.</p>
+
+        <p>Scammers have even distributed counterfeit or malicious tokens through bogus airdrop advertisements. Some of these tokens may be difficult or impossible to sell, while others are designed to lure users into visiting fraudulent websites.</p>
+
+        <p>It is wise to research the team behind a cryptocurrency project and find out what other people are saying about it before getting involved.</p>
+
+        <p>Always verify an airdrop through the project's official website and verified communication channels. Remember that receiving free cryptocurrency does not automatically mean that an airdrop is legitimate.</p>
+
+        <div class="warning">
+          <strong>Warning:</strong> Never connect a wallet to an unknown airdrop website, never approve random transactions, and never share your private keys or recovery phrase. If a token is free but the project asks for a wallet signature or a deposit, treat it as a red flag.
+        </div>
+
+        <p>Please note: Airdrops can be rewarding, but they are not free money without effort or risk. Learn how they work, research before participating, and protect your wallet.</p>
+
+        <h2>Final thoughts</h2>
+
+        <p>Airdrops can be a genuine way to discover a project, earn a small reward, or participate in governance. But they are not magic money, and they are not risk-free.</p>
+
+        <p>If you are curious about crypto basics, it is worth learning how tokens, wallets, and scams work together. A careful approach will help you avoid costly mistakes.</p>
+
+        <div class="related-links">
+          <p><strong>Related reading:</strong></p>
+          <ul>
+            <li><a href="coins-vs-tokens.html">Coins vs. Tokens: What Is the Difference?</a></li>
+            <li><a href="research-tools.html">Crypto Analysis and Data Tools for Better Research</a></li>
+            <li><a href="fear-and-greed-index.html">Fear and Greed Index</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>CryptoNovice</h4>
+          <p>Educating, informing, and equipping crypto beginners with the best tools and platforms. No hype, just education.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="index.html#articles">Articles</a>
+          <a href="index.html#tools">Tools & Platforms</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="coins-vs-tokens.html">Coins vs. Tokens</a>
+          <a href="fear-and-greed-index.html">Fear and Greed Index</a>
+          <a href="research-tools.html">Research Tools</a>
+          <a href="privacy-coins.html">Privacy Coins</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 CryptoNovice. All rights reserved. Not financial advice.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
