@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn how Bitcoin mining uses proof of work, mining rewards and difficulty adjustments to help secure the Bitcoin network.">
+  <meta name="keywords" content="Bitcoin mining, Bitcoin proof of work, Bitcoin hashrate, ASIC mining, Bitcoin block reward, Bitcoin halving, Bitcoin difficulty adjustment">
+  <meta property="og:title" content="Bitcoin Mining: Understanding the Technology That Secures Bitcoin | CryptoNovice">
+  <meta property="og:description" content="Understand how Bitcoin mining works, how miners compete to add blocks, and how rewards and difficulty adjustments support the network.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://cryptonovicealike.github.io/learn/bitcoin-mining.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Bitcoin Mining: Understanding the Technology That Secures Bitcoin | CryptoNovice</title>
+  <link rel="canonical" href="https://cryptonovicealike.github.io/learn/bitcoin-mining.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:#0A0C12;color:#E8EDF5;line-height:1.7}
+    a{color:#00D8FF;text-decoration:none}
+    a:hover{text-decoration:underline}
+    body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;background:url(https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1950&q=80) center/cover no-repeat}
+    body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,12,18,0.9);z-index:-1}
+    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:100;background:rgba(10,12,18,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,216,255,0.2)}
+    .nav-container{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;max-width:1400px;margin:0 auto}
+    .logo{font-size:28px;font-weight:800;background:linear-gradient(135deg,#00D8FF,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px}
+    .logo span{font-weight:400;color:#E8EDF5;background:none;-webkit-background-clip:unset}
+    .nav-links{display:flex;gap:28px;align-items:center}
+    .nav-links a{color:#A0A8C0;font-weight:500;font-size:14px;transition:color .3s}
+    .nav-links a:hover{color:#00D8FF}
+    .mobile-menu-btn{display:none;font-size:24px;color:#E8EDF5;background:none;border:none;cursor:pointer}
+    .mobile-nav{display:none;position:fixed;top:65px;left:0;width:100%;background:rgba(10,12,18,0.98);border-bottom:1px solid rgba(0,216,255,0.2);padding:16px 24px;flex-direction:column;gap:12px;z-index:99}
+    .mobile-nav a{color:#A0A8C0;font-weight:500;font-size:15px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+    .mobile-nav a:hover{color:#00D8FF}
+    .article-wrap{padding:60px 0 80px}
+    .article-reader{max-width:900px;margin:0 auto;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:24px;padding:48px}
+    .article-reader h1{font-size:40px;font-weight:700;line-height:1.15;margin-bottom:16px;color:#fff}
+    .article-reader h2{font-size:24px;font-weight:600;margin:30px 0 14px;color:#00D8FF}
+    .article-reader h3{font-size:18px;font-weight:600;margin:24px 0 10px;color:#E8EDF5}
+    .article-reader p,.article-reader li{color:#C8CED8;font-size:15px;line-height:1.8;margin-bottom:16px}
+    .article-reader ul,.article-reader ol{margin:16px 0;padding-left:24px}
+    .article-reader strong{color:#fff;font-weight:600}
+    .article-reader blockquote{border-left:3px solid #00D8FF;padding-left:20px;margin:22px 0;color:#A0A8C0;font-style:italic}
+    .meta-bar{display:flex;gap:16px;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+    .meta-bar span{font-size:13px;color:#5A6275}
+    .meta-bar .tag{background:rgba(0,216,255,0.1);color:#00D8FF;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500}
+    .back-btn{display:inline-flex;align-items:center;gap:8px;color:#A0A8C0;font-size:14px;margin-bottom:24px}
+    .back-btn:hover{color:#00D8FF;text-decoration:none}
+    footer{background:rgba(0,0,0,0.3);padding:48px 0 24px;margin-top:60px;border-top:1px solid rgba(255,255,255,0.05)}
+    .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px}
+    .footer-col h4{margin-bottom:16px;font-size:16px;color:#00D8FF;font-weight:600}
+    .footer-col a,.footer-col p{display:block;color:#A0A8C0;text-decoration:none;font-size:13px;margin-bottom:10px;transition:color .3s}
+    .footer-col a:hover{color:#00D8FF;text-decoration:none}
+    .footer-bottom{text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05);font-size:12px;color:#5A6275}
+    @media(max-width:768px){
+      .nav-links{display:none}
+      .mobile-menu-btn{display:block}
+      .article-reader{padding:24px}
+      .article-reader h1{font-size:30px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Crypto<span>Novice</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#articles">Articles</a>
+        <a href="index.html#tools">Tools</a>
+      </nav>
+      <button class="mobile-menu-btn" type="button" aria-label="Toggle navigation" aria-controls="mobileNav" aria-expanded="false" onclick="const nav=document.getElementById('mobileNav');const isOpen=nav.style.display!=='flex';nav.style.display=isOpen?'flex':'none';this.setAttribute('aria-expanded',isOpen)">☰</button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="index.html#home" onclick="document.getElementById('mobileNav').style.display='none';document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded','false')">Home</a>
+      <a href="index.html#articles" onclick="document.getElementById('mobileNav').style.display='none';document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded','false')">Articles</a>
+      <a href="index.html#tools" onclick="document.getElementById('mobileNav').style.display='none';document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded','false')">Tools</a>
+    </nav>
+  </header>
+
+  <main class="container article-wrap">
+    <article class="article-reader">
+      <a href="index.html#articles" class="back-btn">← Back to articles</a>
+      <div class="meta-bar">
+        <span class="tag">Beginner</span>
+        <span>8 min read</span>
+        <span>November 2026</span>
+      </div>
+
+      <h1>Bitcoin Mining: Understanding the Technology That Secures Bitcoin</h1>
+
+      <p>Bitcoin mining is a multi-billion-dollar industry that many people believe consumes as much as 1% of the world's electricity. It secures Bitcoin, the world's largest cryptocurrency by market capitalisation, which has grown into a trillion-dollar asset.</p>
+
+      <p>A lot of people don't understand how Bitcoin mining works, making way for misconceptions and questionable claims, such as the suggestion that China still controls 55% of Bitcoin's hashrate despite its cryptocurrency mining ban.</p>
+
+      <p>To understand Bitcoin mining, you first need to understand what Bitcoin is and what it is all about.</p>
+
+      <h2>Understanding Bitcoin</h2>
+
+      <p>Bitcoin consists of two closely related components: the Bitcoin network, which operates as a decentralised payment system, and bitcoin (BTC), the digital asset native to that network.</p>
+
+      <p>You also need to understand that Bitcoin has a limited supply of 21 million coins. This means that no more than 21 million bitcoins can ever be created under Bitcoin's existing consensus rules.</p>
+
+      <p>The blockchain plays an important role in how Bitcoin operates. You can think of it as a shared digital ledger that records transactions. As an analogy, imagine a computer's hard drive where each block represents a file containing information. However, unlike a traditional hard drive, Bitcoin's blockchain is distributed across thousands of independent computers around the world.</p>
+
+      <p>These computers are called nodes. They maintain copies of the blockchain and independently verify transactions and blocks to ensure that they follow Bitcoin's rules.</p>
+
+      <p>Not all blockchains are decentralised, however. Different blockchain networks have different architectures, levels of decentralisation and methods of reaching consensus.</p>
+
+      <p>Bitcoin's relatively limited block capacity is an important part of its design. Its original block-size limit was approximately 1 MB, although the introduction of SegWit changed how block capacity is measured, allowing blocks to use up to 4 million weight units.</p>
+
+      <p>Keeping the amount of data that individual blocks can contain relatively limited helps make it easier for more people to operate nodes and independently verify the network.</p>
+
+      <p>Each block also contains a cryptographic reference to the previous block, creating a chain of connected blocks. This makes it extremely difficult to alter historical transactions without having to redo the proof of work for the affected block and subsequent blocks.</p>
+
+      <p>There are tens of thousands of publicly reachable Bitcoin nodes. Many of these run Bitcoin Core, an implementation of the Bitcoin protocol that allows computers to participate in the network and independently verify its rules.</p>
+
+      <p>In addition to transaction information, each block contains a reference to the previous block, creating a continuous chain of records. This is where the term blockchain comes from.</p>
+
+      <p>Although many cryptocurrency projects rely on similar underlying technology, their blockchains are often designed differently to accommodate different use cases.</p>
+
+      <h2>How Bitcoin Mining Works</h2>
+
+      <p>In practice, Bitcoin mining involves using specialised computer hardware to repeatedly calculate cryptographic hashes in an attempt to find a valid result.</p>
+
+      <p>This process is called Proof of Work.</p>
+
+      <p>The computers performing these calculations are known as miners. They compete to find a hash that meets a specific requirement set by the Bitcoin network.</p>
+
+      <p>The first miner to find a valid result gets the opportunity to broadcast its proposed block of transactions to the network. Other nodes then independently verify that the block follows Bitcoin's rules before accepting it.</p>
+
+      <p>There are billions upon billions of possible hash outputs, and miners must perform an enormous number of calculations to find one that meets the required target.</p>
+
+      <p>This is why specialised computers called ASICs (Application-Specific Integrated Circuits) are used. These machines are specifically designed to perform the calculations required for Bitcoin mining.</p>
+
+      <p>The more computing power a miner contributes to the network, the more chances they have of finding a valid hash before other miners.</p>
+
+      <p>This computing power is measured in hashrate, which represents the number of hashing calculations a mining machine or the entire network can perform within a given period.</p>
+
+      <p>A single mining operation can use hundreds or even thousands of ASIC machines.</p>
+
+      <p>Buying, operating and maintaining these machines is expensive. Miners must also pay for electricity and, depending on their operations, cooling systems and other infrastructure.</p>
+
+      <p>These costs are part of what makes Bitcoin mining competitive.</p>
+
+      <p>Mining serves an important purpose beyond creating new bitcoins. It helps secure the network, makes it costly to rewrite transaction history and establishes an economic mechanism for selecting which valid transactions are included in new blocks.</p>
+
+      <p>However, mining does not replace transaction verification. Bitcoin nodes independently check whether transactions and blocks are valid.</p>
+
+      <h2>How Are New Bitcoins Created?</h2>
+
+      <p>This brings us to an important question: How are new bitcoins created, and why would anyone spend so much money on specialised computers and electricity to process Bitcoin transactions?</p>
+
+      <p>The answer lies in the mining rewards.</p>
+
+      <p>When a miner successfully mines a new block, they can claim two forms of compensation:</p>
+
+      <ul>
+        <li>Block subsidy: Newly created bitcoins issued according to Bitcoin's monetary rules.</li>
+        <li>Transaction fees: Fees attached to transactions included in the block and paid by users.</li>
+      </ul>
+
+      <p>Together, these form the block reward.</p>
+
+      <p>Bitcoin has gained enormous value over the years, creating a financial incentive for miners to invest in ASIC machines, electricity and the infrastructure required to compete for mining rewards.</p>
+
+      <p>However, the number of new bitcoins issued with each block does not remain the same forever.</p>
+
+      <p>Bitcoin has a mechanism called halving, which reduces the block subsidy by 50% approximately every four years, or every 210,000 blocks.</p>
+
+      <p>Following the April 2024 halving, the block subsidy dropped from 6.25 BTC to 3.125 BTC per block.</p>
+
+      <p>This gradual reduction in new bitcoin issuance is one of the mechanisms that helps Bitcoin maintain its predetermined supply limit of 21 million coins.</p>
+
+      <h2>Why Does Bitcoin Produce a New Block Every 10 Minutes?</h2>
+
+      <p>Another important feature of Bitcoin is its target block time of approximately 10 minutes.</p>
+
+      <p>This does not mean that exactly one Bitcoin is mined every ten minutes. Rather, the network aims to produce one new block approximately every ten minutes, with the current block subsidy being 3.125 BTC.</p>
+
+      <p>The target exists to regulate the rate at which new blocks are added to the blockchain and new bitcoins are issued.</p>
+
+      <p>But how does Bitcoin maintain this timeframe when the number of miners and the computing power dedicated to mining constantly change?</p>
+
+      <p>The answer is something called the difficulty adjustment.</p>
+
+      <h2>Understanding Bitcoin's Difficulty Adjustment</h2>
+
+      <p>Bitcoin's difficulty adjustment is a mechanism that automatically changes how difficult it is for miners to find a valid hash.</p>
+
+      <p>The network adjusts mining difficulty every 2,016 blocks, which is approximately every two weeks.</p>
+
+      <p>If miners collectively produce blocks faster than the target of ten minutes per block, the difficulty increases. This makes finding a valid hash more difficult.</p>
+
+      <p>On the other hand, if blocks are being produced more slowly than the target, the difficulty decreases, making it easier for miners to find valid hashes.</p>
+
+      <p>This mechanism helps Bitcoin maintain an average block production time of approximately ten minutes, regardless of changes in the amount of computing power dedicated to mining.</p>
+
+      <p>It is important to understand that miners do not decide when difficulty increases or decreases. The adjustment is calculated automatically by the Bitcoin network according to its predetermined rules.</p>
+
+      <p>Ultimately, this is how Bitcoin manages its block production rate while allowing miners from different parts of the world to compete for the opportunity to add new blocks to the blockchain.</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>CryptoNovice</h4>
+          <p>Educating, informing, and equipping crypto beginners with the best tools and platforms. No hype, just education.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="index.html#articles">Articles</a>
+          <a href="index.html#tools">Tools &amp; Platforms</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="on-chain-analysis.html">What Is On-Chain Analysis?</a>
+          <a href="coins-vs-tokens.html">Coins vs. Tokens</a>
+          <a href="fear-and-greed-index.html">Fear and Greed Index</a>
+          <a href="dont-sleep-on-altcoins.html">Don't Sleep on Altcoins</a>
+          <a href="why-invest-in-bitcoin.html">Why Invest in Bitcoin</a>
+          <a href="bitcoin-pizza-day.html">So Let's Talk About Bitcoin Pizza Day 🍕</a>
+          <a href="research-tools.html">Crypto Analysis and Data Tools for Better Research</a>
+          <a href="privacy-coins.html">Let's Talk About Privacy Coins</a>
+          <a href="airdrops.html">Airdrops</a>
+          <a href="bitcoin-atms.html">Bitcoin ATMs</a>
+          <a href="bitcoin-mining.html">Bitcoin Mining: Understanding the Technology That Secures Bitcoin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 CryptoNovice. All rights reserved. Not financial advice.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
