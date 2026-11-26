@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn how trading indicators work, including candlestick patterns, support and resistance, MACD, Fibonacci retracement, RSI, moving averages and trading volume.">
+  <meta name="keywords" content="trading indicators, technical analysis, three candle rule, support and resistance, MACD, Fibonacci retracement, RSI, moving averages, trading volume">
+  <title>Trading Indicators: A Beginner's Guide | CryptoNovice</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%82%BF%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:#0A0C12;color:#E8EDF5;line-height:1.7}
+    a{color:#00D8FF;text-decoration:none}
+    a:hover{text-decoration:underline}
+    body::before{content:'';position:fixed;inset:0;z-index:-2;background:url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;filter:brightness(.45)}
+    body::after{content:'';position:fixed;inset:0;background:rgba(10,12,18,.9);z-index:-1}
+    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:100;background:rgba(10,12,18,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,216,255,.2)}
+    .nav-container{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;max-width:1400px;margin:0 auto}
+    .logo{font-size:28px;font-weight:800;background:linear-gradient(135deg,#00D8FF,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px}
+    .logo span{font-weight:400;color:#E8EDF5;background:none;-webkit-background-clip:unset}
+    .nav-links{display:flex;gap:28px;align-items:center}
+    .nav-links a{color:#A0A8C0;font-weight:500;font-size:14px}
+    .mobile-menu-btn{display:none;font-size:24px;color:#E8EDF5;background:none;border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:6px 10px}
+    .mobile-nav{display:none;position:absolute;top:65px;left:0;width:100%;background:rgba(10,12,18,.98);padding:16px 24px;flex-direction:column;gap:12px}
+    .mobile-nav a{color:#A0A8C0;padding:8px 0}
+    .article-wrap{padding:48px 0 72px}
+    .article-reader{max-width:900px;margin:0 auto;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:24px;padding:48px}
+    .article-reader h1{font-size:clamp(28px,4vw,40px);line-height:1.2;margin-bottom:18px;color:#fff}
+    .article-reader h2{font-size:24px;font-weight:600;margin:34px 0 14px;color:#00D8FF}
+    .article-reader p,.article-reader li{color:#C8CED8;font-size:15px;line-height:1.8;margin-bottom:16px}
+    .article-reader ul,.article-reader ol{margin:16px 0;padding-left:24px}
+    .meta-bar{display:flex;gap:14px;align-items:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.07);flex-wrap:wrap}
+    .meta-bar span{font-size:13px;color:#A0A8C0}
+    .meta-bar .tag{background:rgba(0,216,255,.1);color:#00D8FF;padding:4px 12px;border-radius:20px;font-weight:600}
+    .back-btn{display:inline-block;color:#A0A8C0;font-size:14px;margin-bottom:22px}
+    .disclaimer{border-left:3px solid #8B5CF6;background:rgba(139,92,246,.08);padding:16px 18px;border-radius:10px;margin-top:28px}
+    footer{background:rgba(0,0,0,.3);padding:36px 0 24px;margin-top:40px;border-top:1px solid rgba(255,255,255,.05)}
+    .footer-bottom{text-align:center;padding-top:18px;border-top:1px solid rgba(255,255,255,.05);font-size:12px;color:#5A6275}
+    @media(max-width:768px){.nav-links{display:none}.mobile-menu-btn{display:block}.article-reader{padding:24px}.article-reader h2{font-size:21px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav-container">
+    <a href="index.html" class="logo">Crypto<span>Novice</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#articles">Articles</a>
+      <a href="index.html#tools">Tools</a>
+      <a href="about.html">About</a>
+    </nav>
+    <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" onclick="document.getElementById('mobileNav').style.display=document.getElementById('mobileNav').style.display==='flex'?'none':'flex'">☰</button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="index.html#home">Home</a>
+    <a href="index.html#articles">Articles</a>
+    <a href="index.html#tools">Tools</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+<main class="container article-wrap">
+  <article class="article-reader">
+    <a href="index.html#articles" class="back-btn">← Back to articles</a>
+    <div class="meta-bar"><span class="tag">Beginner</span><span>Technical Analysis</span><span>November 2026</span></div>
+    <h1>Trading Indicators: A Beginner's Guide</h1>
+    <p>Trading indicators are among the most commonly used tools in technical analysis. They help traders interpret market movements, identify potential trading opportunities and make more informed decisions when analysing financial instruments.</p>
+    <p>There are several indicators available to traders, each serving a different purpose. Some help identify the general direction of a market trend, while others measure momentum, trading activity and potential areas where the price may experience a reversal.</p>
+    <p>Understanding how these indicators work is important, particularly for individuals who are relatively new to trading. Below are some commonly used trading indicators and how traders incorporate them into their market analysis.</p>
+
+    <h2>1. Three-Candle Rule</h2>
+    <p>Candlesticks are commonly used as a form of price chart, but they can also be analysed as part of a trading strategy. This involves looking at three consecutive candlesticks to identify potential changes in market direction or confirmation of an existing trend.</p>
+    <p>Each candlestick represents the opening price, closing price, highest price and lowest price of an instrument within a particular timeframe.</p>
+    <p>By looking at how three consecutive candles form, traders can assess whether buyers or sellers are gaining control of the market. For example, a sequence of bullish candles may suggest increasing buying pressure, while a sequence of bearish candles may indicate increasing selling pressure.</p>
+    <p>Traders also look at the size of the candle bodies and their wicks to establish the strength of a particular price movement.</p>
+    <p>A three-candle formation can provide useful information when analysing the market, particularly when used alongside other technical indicators. However, there is no single universally defined strategy called the three-candle rule. Different traders use different three-candlestick patterns, and the meaning depends on the specific formation and market context. Traders should avoid relying on the appearance of three candles alone when making trading decisions.</p>
+
+    <h2>2. Support and Resistance</h2>
+    <p>Support and resistance areas are influenced by supply and demand within the market. These are important price levels that traders use to identify areas where an instrument may experience difficulty moving in a particular direction.</p>
+    <p>When there is strong demand for an instrument, buyers may push its price upwards, resulting in an upward trend. However, as the price continues to increase, it may eventually reach an area where selling pressure becomes strong enough to slow down or prevent further upward movement. This area is commonly referred to as a resistance level.</p>
+    <p>The opposite applies when it comes to support levels.</p>
+    <p>When there is considerable selling pressure on an instrument, its price may continue moving downwards until it reaches an area where buying interest becomes strong enough to slow down or prevent further declines. This area is commonly referred to as a support level.</p>
+    <p>It is important to understand that support and resistance are not always exact price points. They are often better understood as price areas where the market may experience a change in buying or selling pressure.</p>
+    <p>Traders use these areas to identify potential entry and exit points, as well as possible breakout opportunities.</p>
+
+    <h2>3. MACD (Moving Average Convergence Divergence)</h2>
+    <p>The Moving Average Convergence Divergence, commonly known as MACD, is a technical indicator that traders use to analyse market trends and momentum.</p>
+    <p>The indicator consists of two main lines: the MACD line and the signal line. Traders observe how these lines interact to identify potential changes in market momentum and direction.</p>
+    <p>For example, if an instrument has been experiencing an upward trend for quite some time but begins losing momentum, the MACD may provide an indication that the existing trend is weakening.</p>
+    <p>When the MACD line crosses below the signal line, it may indicate that downward momentum is developing. This can alert traders to a possible change in market direction.</p>
+    <p>The same applies when an instrument has been experiencing a prolonged downward trend. If the MACD line crosses above the signal line, it may indicate that upward momentum is beginning to develop.</p>
+    <p>However, these crossovers do not guarantee that an instrument's price will reverse. They are potential trading signals that should be considered alongside other forms of technical analysis.</p>
+    <p>MACD is particularly useful when analysing trends and momentum, although traders should remember that it is a lagging indicator because it is calculated using historical price data.</p>
+
+    <h2>4. Fibonacci Retracement</h2>
+    <p>Fibonacci retracement is a technical analysis tool that traders use to identify potential support and resistance levels in the market.</p>
+    <p>It helps traders establish how far the price of an instrument may pull back before potentially continuing in its original direction.</p>
+    <p>The tool is based on mathematical ratios associated with the Fibonacci sequence. Commonly monitored retracement levels include 23.6%, 38.2%, 50%, 61.8% and 78.6%. The 50% level is widely used in market analysis, although it is not technically a Fibonacci ratio.</p>
+    <p>When looking at an instrument that is experiencing an upward trend, traders use Fibonacci retracement to identify potential areas where the price may temporarily decline before continuing its upward movement. These levels may provide possible opportunities for traders looking to enter a trade.</p>
+    <p>The opposite applies when an instrument is experiencing a downward trend. Traders use the Fibonacci retracement tool to identify potential areas where the price may temporarily move upwards before continuing its downward movement.</p>
+    <p>The 38.2%, 50% and 61.8% levels are particularly popular among traders because they are commonly monitored as potential price reaction areas.</p>
+    <p>It is important to understand that Fibonacci retracement levels do not guarantee that the price will reverse or continue in a particular direction. They should rather be used alongside other technical analysis tools, such as support and resistance, candlestick patterns and moving averages, to strengthen your overall market analysis.</p>
+
+    <h2>5. Relative Strength Index (RSI)</h2>
+    <p>The Relative Strength Index, commonly known as RSI, is a technical indicator that traders use to measure the strength and momentum of an instrument's price movements.</p>
+    <p>It is particularly useful when looking into whether an instrument is potentially overbought or oversold.</p>
+    <p>The RSI indicator moves on a scale of 0 to 100. Generally, when the RSI moves above 70, an instrument may be considered overbought, while readings below 30 may indicate that an instrument is oversold.</p>
+    <p>For example, if an instrument has been experiencing an upward trend for quite some time and its RSI moves above 70, this could indicate that the instrument has experienced strong upward momentum and may be due for a correction.</p>
+    <p>The opposite may apply when the RSI drops below 30, as this could indicate that the instrument has experienced considerable downward pressure.</p>
+    <p>However, an overbought instrument does not necessarily mean that its price is about to drop, just as an oversold instrument does not necessarily mean that its price is about to increase.</p>
+    <p>Traders should use RSI in conjunction with other indicators before making trading decisions, particularly because the RSI can remain in overbought or oversold territory for extended periods during strong market trends.</p>
+
+    <h2>6. Moving Averages</h2>
+    <p>Moving averages are among the most commonly used technical indicators in trading. They help traders identify the general direction of an instrument's price movement by smoothing out price fluctuations over a particular period.</p>
+    <p>There are different types of moving averages, but two of the most commonly used are the Simple Moving Average (SMA) and the Exponential Moving Average (EMA).</p>
+    <p>The Simple Moving Average calculates the average closing price of an instrument over a specified number of periods, whereas the Exponential Moving Average gives more weight to recent price movements, making it more responsive to changes in price.</p>
+    <p>For example, when the price of an instrument is trading above its moving average, it may indicate that the instrument is experiencing an upward trend. The opposite may apply when the price is trading below its moving average.</p>
+    <p>Traders also use moving average crossovers to identify potential changes in market direction. This happens when a shorter-period moving average crosses above or below a longer-period moving average.</p>
+    <p>Although moving averages can help traders identify trends, they are lagging indicators, meaning they are based on previous price movements rather than predicting what the market will do next.</p>
+
+    <h2>7. Trading Volume</h2>
+    <p>Trading volume refers to the amount of an instrument that has been traded within a particular period. It is another important aspect of technical analysis because it helps traders understand the level of activity behind a particular price movement.</p>
+    <p>For example, if an instrument breaks through a resistance level with a significant increase in trading volume, this may suggest that there is considerable buying interest behind the movement. This could provide additional confirmation of a potential breakout.</p>
+    <p>The same applies when an instrument breaks below a support level with increased trading volume, as this may indicate stronger selling pressure.</p>
+    <p>On the other hand, when an instrument experiences a significant price movement with relatively low trading volume, some traders may question the strength of that movement.</p>
+    <p>It is important to note that trading volume is measured differently across financial markets. For example, in the decentralised Forex market, traders may encounter tick volume, which measures price changes or activity rather than the total number of units traded across the entire market.</p>
+
+    <h2>8. Using Trading Indicators Together</h2>
+    <p>Although each of these indicators serves a different purpose, traders often combine them to strengthen their technical analysis and make more informed trading decisions.</p>
+    <p>For example, a trader may use moving averages to establish the general direction of an instrument's trend, support and resistance to identify important price levels, and the RSI or MACD to assess market momentum.</p>
+    <p>They may then use candlestick patterns, such as three-candle formations, to look for additional confirmation before entering a trade. Fibonacci retracement can also help identify potential areas where the price may experience a temporary pullback before continuing in its original direction.</p>
+    <p>However, no indicator can guarantee a profitable trade or accurately predict every market movement.</p>
+    <p>Indicators should be used as tools to support your analysis rather than as standalone signals telling you when to buy or sell.</p>
+    <p>Ultimately, the objective is not to use as many indicators as possible, but rather to understand how each indicator works and how it can complement the others when analysing the market.</p>
+    <p>The more familiar you become with these tools, the better equipped you will be to interpret market movements, identify potential trading opportunities and make decisions based on informed analysis rather than speculation.</p>
+
+    <div class="disclaimer">
+      <p><strong>Disclaimer:</strong> The information provided in this article is strictly for educational and informational purposes. It should not be interpreted as financial or investment advice. Trading financial instruments, including cryptocurrencies, involves significant risk, and traders should conduct their own research and understand the risks involved before making financial decisions.</p>
+    </div>
+  </article>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2026 CryptoNovice. All rights reserved. Not financial advice.</p>
+      <p>Questions, feedback, or suggestions? Email us at <a href="mailto:cryptonovicealyk@gmail.com">cryptonovicealyk@gmail.com</a>.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
